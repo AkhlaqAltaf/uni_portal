@@ -4,6 +4,7 @@ import Calendar from './widgets/Calendar';
 import Courses from './widgets/Courses';
 import Grades from './widgets/Grades';
 import Schedule from './widgets/Schedule';
+import Timetable from './widgets/Timetable';
 
 const Dashboard = () => {
     return (
@@ -21,6 +22,9 @@ const Dashboard = () => {
                 </div>
                 <div className="bg-white shadow-md rounded-lg p-4">
                     <Schedule />
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-4">
+                    <Timetable />
                 </div>
             </div>
         </div>
