@@ -44,13 +44,13 @@ const Sidebar=() => {
                     <Link to="/dashboard" className="hover:text-gray-400">Sibling Info</Link>
                 </li>
                 <li className="mb-2">
-                    <Link to="/dashboard" className="hover:text-gray-400">Result</Link>
+                    <Link to="/result" className="hover:text-gray-400">Result</Link>
                 </li>
                 <li className="mb-2">
                     <Link to="/dashboard" className="hover:text-gray-400">OBE</Link>
                 </li>
                 <li className="mb-2">
-                    <Link to="/dashboard" className="hover:text-gray-400">Timetable</Link>
+                    <Link to="/timetable" className="hover:text-gray-400">Timetable</Link>
                 </li>
                 <li className="mb-2">
                     <Link to="/dashboard" className="hover:text-gray-400">Fee</Link>
