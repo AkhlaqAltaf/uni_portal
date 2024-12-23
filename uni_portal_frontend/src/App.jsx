@@ -13,6 +13,7 @@ import QuizAssignmentMarks from "./components/widgets/QuizAssignmentMarks";
 import McqsTestTable from "./components/widgets/McqsTestTable";
 import AssignmentSummary from "./components/widgets/AssignmentSummary";
 import PendingAssignments from "./components/widgets/PendingAssignments";
+import AddSibling from "./components/widgets/AddSiblingInfo";
 const App = () => {
   return (
     <MainLayout>
@@ -36,6 +37,11 @@ const App = () => {
         <Route
           path="/course-portal/pending-assignments"
           element={<PendingAssignments />}
+        />
+
+        <Route
+          path="/sibling-info/add-sibling-info"
+          element={<AddSibling />}
         />
       </Routes>
     </MainLayout>

@@ -18,16 +18,22 @@ import {
 
 const Sidebar = () => {
   const [isCoursesDropdownOpen, setCoursesDropdownOpen] = useState(false);
-  const [isCoursePortalDropdownOpen, setCoursePortalDropdownOpen] =
-    useState(false);
+  const [isCoursePortalDropdownOpen, setCoursePortalDropdownOpen] = useState(false);
+  const [isSiblingDropdownOpen, setSiblingDropdownOpen] = useState(false);
 
   const toggleCoursesDropdown = () => {
     setCoursesDropdownOpen(!isCoursesDropdownOpen);
   };
 
+
   const toggleCoursePortalDropdown = () => {
     setCoursePortalDropdownOpen(!isCoursePortalDropdownOpen);
   };
+
+  const toggleSiblingDropdown = () => {
+    setSiblingDropdownOpen(!isSiblingDropdownOpen);
+  };
+
   return (
     <div className="bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white w-64 h-full p-4 shadow-lg">
       <h2 className="text-xl font-extrabold mb-6 text-center text-gray-200 border-b-2 border-gray-600 pb-2">
@@ -201,13 +207,30 @@ const Sidebar = () => {
           </Link>
         </li>
         <li>
-          <Link
-            to="/dashboard"
-            className="flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300"
-          >
-            <FaGraduationCap className="mr-3" /> Sibling Info
-          </Link>
+        <button
+            onClick={toggleSiblingDropdown}
+            className="w-full flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300 text-left"
+        >
+            <FaGraduationCap className="mr-3" />
+            Sibling Info
+            <span className="ml-auto">
+            {isSiblingDropdownOpen ? "▲" : "▼"}
+            </span>
+        </button>
+        {isSiblingDropdownOpen && (
+            <ul className="ml-6 mt-2 space-y-1">
+            <li>
+                <Link
+                to="/sibling-info/add-sibling-info"
+                className="block px-2 py-1 hover:text-gray-400"
+                >
+                Add Sibling Info
+                </Link>
+            </li>
+            </ul>
+        )}
         </li>
+
         <li>
           <Link
             to="/result"
