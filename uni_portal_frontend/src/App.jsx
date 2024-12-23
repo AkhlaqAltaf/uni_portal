@@ -10,6 +10,9 @@ import MainLayout from "./layouts/MainLayout";
 import CourseSummary from "./components/widgets/CourseSummary";
 import ClassProceedings from "./components/widgets/ClassProceedings";
 import QuizAssignmentMarks from "./components/widgets/QuizAssignmentMarks";
+import McqsTestTable from "./components/widgets/McqsTestTable";
+import AssignmentSummary from "./components/widgets/AssignmentSummary";
+import PendingAssignments from "./components/widgets/PendingAssignments";
 const App = () => {
   return (
     <MainLayout>
@@ -25,6 +28,15 @@ const App = () => {
           element={<ClassProceedings />}
         />
         <Route path="/courses/quiz-marks" element={<QuizAssignmentMarks />} />
+        <Route path="/course-portal/mcq-test" element={<McqsTestTable />} />
+        <Route
+          path="/course-portal/assignments-summary"
+          element={<AssignmentSummary />}
+        />
+        <Route
+          path="/course-portal/pending-assignments"
+          element={<PendingAssignments />}
+        />
       </Routes>
     </MainLayout>
   );

@@ -18,11 +18,16 @@ import {
 
 const Sidebar = () => {
   const [isCoursesDropdownOpen, setCoursesDropdownOpen] = useState(false);
+  const [isCoursePortalDropdownOpen, setCoursePortalDropdownOpen] =
+    useState(false);
 
   const toggleCoursesDropdown = () => {
     setCoursesDropdownOpen(!isCoursesDropdownOpen);
   };
 
+  const toggleCoursePortalDropdown = () => {
+    setCoursePortalDropdownOpen(!isCoursePortalDropdownOpen);
+  };
   return (
     <div className="bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white w-64 h-full p-4 shadow-lg">
       <h2 className="text-xl font-extrabold mb-6 text-center text-gray-200 border-b-2 border-gray-600 pb-2">
@@ -108,12 +113,60 @@ const Sidebar = () => {
           )}
         </li>
         <li>
-          <Link
-            to="/dashboard"
-            className="flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300"
+          <button
+            onClick={toggleCoursePortalDropdown}
+            className="w-full flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300 text-left"
           >
-            <FaClipboardCheck className="mr-3" /> Course Portal
-          </Link>
+            <FaClipboardCheck className="mr-3" />
+            Course Portal
+            <span className="ml-auto">
+              {isCoursePortalDropdownOpen ? "▲" : "▼"}
+            </span>
+          </button>
+          {isCoursePortalDropdownOpen && (
+            <ul className="ml-6 mt-2 space-y-1">
+              <li>
+                <Link
+                  to="/course-portal/mcq-test"
+                  className="block px-2 py-1 hover:text-gray-400"
+                >
+                  MCQ Test
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/course-portal/subjective-test"
+                  className="block px-2 py-1 hover:text-gray-400"
+                >
+                  Subjective Test
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/course-portal/course-content"
+                  className="block px-2 py-1 hover:text-gray-400"
+                >
+                  Course Content
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/course-portal/assignments-summary"
+                  className="block px-2 py-1 hover:text-gray-400"
+                >
+                  Assignments Summary
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/course-portal/pending-assignments"
+                  className="block px-2 py-1 hover:text-gray-400"
+                >
+                  Pending Assignments
+                </Link>
+              </li>
+            </ul>
+          )}
         </li>
         <li>
           <Link
