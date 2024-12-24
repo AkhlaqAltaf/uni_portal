@@ -15,6 +15,7 @@ import AssignmentSummary from "./components/widgets/AssignmentSummary";
 import PendingAssignments from "./components/widgets/PendingAssignments";
 import AddSibling from "./components/widgets/AddSiblingInfo";
 import LibraryComponent from "./components/widgets/LibraryComponent";
+import ScholarshipStatus from './components/widgets/ScholarshipStatus';
 const App = () => {
   return (
     <MainLayout>
@@ -42,6 +43,7 @@ const App = () => {
         />
 
         <Route path="/sibling-info/add-sibling-info" element={<AddSibling />} />
+        <Route path="/scholarship-status" element={<ScholarshipStatus/>} />
       </Routes>
     </MainLayout>
   );

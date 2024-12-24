@@ -14,6 +14,8 @@ import {
   FaUniversity,
   FaClipboardCheck,
   FaGraduationCap,
+  FaChevronDown,
+  FaChevronUp,
 } from "react-icons/fa";
 
 const Sidebar = () => {
@@ -21,6 +23,7 @@ const Sidebar = () => {
   const [isCoursePortalDropdownOpen, setCoursePortalDropdownOpen] =
     useState(false);
   const [isSiblingDropdownOpen, setSiblingDropdownOpen] = useState(false);
+  const [isScholarshipDropdownOpen, setScholarshipDropdownOpen] = useState(false);
 
   const toggleCoursesDropdown = () => {
     setCoursesDropdownOpen(!isCoursesDropdownOpen);
@@ -32,6 +35,10 @@ const Sidebar = () => {
 
   const toggleSiblingDropdown = () => {
     setSiblingDropdownOpen(!isSiblingDropdownOpen);
+  };
+
+  const toggleScholarshipDropdown = () => {
+    setScholarshipDropdownOpen(!isScholarshipDropdownOpen);
   };
 
   return (
@@ -64,22 +71,6 @@ const Sidebar = () => {
             <FaMicrosoft className="mr-3" /> Microsoft Office 365 / Teams
           </Link>
         </li>
-        {/* <li>
-          <Link
-            to="/dashboard"
-            className="flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300"
-          >
-            <FaClipboardList className="mr-3" /> Data Verification
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/dashboard"
-            className="flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300"
-          >
-            <FaCertificate className="mr-3" /> Corona Certificates
-          </Link>
-        </li> */}
         <li>
           <button
             onClick={toggleCoursesDropdown}
@@ -174,14 +165,6 @@ const Sidebar = () => {
             </ul>
           )}
         </li>
-        {/* <li>
-          <Link
-            to="/dashboard"
-            className="flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300"
-          >
-            <FaClipboardList className="mr-3" /> Exam Entry Coupon
-          </Link>
-        </li> */}
         <li>
           <Link
             to="/dashboard"
@@ -228,7 +211,6 @@ const Sidebar = () => {
             </ul>
           )}
         </li>
-
         <li>
           <Link
             to="/result"
@@ -262,13 +244,27 @@ const Sidebar = () => {
           </Link>
         </li>
         <li>
-          <Link
-            to="/dashboard"
-            className="flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300"
-          >
-            <FaGraduationCap className="mr-3" /> Scholarship
-          </Link>
-        </li>
+  <button
+    onClick={toggleScholarshipDropdown}
+    className="w-full flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300 text-left"
+  >
+    <FaGraduationCap className="mr-3" />
+    Scholarship
+    <span className="ml-auto">{isScholarshipDropdownOpen ? "▲" : "▼"}</span>
+  </button>
+  {isScholarshipDropdownOpen && (
+    <ul className="ml-6 mt-2 space-y-1">
+      <li>
+        <Link
+          to="/scholarship-status"
+          className="block px-2 py-1 hover:text-gray-400"
+        >
+          View Scholarship Status
+        </Link>
+      </li>
+    </ul>
+  )}
+</li>
         <li>
           <Link
             to="/dashboard"
