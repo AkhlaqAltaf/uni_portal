@@ -21,6 +21,7 @@ const Sidebar = () => {
   const [isCoursePortalDropdownOpen, setCoursePortalDropdownOpen] =useState(false);
   const [isSiblingDropdownOpen, setSiblingDropdownOpen] = useState(false);
   const [isFeeDropdownOpen, setFeeDropdownOpen] = useState(false);
+  const [isSettingsDropdownOpen, setSettingsDropdownOpen] = useState(false);
 
   const toggleCoursesDropdown = () => {
     setCoursesDropdownOpen(!isCoursesDropdownOpen);
@@ -38,6 +39,10 @@ const Sidebar = () => {
     setFeeDropdownOpen(!isFeeDropdownOpen);
   };
   
+  const toggleSettingsDropdown = () => {
+    setSettingsDropdownOpen(!isSettingsDropdownOpen);
+  };
+
   return (
     <div className="bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white w-64 h-full p-4 shadow-lg">
       <h2 className="text-xl font-extrabold mb-6 text-center text-gray-200 border-b-2 border-gray-600 pb-2">
@@ -52,14 +57,14 @@ const Sidebar = () => {
             <FaHome className="mr-3" /> Home
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link
             to="/profile"
             className="flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300"
           >
             <FaUser className="mr-3" /> Profile
           </Link>
-        </li>
+        </li> */}
         {/* <li>
           <Link
             to="/dashboard"
@@ -328,12 +333,42 @@ const Sidebar = () => {
           </Link>
         </li>
         <li>
-          <Link
-            to="/settings"
-            className="flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300"
+          <button
+            onClick={toggleSettingsDropdown}
+            className="w-full flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300 text-left"
           >
-            <FaCogs className="mr-3" /> Settings
-          </Link>
+            <FaCogs className="mr-3" />
+            Settings
+            <span className="ml-auto">{isSettingsDropdownOpen ? "▲" : "▼"}</span>
+          </button>
+          {isSettingsDropdownOpen && (
+            <ul className="ml-6 mt-2 space-y-1">
+              <li>
+                <Link
+                  to="/settings/profile"
+                  className="block px-2 py-1 hover:text-gray-400"
+                >
+                  Profile
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/settings/change-password"
+                  className="block px-2 py-1 hover:text-gray-400"
+                >
+                  Change Password
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/settings/login-history"
+                  className="block px-2 py-1 hover:text-gray-400"
+                >
+                  Login History
+                </Link>
+              </li>
+            </ul>
+          )}
         </li>
       </ul>
     </div>

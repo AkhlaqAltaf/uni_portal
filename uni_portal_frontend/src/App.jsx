@@ -19,6 +19,10 @@ import Challan from "./components/widgets/Challan";
 import FeeHistory from "./components/widgets/FeeHistory";
 import FeeInstallment from "./components/widgets/FeeInstallment";
 import FeeInstallmentStatus from "./components/widgets/FeeInstallmentStatus";
+import ProfileSettings from "./components/widgets/ProfileSettings";
+import ChangePassword from "./components/widgets/ChangePassword";
+import LoginHistory from "./components/widgets/LoginHistory";
+
 const App = () => {
   return (
     <MainLayout>
@@ -51,6 +55,11 @@ const App = () => {
         <Route path="/fee/history" element={<FeeHistory />} />
         <Route path="/fee/installment" element={<FeeInstallment />} />
         <Route path="/fee/installment-status" element={<FeeInstallmentStatus />} />
+
+        
+        <Route path="/settings/profile" element={<ProfileSettings />} />
+        <Route path="/settings/change-password" element={<ChangePassword />} />
+        <Route path="/settings/login-history" element={<LoginHistory />} />
       </Routes>
     </MainLayout>
   );
