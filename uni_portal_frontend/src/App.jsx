@@ -14,6 +14,7 @@ import McqsTestTable from "./components/widgets/McqsTestTable";
 import AssignmentSummary from "./components/widgets/AssignmentSummary";
 import PendingAssignments from "./components/widgets/PendingAssignments";
 import AddSibling from "./components/widgets/AddSiblingInfo";
+import LibraryComponent from "./components/widgets/LibraryComponent";
 const App = () => {
   return (
     <MainLayout>
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/settings" element={<Settings />} />
         <Route path="/timetable" element={<Timetable />} />
         <Route path="/result" element={<Result />} />
+        <Route path="library" element={<LibraryComponent />} />
         <Route path="/courses/CourseSummary" element={<CourseSummary />} />
         <Route
           path="/courses/class-proceedings"
@@ -39,10 +41,7 @@ const App = () => {
           element={<PendingAssignments />}
         />
 
-        <Route
-          path="/sibling-info/add-sibling-info"
-          element={<AddSibling />}
-        />
+        <Route path="/sibling-info/add-sibling-info" element={<AddSibling />} />
       </Routes>
     </MainLayout>
   );

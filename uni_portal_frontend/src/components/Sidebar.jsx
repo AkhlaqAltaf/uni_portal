@@ -18,13 +18,13 @@ import {
 
 const Sidebar = () => {
   const [isCoursesDropdownOpen, setCoursesDropdownOpen] = useState(false);
-  const [isCoursePortalDropdownOpen, setCoursePortalDropdownOpen] = useState(false);
+  const [isCoursePortalDropdownOpen, setCoursePortalDropdownOpen] =
+    useState(false);
   const [isSiblingDropdownOpen, setSiblingDropdownOpen] = useState(false);
 
   const toggleCoursesDropdown = () => {
     setCoursesDropdownOpen(!isCoursesDropdownOpen);
   };
-
 
   const toggleCoursePortalDropdown = () => {
     setCoursePortalDropdownOpen(!isCoursePortalDropdownOpen);
@@ -64,7 +64,7 @@ const Sidebar = () => {
             <FaMicrosoft className="mr-3" /> Microsoft Office 365 / Teams
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link
             to="/dashboard"
             className="flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300"
@@ -79,7 +79,7 @@ const Sidebar = () => {
           >
             <FaCertificate className="mr-3" /> Corona Certificates
           </Link>
-        </li>
+        </li> */}
         <li>
           <button
             onClick={toggleCoursesDropdown}
@@ -174,14 +174,14 @@ const Sidebar = () => {
             </ul>
           )}
         </li>
-        <li>
+        {/* <li>
           <Link
             to="/dashboard"
             className="flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300"
           >
             <FaClipboardList className="mr-3" /> Exam Entry Coupon
           </Link>
-        </li>
+        </li> */}
         <li>
           <Link
             to="/dashboard"
@@ -192,7 +192,7 @@ const Sidebar = () => {
         </li>
         <li>
           <Link
-            to="/dashboard"
+            to="/library"
             className="flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300"
           >
             <FaBook className="mr-3" /> Library
@@ -207,28 +207,26 @@ const Sidebar = () => {
           </Link>
         </li>
         <li>
-        <button
+          <button
             onClick={toggleSiblingDropdown}
             className="w-full flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300 text-left"
-        >
+          >
             <FaGraduationCap className="mr-3" />
             Sibling Info
-            <span className="ml-auto">
-            {isSiblingDropdownOpen ? "▲" : "▼"}
-            </span>
-        </button>
-        {isSiblingDropdownOpen && (
+            <span className="ml-auto">{isSiblingDropdownOpen ? "▲" : "▼"}</span>
+          </button>
+          {isSiblingDropdownOpen && (
             <ul className="ml-6 mt-2 space-y-1">
-            <li>
+              <li>
                 <Link
-                to="/sibling-info/add-sibling-info"
-                className="block px-2 py-1 hover:text-gray-400"
+                  to="/sibling-info/add-sibling-info"
+                  className="block px-2 py-1 hover:text-gray-400"
                 >
-                Add Sibling Info
+                  Add Sibling Info
                 </Link>
-            </li>
+              </li>
             </ul>
-        )}
+          )}
         </li>
 
         <li>
