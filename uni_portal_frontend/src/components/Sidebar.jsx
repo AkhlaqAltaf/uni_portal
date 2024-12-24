@@ -20,10 +20,14 @@ import {
 
 const Sidebar = () => {
   const [isCoursesDropdownOpen, setCoursesDropdownOpen] = useState(false);
-  const [isCoursePortalDropdownOpen, setCoursePortalDropdownOpen] =
-    useState(false);
+  const [isCoursePortalDropdownOpen, setCoursePortalDropdownOpen] =useState(false);
   const [isSiblingDropdownOpen, setSiblingDropdownOpen] = useState(false);
+<<<<<<< HEAD
   const [isScholarshipDropdownOpen, setScholarshipDropdownOpen] = useState(false);
+=======
+  const [isFeeDropdownOpen, setFeeDropdownOpen] = useState(false);
+  const [isSettingsDropdownOpen, setSettingsDropdownOpen] = useState(false);
+>>>>>>> bffca798226bc20113b1ac8440eb0b264c3c81bb
 
   const toggleCoursesDropdown = () => {
     setCoursesDropdownOpen(!isCoursesDropdownOpen);
@@ -37,8 +41,17 @@ const Sidebar = () => {
     setSiblingDropdownOpen(!isSiblingDropdownOpen);
   };
 
+<<<<<<< HEAD
   const toggleScholarshipDropdown = () => {
     setScholarshipDropdownOpen(!isScholarshipDropdownOpen);
+=======
+  const toggleFeeDropdown = () => {
+    setFeeDropdownOpen(!isFeeDropdownOpen);
+  };
+  
+  const toggleSettingsDropdown = () => {
+    setSettingsDropdownOpen(!isSettingsDropdownOpen);
+>>>>>>> bffca798226bc20113b1ac8440eb0b264c3c81bb
   };
 
   return (
@@ -55,12 +68,31 @@ const Sidebar = () => {
             <FaHome className="mr-3" /> Home
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link
             to="/profile"
             className="flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300"
           >
             <FaUser className="mr-3" /> Profile
+          </Link>
+        </li> */}
+        {/* <li>
+          <Link
+            to="/dashboard"
+            className="flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300"
+          >
+            <FaMicrosoft className="mr-3" /> Microsoft Office 365 / Teams
+          </Link>
+<<<<<<< HEAD
+        </li>
+=======
+        </li> */}
+        {/* <li>
+          <Link
+            to="/dashboard"
+            className="flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300"
+          >
+            <FaClipboardList className="mr-3" /> Data Verification
           </Link>
         </li>
         <li>
@@ -68,9 +100,10 @@ const Sidebar = () => {
             to="/dashboard"
             className="flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300"
           >
-            <FaMicrosoft className="mr-3" /> Microsoft Office 365 / Teams
+            <FaCertificate className="mr-3" /> Corona Certificates
           </Link>
-        </li>
+        </li> */}
+>>>>>>> bffca798226bc20113b1ac8440eb0b264c3c81bb
         <li>
           <button
             onClick={toggleCoursesDropdown}
@@ -236,13 +269,51 @@ const Sidebar = () => {
           </Link>
         </li>
         <li>
-          <Link
-            to="/dashboard"
-            className="flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300"
+          <button
+            onClick={toggleFeeDropdown}
+            className="w-full flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300 text-left"
           >
-            <FaWallet className="mr-3" /> Fee
-          </Link>
-        </li>
+            <FaWallet className="mr-3" />
+            Fee
+            <span className="ml-auto">{isFeeDropdownOpen ? "▲" : "▼"}</span>
+          </button>
+          {isFeeDropdownOpen && (
+            <ul className="ml-6 mt-2 space-y-1">
+              <li>
+                <Link
+                  to="/fee/challan"
+                  className="block px-2 py-1 hover:text-gray-400"
+                >
+                  Challan
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/fee/history"
+                  className="block px-2 py-1 hover:text-gray-400"
+                >
+                  History
+                  </Link>
+              </li>
+              <li>
+                <Link
+                  to="/fee/installment"
+                  className="block px-2 py-1 hover:text-gray-400"
+                >
+                  Fee Installment
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/fee/installment-status"
+                  className="block px-2 py-1 hover:text-gray-400"
+                >
+                  Fee Installment Status
+                </Link>
+              </li>
+            </ul>
+          )}
+      </li>
         <li>
   <button
     onClick={toggleScholarshipDropdown}
@@ -282,12 +353,42 @@ const Sidebar = () => {
           </Link>
         </li>
         <li>
-          <Link
-            to="/settings"
-            className="flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300"
+          <button
+            onClick={toggleSettingsDropdown}
+            className="w-full flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300 text-left"
           >
-            <FaCogs className="mr-3" /> Settings
-          </Link>
+            <FaCogs className="mr-3" />
+            Settings
+            <span className="ml-auto">{isSettingsDropdownOpen ? "▲" : "▼"}</span>
+          </button>
+          {isSettingsDropdownOpen && (
+            <ul className="ml-6 mt-2 space-y-1">
+              <li>
+                <Link
+                  to="/settings/profile"
+                  className="block px-2 py-1 hover:text-gray-400"
+                >
+                  Profile
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/settings/change-password"
+                  className="block px-2 py-1 hover:text-gray-400"
+                >
+                  Change Password
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/settings/login-history"
+                  className="block px-2 py-1 hover:text-gray-400"
+                >
+                  Login History
+                </Link>
+              </li>
+            </ul>
+          )}
         </li>
       </ul>
     </div>

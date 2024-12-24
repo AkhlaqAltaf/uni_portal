@@ -1,5 +1,5 @@
 import React from 'react';
-import Profile from './widgets/Profile';
+import StudentInfo from './widgets/StudentInfo';
 import Schedule from './widgets/Schedule';
 import Attendance from './widgets/Attendance';
 
@@ -10,7 +10,7 @@ const Dashboard = () => {
             <div className="grid gap-4">
                 
                 <div className="bg-white shadow-md rounded-lg p-4">
-                    <Profile />
+                    <StudentInfo />
                 </div>
                 
                 

@@ -1,7 +1,7 @@
 import React from 'react';
 import stdpic from './../../assets/Student.png';
 
-const Profile = () => {
+const StudentInfo = () => {
     return (
         <div className="p-6 bg-gray-50">
             <div className="flex">
@@ -66,4 +66,4 @@ const Profile = () => {
     );
 };
 
-export default Profile;
+export default StudentInfo;
