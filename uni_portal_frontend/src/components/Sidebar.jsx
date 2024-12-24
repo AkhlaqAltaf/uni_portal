@@ -18,9 +18,9 @@ import {
 
 const Sidebar = () => {
   const [isCoursesDropdownOpen, setCoursesDropdownOpen] = useState(false);
-  const [isCoursePortalDropdownOpen, setCoursePortalDropdownOpen] =
-    useState(false);
+  const [isCoursePortalDropdownOpen, setCoursePortalDropdownOpen] =useState(false);
   const [isSiblingDropdownOpen, setSiblingDropdownOpen] = useState(false);
+  const [isFeeDropdownOpen, setFeeDropdownOpen] = useState(false);
 
   const toggleCoursesDropdown = () => {
     setCoursesDropdownOpen(!isCoursesDropdownOpen);
@@ -34,6 +34,10 @@ const Sidebar = () => {
     setSiblingDropdownOpen(!isSiblingDropdownOpen);
   };
 
+  const toggleFeeDropdown = () => {
+    setFeeDropdownOpen(!isFeeDropdownOpen);
+  };
+  
   return (
     <div className="bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white w-64 h-full p-4 shadow-lg">
       <h2 className="text-xl font-extrabold mb-6 text-center text-gray-200 border-b-2 border-gray-600 pb-2">
@@ -56,14 +60,14 @@ const Sidebar = () => {
             <FaUser className="mr-3" /> Profile
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link
             to="/dashboard"
             className="flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300"
           >
             <FaMicrosoft className="mr-3" /> Microsoft Office 365 / Teams
           </Link>
-        </li>
+        </li> */}
         {/* <li>
           <Link
             to="/dashboard"
@@ -254,13 +258,51 @@ const Sidebar = () => {
           </Link>
         </li>
         <li>
-          <Link
-            to="/dashboard"
-            className="flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300"
+          <button
+            onClick={toggleFeeDropdown}
+            className="w-full flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300 text-left"
           >
-            <FaWallet className="mr-3" /> Fee
-          </Link>
-        </li>
+            <FaWallet className="mr-3" />
+            Fee
+            <span className="ml-auto">{isFeeDropdownOpen ? "▲" : "▼"}</span>
+          </button>
+          {isFeeDropdownOpen && (
+            <ul className="ml-6 mt-2 space-y-1">
+              <li>
+                <Link
+                  to="/fee/challan"
+                  className="block px-2 py-1 hover:text-gray-400"
+                >
+                  Challan
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/fee/history"
+                  className="block px-2 py-1 hover:text-gray-400"
+                >
+                  History
+                  </Link>
+              </li>
+              <li>
+                <Link
+                  to="/fee/installment"
+                  className="block px-2 py-1 hover:text-gray-400"
+                >
+                  Fee Installment
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/fee/installment-status"
+                  className="block px-2 py-1 hover:text-gray-400"
+                >
+                  Fee Installment Status
+                </Link>
+              </li>
+            </ul>
+          )}
+      </li>
         <li>
           <Link
             to="/dashboard"

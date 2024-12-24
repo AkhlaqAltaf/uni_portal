@@ -15,6 +15,10 @@ import AssignmentSummary from "./components/widgets/AssignmentSummary";
 import PendingAssignments from "./components/widgets/PendingAssignments";
 import AddSibling from "./components/widgets/AddSiblingInfo";
 import LibraryComponent from "./components/widgets/LibraryComponent";
+import Challan from "./components/widgets/Challan";
+import FeeHistory from "./components/widgets/FeeHistory";
+import FeeInstallment from "./components/widgets/FeeInstallment";
+import FeeInstallmentStatus from "./components/widgets/FeeInstallmentStatus";
 const App = () => {
   return (
     <MainLayout>
@@ -42,6 +46,11 @@ const App = () => {
         />
 
         <Route path="/sibling-info/add-sibling-info" element={<AddSibling />} />
+
+        <Route path="/fee/challan" element={<Challan />} />
+        <Route path="/fee/history" element={<FeeHistory />} />
+        <Route path="/fee/installment" element={<FeeInstallment />} />
+        <Route path="/fee/installment-status" element={<FeeInstallmentStatus />} />
       </Routes>
     </MainLayout>
   );
