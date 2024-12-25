@@ -53,9 +53,9 @@ const Sidebar = () => {
 
   return (
     <div className="bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white w-64 h-full p-4 shadow-lg">
-      <h2 className="text-xl font-extrabold mb-6 text-center text-gray-200 border-b-2 border-gray-600 pb-2">
+      {/* <h2 className="text-xl font-extrabold mb-6 text-center text-gray-200 border-b-2 border-gray-600 pb-2">
         Student Portal
-      </h2>
+      </h2> */}
       <ul className="space-y-2">
         <li>
           <Link
