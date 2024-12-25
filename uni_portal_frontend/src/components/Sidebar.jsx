@@ -20,14 +20,13 @@ import {
 
 const Sidebar = () => {
   const [isCoursesDropdownOpen, setCoursesDropdownOpen] = useState(false);
-  const [isCoursePortalDropdownOpen, setCoursePortalDropdownOpen] =useState(false);
+  const [isCoursePortalDropdownOpen, setCoursePortalDropdownOpen] =
+    useState(false);
   const [isSiblingDropdownOpen, setSiblingDropdownOpen] = useState(false);
-<<<<<<< HEAD
-  const [isScholarshipDropdownOpen, setScholarshipDropdownOpen] = useState(false);
-=======
+  const [isScholarshipDropdownOpen, setScholarshipDropdownOpen] =
+    useState(false);
   const [isFeeDropdownOpen, setFeeDropdownOpen] = useState(false);
   const [isSettingsDropdownOpen, setSettingsDropdownOpen] = useState(false);
->>>>>>> bffca798226bc20113b1ac8440eb0b264c3c81bb
 
   const toggleCoursesDropdown = () => {
     setCoursesDropdownOpen(!isCoursesDropdownOpen);
@@ -41,17 +40,15 @@ const Sidebar = () => {
     setSiblingDropdownOpen(!isSiblingDropdownOpen);
   };
 
-<<<<<<< HEAD
-  const toggleScholarshipDropdown = () => {
-    setScholarshipDropdownOpen(!isScholarshipDropdownOpen);
-=======
   const toggleFeeDropdown = () => {
     setFeeDropdownOpen(!isFeeDropdownOpen);
   };
-  
+
   const toggleSettingsDropdown = () => {
     setSettingsDropdownOpen(!isSettingsDropdownOpen);
->>>>>>> bffca798226bc20113b1ac8440eb0b264c3c81bb
+  };
+  const toggleScholarshipDropdown = () => {
+    setScholarshipDropdownOpen(!isScholarshipDropdownOpen);
   };
 
   return (
@@ -85,7 +82,7 @@ const Sidebar = () => {
           </Link>
 <<<<<<< HEAD
         </li>
-=======
+
         </li> */}
         {/* <li>
           <Link
@@ -103,7 +100,7 @@ const Sidebar = () => {
             <FaCertificate className="mr-3" /> Corona Certificates
           </Link>
         </li> */}
->>>>>>> bffca798226bc20113b1ac8440eb0b264c3c81bb
+
         <li>
           <button
             onClick={toggleCoursesDropdown}
@@ -293,7 +290,7 @@ const Sidebar = () => {
                   className="block px-2 py-1 hover:text-gray-400"
                 >
                   History
-                  </Link>
+                </Link>
               </li>
               <li>
                 <Link
@@ -313,29 +310,31 @@ const Sidebar = () => {
               </li>
             </ul>
           )}
-      </li>
+        </li>
         <li>
-  <button
-    onClick={toggleScholarshipDropdown}
-    className="w-full flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300 text-left"
-  >
-    <FaGraduationCap className="mr-3" />
-    Scholarship
-    <span className="ml-auto">{isScholarshipDropdownOpen ? "▲" : "▼"}</span>
-  </button>
-  {isScholarshipDropdownOpen && (
-    <ul className="ml-6 mt-2 space-y-1">
-      <li>
-        <Link
-          to="/scholarship-status"
-          className="block px-2 py-1 hover:text-gray-400"
-        >
-          View Scholarship Status
-        </Link>
-      </li>
-    </ul>
-  )}
-</li>
+          <button
+            onClick={toggleScholarshipDropdown}
+            className="w-full flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300 text-left"
+          >
+            <FaGraduationCap className="mr-3" />
+            Scholarship
+            <span className="ml-auto">
+              {isScholarshipDropdownOpen ? "▲" : "▼"}
+            </span>
+          </button>
+          {isScholarshipDropdownOpen && (
+            <ul className="ml-6 mt-2 space-y-1">
+              <li>
+                <Link
+                  to="/scholarship-status"
+                  className="block px-2 py-1 hover:text-gray-400"
+                >
+                  View Scholarship Status
+                </Link>
+              </li>
+            </ul>
+          )}
+        </li>
         <li>
           <Link
             to="/dashboard"
@@ -359,7 +358,9 @@ const Sidebar = () => {
           >
             <FaCogs className="mr-3" />
             Settings
-            <span className="ml-auto">{isSettingsDropdownOpen ? "▲" : "▼"}</span>
+            <span className="ml-auto">
+              {isSettingsDropdownOpen ? "▲" : "▼"}
+            </span>
           </button>
           {isSettingsDropdownOpen && (
             <ul className="ml-6 mt-2 space-y-1">
