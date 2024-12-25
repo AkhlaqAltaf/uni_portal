@@ -85,71 +85,87 @@ const ClassProceedings = () => {
   };
 
   return (
-    <div className="p-6 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg shadow-lg">
-      <h2 className="text-2xl font-extrabold mb-6 text-gray-800">
+    <div className="p-8 backdrop-blur-sm bg-white/30 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-white/20">
+      <h2 className="text-3xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-indigo-800 via-purple-800 to-slate-800 ">
         Class Proceedings
       </h2>
-      <div className="bg-white p-4 rounded-lg shadow-md mb-6">
-        <div className="flex flex-wrap justify-between items-center">
-          <p className="text-lg font-semibold text-gray-700">
-            <strong>Course:</strong> {classData.course}
-          </p>
-          <p className="text-lg font-semibold text-gray-700">
-            <strong>Faculty Member:</strong> {classData.faculty}
-          </p>
+
+      {/* Course Info Card */}
+      <div className="mb-8 backdrop-blur-sm bg-white/40 rounded-xl p-6 border border-white/20 shadow-lg">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          <div className="space-y-2">
+            <p className="text-lg font-medium text-gray-700">
+              <span className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-800 via-purple-800 to-slate-800">
+                Course:
+              </span> {classData.course}
+            </p>
+            <p className="text-lg font-medium text-gray-700">
+              <span className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-800 via-purple-800 to-slate-800 ">
+                Faculty:
+              </span> {classData.faculty}
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="text-center p-3 rounded-lg bg-white/50 backdrop-blur-sm border border-white/20">
+              <p className="text-sm text-gray-600">Present</p>
+              <p className="text-2xl font-bold text-green-600">{classData.presents}</p>
+            </div>
+            <div className="text-center p-3 rounded-lg bg-white/50 backdrop-blur-sm border border-white/20">
+              <p className="text-sm text-gray-600">Absent</p>
+              <p className="text-2xl font-bold text-red-600">{classData.absents}</p>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-wrap justify-between items-center mt-4">
-          <p className="text-md font-medium text-gray-600">
-            <strong>Total Classes:</strong> {classData.totalClasses}
-          </p>
-          <p className="text-md font-medium text-gray-600">
-            <strong>Presents:</strong> {classData.presents}
-          </p>
-          <p className="text-md font-medium text-gray-600">
-            <strong>Absents:</strong> {classData.absents}
-          </p>
-          <p className="text-md font-medium text-gray-600">
-            <strong>Percentage:</strong> {classData.percentage}
-          </p>
-        </div>
-        <div className="w-full bg-gray-200 rounded-full h-4 mt-4 overflow-hidden shadow-sm">
+        <div className="w-full bg-gray-200/50 rounded-full h-2 overflow-hidden">
           <div
-            className="bg-green-500 h-full rounded-full"
+            className="h-full rounded-full bg-gradient-to-r from-indigo-800 via-purple-800 to-slate-800  transition-all duration-500"
             style={{ width: classData.percentage }}
           ></div>
         </div>
       </div>
-      <table className="w-full border-collapse bg-white rounded-lg overflow-hidden shadow-md">
-        <thead className="bg-gradient-to-r from-blue-500 to-blue-600 text-white">
-          <tr>
-            <th className="px-4 py-3 text-left">Lecture#</th>
-            <th className="px-4 py-3 text-left">Date</th>
-            <th className="px-4 py-3 text-left">Topics</th>
-            <th className="px-4 py-3 text-center">Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {classData.lectures.map((lecture, index) => (
-            <tr
-              key={lecture.lectureNo}
-              className={`${
-                index % 2 === 0 ? "bg-blue-50" : "bg-blue-100"
-              } hover:bg-blue-200`}
-            >
-              <td className="px-4 py-3 text-gray-700">{lecture.lectureNo}</td>
-              <td className="px-4 py-3 text-gray-700">{lecture.date}</td>
-              <td className="px-4 py-3 text-gray-700">{lecture.topic}</td>
-              <td
-                className={`px-4 py-3 text-center font-bold ${
-                  lecture.status === "P" ? "text-green-600" : "text-red-600"
-                }`}
-              >
-                {lecture.status}
-              </td>
+
+      {/* Lectures Table */}
+      <div className="overflow-hidden rounded-xl border border-white/20 backdrop-blur-sm bg-white/40">
+        <table className="w-full">
+          <thead>
+            <tr className="bg-gradient-to-r from-indigo-800 via-purple-800 to-slate-800  text-white">
+              <th className="px-6 py-3 text-left text-sm font-semibold">Lecture#</th>
+              <th className="px-6 py-3 text-left text-sm font-semibold">Date</th>
+              <th className="px-6 py-3 text-left text-sm font-semibold">Topics</th>
+              <th className="px-6 py-3 text-center text-sm font-semibold">Status</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody className="divide-y divide-gray-200/50">
+            {classData.lectures.map((lecture) => (
+              <tr
+                key={lecture.lectureNo}
+                className="transition-colors duration-200 hover:bg-white/50"
+              >
+                <td className="px-6 py-4 text-sm text-gray-700">
+                  {lecture.lectureNo}
+                </td>
+                <td className="px-6 py-4 text-sm text-gray-700">
+                  {lecture.date}
+                </td>
+                <td className="px-6 py-4 text-sm text-gray-700">
+                  {lecture.topic}
+                </td>
+                <td className="px-6 py-4">
+                  <span
+                    className={`inline-flex items-center justify-center w-8 h-8 rounded-full ${
+                      lecture.status === "P"
+                        ? "bg-green-100 text-green-700"
+                        : "bg-red-100 text-red-700"
+                    }`}
+                  >
+                    {lecture.status}
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

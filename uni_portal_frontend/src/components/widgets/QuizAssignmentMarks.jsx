@@ -54,9 +54,15 @@ const QuizAssignmentMarks = () => {
 
   const renderProgressBar = (percentage, color) => {
     return (
-      <div className="w-full bg-gray-200 rounded-full h-6 overflow-hidden">
+      <div className="w-full bg-gray-200/50 backdrop-blur-sm rounded-full h-2.5 overflow-hidden">
         <div
-          className={`h-full ${color} rounded-full`}
+          className={`h-full bg-gradient-to-r ${
+            percentage >= 75
+              ? "from-green-500 to-green-600"
+              : percentage >= 60
+              ? "from-yellow-500 to-yellow-600"
+              : "from-red-500 to-red-600"
+          } rounded-full transition-all duration-500`}
           style={{ width: `${percentage}%` }}
         ></div>
       </div>
@@ -65,60 +71,37 @@ const QuizAssignmentMarks = () => {
 
   const renderTable = (title, marksData) => {
     return (
-      <div className="mb-6">
-        <h3 className="text-lg font-bold bg-blue-600 text-white p-3 rounded-t-md">
+      <div className="mb-6 backdrop-blur-sm bg-white/40 rounded-xl overflow-hidden border border-white/20 shadow-lg">
+        <h3 className="text-lg font-bold bg-gradient-to-r from-indigo-800 via-purple-800 to-slate-800 text-white p-4">
           {title}
         </h3>
-        <table className="w-full bg-white border-collapse rounded-md shadow-lg">
-          <thead className="bg-gray-100">
+        <table className="w-full">
+          <thead className="bg-white/30">
             <tr>
-              <th className="border border-gray-300 px-4 py-2">S.No</th>
-              <th className="border border-gray-300 px-4 py-2">Date</th>
-              <th className="border border-gray-300 px-4 py-2">
+              <th className="px-4 py-3 text-left text-sm font-semibold">S.No</th>
+              <th className="px-4 py-3 text-left text-sm font-semibold">Date</th>
+              <th className="px-4 py-3 text-left text-sm font-semibold">
                 {title === "Quiz Marks" ? "Quiz Topic" : "Topic"}
               </th>
-              <th className="border border-gray-300 px-4 py-2">Total</th>
-              <th className="border border-gray-300 px-4 py-2">Obtained</th>
-              <th className="border border-gray-300 px-4 py-2">%</th>
-              <th className="border border-gray-300 px-4 py-2">Progress</th>
+              <th className="px-4 py-3 text-left text-sm font-semibold">Total</th>
+              <th className="px-4 py-3 text-left text-sm font-semibold">Obtained</th>
+              <th className="px-4 py-3 text-left text-sm font-semibold">%</th>
+              <th className="px-4 py-3 text-left text-sm font-semibold">Progress</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="divide-y divide-gray-200/50">
             {marksData.map((mark, index) => (
               <tr
                 key={mark.id}
-                className={`${
-                  index % 2 === 0 ? "bg-gray-50" : "bg-gray-100"
-                } hover:bg-gray-200`}
+                className="transition-colors duration-200 hover:bg-white/50"
               >
-                <td className="border border-gray-300 px-4 py-2 text-center">
-                  {index + 1}
-                </td>
-                <td className="border border-gray-300 px-4 py-2">
-                  {mark.date}
-                </td>
-                <td className="border border-gray-300 px-4 py-2">
-                  {mark.topic}
-                </td>
-                <td className="border border-gray-300 px-4 py-2 text-center">
-                  {mark.total}
-                </td>
-                <td className="border border-gray-300 px-4 py-2 text-center">
-                  {mark.obtained}
-                </td>
-                <td className="border border-gray-300 px-4 py-2 text-center">
-                  {mark.percentage}%
-                </td>
-                <td className="border border-gray-300 px-4 py-2">
-                  {renderProgressBar(
-                    mark.percentage,
-                    mark.percentage >= 75
-                      ? "bg-green-500"
-                      : mark.percentage >= 60
-                      ? "bg-yellow-500"
-                      : "bg-red-500"
-                  )}
-                </td>
+                <td className="px-4 py-3 text-sm">{index + 1}</td>
+                <td className="px-4 py-3 text-sm">{mark.date}</td>
+                <td className="px-4 py-3 text-sm">{mark.topic}</td>
+                <td className="px-4 py-3 text-sm text-center">{mark.total}</td>
+                <td className="px-4 py-3 text-sm text-center">{mark.obtained}</td>
+                <td className="px-4 py-3 text-sm text-center">{mark.percentage}%</td>
+                <td className="px-4 py-3">{renderProgressBar(mark.percentage)}</td>
               </tr>
             ))}
           </tbody>
@@ -128,20 +111,28 @@ const QuizAssignmentMarks = () => {
   };
 
   return (
-    <div className="p-6 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg shadow-xl">
-      <h2 className="text-2xl font-extrabold mb-6 text-gray-800">
+    <div className="p-8 backdrop-blur-sm bg-white/30 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-white/20">
+      <h2 className="text-3xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-indigo-800 via-purple-800 to-slate-800">
         Quiz Assignment Marks
       </h2>
-      <div className="bg-white p-4 rounded-lg shadow-md mb-6">
-        <div className="flex flex-wrap justify-between items-center">
-          <p className="text-lg font-semibold text-gray-700">
-            <strong>Course:</strong> {data.course}
-          </p>
-          <p className="text-lg font-semibold text-gray-700">
-            <strong>Faculty Member:</strong> {data.faculty}
-          </p>
+      
+      <div className="mb-8 backdrop-blur-sm bg-white/40 rounded-xl p-6 border border-white/20 shadow-lg">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="space-y-2">
+            <p className="text-lg font-medium text-gray-700">
+              <span className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-800 via-purple-800 to-slate-800">
+                Course:
+              </span> {data.course}
+            </p>
+            <p className="text-lg font-medium text-gray-700">
+              <span className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-800 via-purple-800 to-slate-800">
+                Faculty:
+              </span> {data.faculty}
+            </p>
+          </div>
         </div>
       </div>
+
       {renderTable("Quiz Marks", data.quizMarks)}
       {renderTable("Assignment Marks", data.assignmentMarks)}
       {renderTable("Midterm Marks", data.midtermMarks)}
