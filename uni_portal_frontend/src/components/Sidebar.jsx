@@ -1,397 +1,263 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
-  FaHome,
-  FaUser,
-  FaMicrosoft,
-  FaCertificate,
-  FaBook,
-  FaSchool,
-  FaCalendarAlt,
-  FaClipboardList,
-  FaCogs,
-  FaWallet,
-  FaUniversity,
-  FaClipboardCheck,
-  FaGraduationCap,
-  FaChevronDown,
-  FaChevronUp,
+  FaHome, FaUser, FaMicrosoft, FaCertificate, FaBook, FaSchool,
+  FaCalendarAlt, FaClipboardList, FaCogs, FaWallet, FaUniversity,
+  FaClipboardCheck, FaGraduationCap
 } from "react-icons/fa";
 
+const MenuItem = ({ to, icon: Icon, children, onClick, isDropdown, isOpen, isActive }) => (
+  <li>
+    {to ? (
+      <Link
+        to={to}
+        className={`flex items-center px-4 py-2.5 rounded-lg transition-all duration-300
+                   ${isActive 
+                     ? 'bg-gradient-to-r from-purple-500/30 to-pink-500/30 text-white shadow-lg' 
+                     : 'hover:bg-white/10'}`}
+      >
+        <Icon className={`w-5 h-5 mr-3 transition-transform duration-300
+                       ${isActive ? 'scale-110 text-purple-400' : ''}`} />
+        <span className="font-medium">{children}</span>
+      </Link>
+    ) : (
+      <button
+        onClick={onClick}
+        className="w-full flex items-center justify-between px-4 py-2.5 rounded-lg
+                 transition-all duration-300 hover:bg-white/10 group"
+      >
+        <div className="flex items-center">
+          <Icon className="w-5 h-5 mr-3 group-hover:text-purple-400 transition-colors" />
+          <span className="font-medium">{children}</span>
+        </div>
+        {isDropdown && (
+          <span className={`transform transition-transform duration-300 
+                          ${isOpen ? 'rotate-180' : ''}`}>
+            ▼
+          </span>
+        )}
+      </button>
+    )}
+  </li>
+);
+
+const SubMenuItem = ({ to, children }) => (
+  <li>
+    <Link
+      to={to}
+      className="block px-4 py-2 rounded-lg transition-all duration-300
+                 text-gray-300 hover:bg-white/5 hover:text-purple-300"
+    >
+      {children}
+    </Link>
+  </li>
+);
+
 const Sidebar = () => {
-  const [isCoursesDropdownOpen, setCoursesDropdownOpen] = useState(false);
-  const [isCoursePortalDropdownOpen, setCoursePortalDropdownOpen] =
-    useState(false);
-  const [isSiblingDropdownOpen, setSiblingDropdownOpen] = useState(false);
-  const [isScholarshipDropdownOpen, setScholarshipDropdownOpen] =
-    useState(false);
-  const [isFeeDropdownOpen, setFeeDropdownOpen] = useState(false);
-  const [isSettingsDropdownOpen, setSettingsDropdownOpen] = useState(false);
+  const location = useLocation();
+  const [dropdowns, setDropdowns] = useState({
+    courses: false,
+    coursePortal: false,
+    sibling: false,
+    scholarship: false,
+    fee: false,
+    settings: false
+  });
 
-  const toggleCoursesDropdown = () => {
-    setCoursesDropdownOpen(!isCoursesDropdownOpen);
-  };
-
-  const toggleCoursePortalDropdown = () => {
-    setCoursePortalDropdownOpen(!isCoursePortalDropdownOpen);
+  const toggleDropdown = (key) => {
+    setDropdowns(prev => ({ ...prev, [key]: !prev[key] }));
   };
 
-  const toggleSiblingDropdown = () => {
-    setSiblingDropdownOpen(!isSiblingDropdownOpen);
-  };
-
-  const toggleFeeDropdown = () => {
-    setFeeDropdownOpen(!isFeeDropdownOpen);
-  };
-
-  const toggleSettingsDropdown = () => {
-    setSettingsDropdownOpen(!isSettingsDropdownOpen);
-  };
-  const toggleScholarshipDropdown = () => {
-    setScholarshipDropdownOpen(!isScholarshipDropdownOpen);
-  };
+  const isActive = (path) => location.pathname === path;
 
   return (
-    <div className="bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white w-64 h-full p-4 shadow-lg">
-      {/* <h2 className="text-xl font-extrabold mb-6 text-center text-gray-200 border-b-2 border-gray-600 pb-2">
-        Student Portal
-      </h2> */}
-      <ul className="space-y-2">
-        <li>
-          <Link
-            to="/"
-            className="flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300"
-          >
-            <FaHome className="mr-3" /> Home
-          </Link>
-        </li>
-        {/* <li>
-          <Link
-            to="/profile"
-            className="flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300"
-          >
-            <FaUser className="mr-3" /> Profile
-          </Link>
-        </li> */}
-        {/* <li>
-          <Link
-            to="/dashboard"
-            className="flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300"
-          >
-            <FaMicrosoft className="mr-3" /> Microsoft Office 365 / Teams
-          </Link>
-<<<<<<< HEAD
-        </li>
+    <div className="relative bg-gradient-to-br from-gray-900 via-indigo-900 to-purple-900 
+                    text-white w-64 min-h-screen backdrop-blur-lg shadow-xl 
+                    border-r border-white/10">
+      <div className="px-4 py-6 space-y-4">
+        <nav>
+          <ul className="space-y-1.5">
+            <MenuItem 
+              to="/" 
+              icon={FaHome} 
+              isActive={isActive('/')}
+            >
+              Home
+            </MenuItem>
 
-        </li> */}
-        {/* <li>
-          <Link
-            to="/dashboard"
-            className="flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300"
-          >
-            <FaClipboardList className="mr-3" /> Data Verification
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/dashboard"
-            className="flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300"
-          >
-            <FaCertificate className="mr-3" /> Corona Certificates
-          </Link>
-        </li> */}
+            <MenuItem 
+              icon={FaBook}
+              onClick={() => toggleDropdown('courses')}
+              isDropdown
+              isOpen={dropdowns.courses}
+            >
+              Courses
+            </MenuItem>
+            {dropdowns.courses && (
+              <ul className="mt-2 ml-4 pl-4 border-l border-purple-500/30 space-y-1
+                           animate-fadeIn">
+                <SubMenuItem to="/courses/CourseSummary">Summary</SubMenuItem>
+                <SubMenuItem to="/courses/class-proceedings">Class Proceedings</SubMenuItem>
+                <SubMenuItem to="/courses/quiz-marks">Quiz Assignment Marks</SubMenuItem>
+              </ul>
+            )}
 
-        <li>
-          <button
-            onClick={toggleCoursesDropdown}
-            className="w-full flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300 text-left"
-          >
-            <FaBook className="mr-3" />
-            Courses
-            <span className="ml-auto">{isCoursesDropdownOpen ? "▲" : "▼"}</span>
-          </button>
-          {isCoursesDropdownOpen && (
-            <ul className="ml-6 mt-2 space-y-1">
-              <li>
-                <Link
-                  to="/courses/CourseSummary"
-                  className="block px-2 py-1 hover:text-gray-400"
-                >
-                  Summary
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/courses/class-proceedings"
-                  className="block px-2 py-1 hover:text-gray-400"
-                >
-                  Class Proceedings
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/courses/quiz-marks"
-                  className="block px-2 py-1 hover:text-gray-400"
-                >
-                  Quiz Assignment Marks
-                </Link>
-              </li>
-            </ul>
-          )}
-        </li>
-        <li>
-          <button
-            onClick={toggleCoursePortalDropdown}
-            className="w-full flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300 text-left"
-          >
-            <FaClipboardCheck className="mr-3" />
-            Course Portal
-            <span className="ml-auto">
-              {isCoursePortalDropdownOpen ? "▲" : "▼"}
-            </span>
-          </button>
-          {isCoursePortalDropdownOpen && (
-            <ul className="ml-6 mt-2 space-y-1">
-              <li>
-                <Link
-                  to="/course-portal/mcq-test"
-                  className="block px-2 py-1 hover:text-gray-400"
-                >
-                  MCQ Test
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/course-portal/subjective-test"
-                  className="block px-2 py-1 hover:text-gray-400"
-                >
-                  Subjective Test
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/course-portal/course-content"
-                  className="block px-2 py-1 hover:text-gray-400"
-                >
-                  Course Content
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/course-portal/assignments-summary"
-                  className="block px-2 py-1 hover:text-gray-400"
-                >
-                  Assignments Summary
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/course-portal/pending-assignments"
-                  className="block px-2 py-1 hover:text-gray-400"
-                >
-                  Pending Assignments
-                </Link>
-              </li>
-            </ul>
-          )}
-        </li>
-        <li>
-          <Link
-            to="/dashboard"
-            className="flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300"
-          >
-            <FaUniversity className="mr-3" /> Boarding
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/library"
-            className="flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300"
-          >
-            <FaBook className="mr-3" /> Library
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/dashboard"
-            className="flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300"
-          >
-            <FaSchool className="mr-3" /> Hostel
-          </Link>
-        </li>
-        <li>
-          <button
-            onClick={toggleSiblingDropdown}
-            className="w-full flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300 text-left"
-          >
-            <FaGraduationCap className="mr-3" />
-            Sibling Info
-            <span className="ml-auto">{isSiblingDropdownOpen ? "▲" : "▼"}</span>
-          </button>
-          {isSiblingDropdownOpen && (
-            <ul className="ml-6 mt-2 space-y-1">
-              <li>
-                <Link
-                  to="/sibling-info/add-sibling-info"
-                  className="block px-2 py-1 hover:text-gray-400"
-                >
-                  Add Sibling Info
-                </Link>
-              </li>
-            </ul>
-          )}
-        </li>
-        <li>
-          <Link
-            to="/result"
-            className="flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300"
-          >
-            <FaClipboardCheck className="mr-3" /> Result
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/dashboard"
-            className="flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300"
-          >
-            <FaClipboardList className="mr-3" /> OBE
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/timetable"
-            className="flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300"
-          >
-            <FaCalendarAlt className="mr-3" /> Timetable
-          </Link>
-        </li>
-        <li>
-          <button
-            onClick={toggleFeeDropdown}
-            className="w-full flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300 text-left"
-          >
-            <FaWallet className="mr-3" />
-            Fee
-            <span className="ml-auto">{isFeeDropdownOpen ? "▲" : "▼"}</span>
-          </button>
-          {isFeeDropdownOpen && (
-            <ul className="ml-6 mt-2 space-y-1">
-              <li>
-                <Link
-                  to="/fee/challan"
-                  className="block px-2 py-1 hover:text-gray-400"
-                >
-                  Challan
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/fee/history"
-                  className="block px-2 py-1 hover:text-gray-400"
-                >
-                  History
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/fee/installment"
-                  className="block px-2 py-1 hover:text-gray-400"
-                >
-                  Fee Installment
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/fee/installment-status"
-                  className="block px-2 py-1 hover:text-gray-400"
-                >
-                  Fee Installment Status
-                </Link>
-              </li>
-            </ul>
-          )}
-        </li>
-        <li>
-          <button
-            onClick={toggleScholarshipDropdown}
-            className="w-full flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300 text-left"
-          >
-            <FaGraduationCap className="mr-3" />
-            Scholarship
-            <span className="ml-auto">
-              {isScholarshipDropdownOpen ? "▲" : "▼"}
-            </span>
-          </button>
-          {isScholarshipDropdownOpen && (
-            <ul className="ml-6 mt-2 space-y-1">
-              <li>
-                <Link
-                  to="/scholarship-status"
-                  className="block px-2 py-1 hover:text-gray-400"
-                >
-                  View Scholarship Status
-                </Link>
-              </li>
-            </ul>
-          )}
-        </li>
-        <li>
-          <Link
-            to="/dashboard"
-            className="flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300"
-          >
-            <FaUniversity className="mr-3" /> University Clearance
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/dashboard"
-            className="flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300"
-          >
-            <FaClipboardList className="mr-3" /> Application Processing System
-          </Link>
-        </li>
-        <li>
-          <button
-            onClick={toggleSettingsDropdown}
-            className="w-full flex items-center px-3 py-2 hover:bg-gray-700 rounded-md transition-colors duration-300 text-left"
-          >
-            <FaCogs className="mr-3" />
-            Settings
-            <span className="ml-auto">
-              {isSettingsDropdownOpen ? "▲" : "▼"}
-            </span>
-          </button>
-          {isSettingsDropdownOpen && (
-            <ul className="ml-6 mt-2 space-y-1">
-              <li>
-                <Link
-                  to="/settings/profile"
-                  className="block px-2 py-1 hover:text-gray-400"
-                >
-                  Profile
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/settings/change-password"
-                  className="block px-2 py-1 hover:text-gray-400"
-                >
-                  Change Password
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/settings/login-history"
-                  className="block px-2 py-1 hover:text-gray-400"
-                >
-                  Login History
-                </Link>
-              </li>
-            </ul>
-          )}
-        </li>
-      </ul>
+            <MenuItem 
+              icon={FaClipboardCheck}
+              onClick={() => toggleDropdown('coursePortal')}
+              isDropdown
+              isOpen={dropdowns.coursePortal}
+            >
+              Course Portal
+            </MenuItem>
+            {dropdowns.coursePortal && (
+              <ul className="mt-2 ml-4 pl-4 border-l border-purple-500/30 space-y-1
+                           animate-fadeIn">
+                <SubMenuItem to="/course-portal/mcq-test">MCQ Test</SubMenuItem>
+                <SubMenuItem to="/course-portal/subjective-test">Subjective Test</SubMenuItem>
+                <SubMenuItem to="/course-portal/course-content">Course Content</SubMenuItem>
+                <SubMenuItem to="/course-portal/assignments-summary">Assignments Summary</SubMenuItem>
+                <SubMenuItem to="/course-portal/pending-assignments">Pending Assignments</SubMenuItem>
+              </ul>
+            )}
+
+            <MenuItem 
+              to="/dashboard" 
+              icon={FaUniversity} 
+              isActive={isActive('/dashboard')}
+            >
+              Boarding
+            </MenuItem>
+
+            <MenuItem 
+              to="/library" 
+              icon={FaBook} 
+              isActive={isActive('/library')}
+            >
+              Library
+            </MenuItem>
+
+            <MenuItem 
+              to="/hostel" 
+              icon={FaSchool} 
+              isActive={isActive('/hostel')}
+            >
+              Hostel
+            </MenuItem>
+
+            <MenuItem 
+              icon={FaGraduationCap}
+              onClick={() => toggleDropdown('sibling')}
+              isDropdown
+              isOpen={dropdowns.sibling}
+            >
+              Sibling Info
+            </MenuItem>
+            {dropdowns.sibling && (
+              <ul className="mt-2 ml-4 pl-4 border-l border-purple-500/30 space-y-1
+                           animate-fadeIn">
+                <SubMenuItem to="/sibling-info/add-sibling-info">Add Sibling Info</SubMenuItem>
+              </ul>
+            )}
+
+            <MenuItem 
+              to="/result" 
+              icon={FaClipboardCheck} 
+              isActive={isActive('/result')}
+            >
+              Result
+            </MenuItem>
+
+            <MenuItem 
+              to="/obe" 
+              icon={FaClipboardList} 
+              isActive={isActive('/obe')}
+            >
+              OBE
+            </MenuItem>
+
+            <MenuItem 
+              to="/timetable" 
+              icon={FaCalendarAlt} 
+              isActive={isActive('/timetable')}
+            >
+              Timetable
+            </MenuItem>
+
+            <MenuItem 
+              icon={FaWallet}
+              onClick={() => toggleDropdown('fee')}
+              isDropdown
+              isOpen={dropdowns.fee}
+            >
+              Fee
+            </MenuItem>
+            {dropdowns.fee && (
+              <ul className="mt-2 ml-4 pl-4 border-l border-purple-500/30 space-y-1
+                           animate-fadeIn">
+                <SubMenuItem to="/fee/challan">Challan</SubMenuItem>
+                <SubMenuItem to="/fee/history">History</SubMenuItem>
+                <SubMenuItem to="/fee/installment">Fee Installment</SubMenuItem>
+                <SubMenuItem to="/fee/installment-status">Fee Installment Status</SubMenuItem>
+              </ul>
+            )}
+
+            <MenuItem 
+              icon={FaGraduationCap}
+              onClick={() => toggleDropdown('scholarship')}
+              isDropdown
+              isOpen={dropdowns.scholarship}
+            >
+              Scholarship
+            </MenuItem>
+            {dropdowns.scholarship && (
+              <ul className="mt-2 ml-4 pl-4 border-l border-purple-500/30 space-y-1
+                           animate-fadeIn">
+                <SubMenuItem to="/scholarship-status">View Scholarship Status</SubMenuItem>
+              </ul>
+            )}
+
+            <MenuItem 
+              to="/university-clearance" 
+              icon={FaUniversity} 
+              isActive={isActive('/university-clearance')}
+            >
+              University Clearance
+            </MenuItem>
+
+            <MenuItem 
+              to="/application-processing" 
+              icon={FaClipboardList} 
+              isActive={isActive('/application-processing')}
+            >
+              Application Processing System
+            </MenuItem>
+          </ul>
+        </nav>
+      </div>
+
+      {/* Settings Section - Move above */}
+      <div className="px-4 py-6 space-y-4">
+        <nav>
+          <ul className="space-y-1.5">
+            <MenuItem 
+              icon={FaCogs}
+              onClick={() => toggleDropdown('settings')}
+              isDropdown
+              isOpen={dropdowns.settings}
+            >
+              Settings
+            </MenuItem>
+            {dropdowns.settings && (
+              <ul className="mt-2 ml-4 pl-4 border-l border-purple-500/30 space-y-1">
+                <SubMenuItem to="/settings/profile">Profile</SubMenuItem>
+                <SubMenuItem to="/settings/change-password">Change Password</SubMenuItem>
+                <SubMenuItem to="/settings/login-history">Login History</SubMenuItem>
+              </ul>
+            )}
+          </ul>
+        </nav>
+      </div>
     </div>
   );
 };
