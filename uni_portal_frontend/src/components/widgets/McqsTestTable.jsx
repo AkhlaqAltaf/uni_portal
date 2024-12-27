@@ -45,44 +45,48 @@ const McqsTestTable = () => {
   ];
 
   return (
-    <div className="p-6 bg-gradient-to-r from-blue-50 to-blue-100 shadow-xl rounded-lg">
-      <h2 className="text-3xl font-extrabold mb-6 text-gray-800">MCQs Test</h2>
-      <table className="w-full bg-white border-collapse rounded-lg shadow-md overflow-hidden">
-        <thead className="bg-blue-500 text-white">
-          <tr>
-            <th className="px-4 py-3 text-left">#</th>
-            <th className="px-4 py-3 text-left">Test Title</th>
-            <th className="px-4 py-3 text-left">Course Title</th>
-            <th className="px-4 py-3 text-left">Start Date Time</th>
-            <th className="px-4 py-3 text-left">End Date Time</th>
-            <th className="px-4 py-3 text-left">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {tests.map((test, index) => (
-            <tr
-              key={test.id}
-              className={`${
-                index % 2 === 0 ? "bg-gray-50" : "bg-gray-100"
-              } hover:bg-blue-100`}
-            >
-              <td className="px-4 py-3">{index + 1}</td>
-              <td className="px-4 py-3">{test.testTitle}</td>
-              <td className="px-4 py-3">{test.courseTitle}</td>
-              <td className="px-4 py-3">{test.startDateTime}</td>
-              <td className="px-4 py-3">{test.endDateTime}</td>
-              <td className="px-4 py-3 text-blue-600">
-                <button
-                  onClick={() => alert(`Viewing result for ${test.testTitle}`)}
-                  className="hover:underline"
-                >
-                  {test.action}
-                </button>
-              </td>
+    <div className="p-8 backdrop-blur-sm bg-white/30 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-white/20">
+      <h2 className="text-3xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-indigo-800 via-purple-800 to-slate-800">
+        MCQs Test
+      </h2>
+      <div className="overflow-x-auto">
+        <table className="w-full bg-white border-collapse rounded-lg shadow-md overflow-hidden">
+          <thead className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white">
+            <tr>
+              <th className="px-4 py-3 text-left">#</th>
+              <th className="px-4 py-3 text-left">Test Title</th>
+              <th className="px-4 py-3 text-left">Course Title</th>
+              <th className="px-4 py-3 text-left">Start Date Time</th>
+              <th className="px-4 py-3 text-left">End Date Time</th>
+              <th className="px-4 py-3 text-left">Action</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody className="divide-y divide-gray-200/50">
+            {tests.map((test, index) => (
+              <tr
+                key={test.id}
+                className={`${
+                  index % 2 === 0 ? "bg-gray-50" : "bg-gray-100"
+                } hover:bg-white/50 transition-colors duration-200`}
+              >
+                <td className="px-4 py-3">{index + 1}</td>
+                <td className="px-4 py-3">{test.testTitle}</td>
+                <td className="px-4 py-3">{test.courseTitle}</td>
+                <td className="px-4 py-3">{test.startDateTime}</td>
+                <td className="px-4 py-3">{test.endDateTime}</td>
+                <td className="px-4 py-3 text-blue-600">
+                  <button
+                    onClick={() => alert(`Viewing result for ${test.testTitle}`)}
+                    className="hover:underline hover:text-blue-800 transition-colors duration-200"
+                  >
+                    {test.action}
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

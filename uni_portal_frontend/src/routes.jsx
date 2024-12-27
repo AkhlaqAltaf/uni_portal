@@ -8,6 +8,8 @@ import CourseSummary from "./components/widgets/CourseSummary";
 import ClassProceedings from "./components/widgets/ClassProceedings";
 import QuizAssignmentMarks from "./components/widgets/QuizAssignmentMarks";
 import McqsTestTable from "./components/widgets/McqsTestTable";
+import SubjectiveTestTable from "./components/widgets/SubjectiveTestTable";
+import CourseContent from "./components/widgets/CourseContent";
 import AssignmentSummary from "./components/widgets/AssignmentSummary";
 import PendingAssignments from "./components/widgets/PendingAssignments";
 import AddSibling from "./components/widgets/AddSiblingInfo";
@@ -31,6 +33,8 @@ const routes = [
   { path: "/courses/class-proceedings", element: <ClassProceedings /> },
   { path: "/courses/quiz-marks", element: <QuizAssignmentMarks /> },
   { path: "/course-portal/mcq-test", element: <McqsTestTable /> },
+  { path: "/course-portal/subjective-test", element: <SubjectiveTestTable /> },
+  { path: "/course-portal/course-content", element: <CourseContent />},
   {
     path: "/course-portal/assignments-summary",
     element: <AssignmentSummary />,
