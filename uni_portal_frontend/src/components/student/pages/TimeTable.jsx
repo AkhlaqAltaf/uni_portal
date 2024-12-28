@@ -1,5 +1,5 @@
 import React from 'react';
-import Timetable from '../components/widgets/Timetable';
+import Timetable from '../components/student/Timetable';
 
 const TimeTable = () => {
     return (

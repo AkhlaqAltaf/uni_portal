@@ -1,8 +1,8 @@
 import React from 'react';
-import stdpic from './../../assets/Student.png';
+import teacherPic from '../../../../assets/Teacher.png';
 import { FaUser, FaIdCard, FaUserTie, FaBook, FaGraduationCap, FaUsers, FaUserCog, FaBirthdayCake, FaPassport, FaScroll } from 'react-icons/fa';
 
-const StudentInfo = () => {
+const TeacherInfo = () => {
     return (
         <div className="p-6 bg-gradient-to-br from-slate-50 to-purple-50 rounded-xl shadow-lg">
             <div className="flex flex-col md:flex-row gap-6">
@@ -12,7 +12,7 @@ const StudentInfo = () => {
                         <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full opacity-50 group-hover:opacity-100 transition duration-300 blur"></div>
                         <div className="relative">
                             <img
-                                src={stdpic}
+                                src={teacherPic}
                                 alt="Profile"
                                 className="w-full rounded-full border-4 border-white shadow-xl transform transition duration-300 group-hover:scale-105"
                             />
@@ -23,17 +23,16 @@ const StudentInfo = () => {
                 {/* Profile Information */}
                 <div className="md:w-3/4 bg-white rounded-xl shadow-md p-6 border border-gray-100">
                     <div className="grid md:grid-cols-2 gap-4">
-                        <InfoItem icon={<FaUser />} label="Name" value="Zainab Iqbal" />
-                        <InfoItem icon={<FaIdCard />} label="Roll No" value="CIIT/SP22-BCS-044/ATD" />
-                        <InfoItem icon={<FaUserTie />} label="Father Name" value="Asif Iqbal" />
-                        <InfoItem icon={<FaBook />} label="Registered Courses" value="5" />
-                        <InfoItem icon={<FaBook />} label="Total Registered Courses" value="32" />
-                        <InfoItem icon={<FaGraduationCap />} label="Program" value="BCS" />
-                        <InfoItem icon={<FaUsers />} label="Current Section" value="A" />
-                        <InfoItem icon={<FaUserCog />} label="Current Advisor" value="Muhammad Rafay Hannan" />
-                        <InfoItem icon={<FaBirthdayCake />} label="Date of Birth" value="Jan 20, 2002" />
-                        <InfoItem icon={<FaPassport />} label="CNIC" value="13503-6525555-2" />
-                        <InfoItem icon={<FaScroll />} label="Thesis Title" value="NA" />
+                        <InfoItem icon={<FaUser />} label="Name" value="John Doe" />
+                        <InfoItem icon={<FaIdCard />} label="Employee ID" value="TCH-12345" />
+                        <InfoItem icon={<FaUserTie />} label="Department" value="Computer Science" />
+                        <InfoItem icon={<FaBook />} label="Courses Taught" value="5" />
+                        <InfoItem icon={<FaGraduationCap />} label="Highest Qualification" value="PhD in Computer Science" />
+                        <InfoItem icon={<FaUsers />} label="Years of Experience" value="10" />
+                        <InfoItem icon={<FaUserCog />} label="Current Advisor" value="Yes" />
+                        <InfoItem icon={<FaBirthdayCake />} label="Date of Birth" value="Jan 15, 1980" />
+                        <InfoItem icon={<FaPassport />} label="CNIC" value="12345-6789012-3" />
+                        <InfoItem icon={<FaScroll />} label="Research Interests" value="Artificial Intelligence, Machine Learning" />
                     </div>
                 </div>
             </div>
@@ -51,4 +50,4 @@ const InfoItem = ({ icon, label, value }) => (
     </div>
 );
 
-export default StudentInfo;
+export default TeacherInfo;

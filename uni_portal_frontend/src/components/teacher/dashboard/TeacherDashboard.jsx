@@ -1,7 +1,7 @@
 import React from 'react';
-import TeacherInfo from './teacher/TeacherInfo';
-import TeacherSchedule from './teacher/TeacherSchedule';
-import TeacherAttendance from './teacher/TeacherAttendance';
+import TeacherInfo from './widgets/TeacherInfo';
+import TeacherSchedule from './widgets/TeacherSchedule';
+import TeacherAttendance from './widgets/TeacherAttendance';
 
 const TeacherDashboard = () => {
     return (
