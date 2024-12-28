@@ -9,6 +9,7 @@ const PendingAssignments = () => {
       deadline: "Dec 27, 2024 23:59",
       downloadLink: "Download Files",
       submitLink: "Upload File",
+      description: "Create a quiz application with multiple choice questions."
     },
   ];
 
@@ -24,6 +25,7 @@ const PendingAssignments = () => {
             <th className="px-4 py-3 text-left">Course Title</th>
             <th className="px-4 py-3 text-left">Assignment Title</th>
             <th className="px-4 py-3 text-left">Deadline</th>
+            <th className="px-4 py-3 text-left">Description</th>
             <th className="px-4 py-3 text-left">Download</th>
             <th className="px-4 py-3 text-left">Submit Now</th>
           </tr>
@@ -40,6 +42,7 @@ const PendingAssignments = () => {
               <td className="px-4 py-3">{assignment.courseTitle}</td>
               <td className="px-4 py-3">{assignment.assignmentTitle}</td>
               <td className="px-4 py-3">{assignment.deadline}</td>
+              <td className="px-4 py-3">{assignment.description}</td>
               <td className="px-4 py-3 text-blue-600">
                 <button className="hover:underline">
                   {assignment.downloadLink}

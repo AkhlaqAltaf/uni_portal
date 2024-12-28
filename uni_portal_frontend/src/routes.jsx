@@ -1,4 +1,6 @@
 import Dashboard from "./components/Dashboard";
+import TeacherDashboard from "./components/TeacherDashboard";
+
 import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 import Timetable from "./pages/TimeTable";
@@ -22,8 +24,10 @@ import ProfileSettings from "./components/widgets/ProfileSettings";
 import ChangePassword from "./components/widgets/ChangePassword";
 import LoginHistory from "./components/widgets/LoginHistory";
 
+
 const routes = [
   { path: "/", element: <Dashboard /> },
+  { path: "/teacher-dashboard", element: <TeacherDashboard /> },
   { path: "/profile", element: <Profile /> },
   { path: "/settings", element: <Settings /> },
   { path: "/timetable", element: <Timetable /> },
