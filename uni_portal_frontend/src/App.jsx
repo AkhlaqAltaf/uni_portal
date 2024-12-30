@@ -24,6 +24,29 @@ import Profile from "./components/teacher/dashboard/widgets/Profile";
 import ChangePassword from "./components/teacher/dashboard/widgets/ChangePassword";
 import Preferences from "./components/teacher/dashboard/widgets/Preferences";
 
+import CourseSummary from "./components/student/dashboard/widgets/CourseSummary";
+import ClassProceedings from "./components/student/dashboard/widgets/ClassProceedings";
+import QuizAssignmentMarks from "./components/student/dashboard/widgets/QuizAssignmentMarks";
+import McqsTestTable from "./components/student/dashboard/widgets/McqsTestTable";
+import SubjectiveTestTable from "./components/student/dashboard/widgets/SubjectiveTestTable";
+import CourseContent from "./components/student/dashboard/widgets/CourseContent";
+import AssignmentSummary from "./components/student/dashboard/widgets/AssignmentSummary";
+import PendingAssignments from "./components/student/dashboard/widgets/PendingAssignments";
+
+import Challan from "./components/student/dashboard/widgets/Challan";
+import FeeHistory from "./components/student/dashboard/widgets/FeeHistory";
+import FeeInstallment from "./components/student/dashboard/widgets/FeeInstallment";
+import FeeInstallmentStatus from "./components/student/dashboard/widgets/FeeInstallmentStatus";
+
+import ProfileSettings from "./components/student/dashboard/widgets/ProfileSettings";
+import Change_Password from "./components/student/dashboard/widgets/ChangePassword";
+import LoginHistory from "./components/student/dashboard/widgets/LoginHistory";
+
+import LibraryComponent from "./components/student/dashboard/widgets/LibraryComponent";
+import AddSibling from "./components/student/dashboard/widgets/AddSiblingInfo";
+import ScholarshipStatus from "./components/student/dashboard/widgets/ScholarshipStatus";
+
+
 const App = () => {
   const [user, setUser] = useState(null);
 
@@ -100,6 +123,35 @@ const App = () => {
           <>
             <Route path="/" element={<Dashboard />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/courses/CourseSummary" element={<CourseSummary />} />
+            <Route path="/courses/class-proceedings" element={<ClassProceedings />} />
+            <Route path="/courses/quiz-marks" element={<QuizAssignmentMarks />} />
+
+            <Route path="/course-portal/mcq-test" element={<McqsTestTable />} />
+            <Route path="/course-portal/subjective-test" element={<SubjectiveTestTable />} />
+            <Route path="/course-portal/course-content" element={<CourseContent />} />
+            <Route path="/course-portal/assignments-summary" element={<AssignmentSummary />} />
+            <Route path="/course-portal/pending-assignments" element={<PendingAssignments />} />
+
+            <Route path="/fee/challan" element={<Challan />} />
+            <Route path="/fee/history" element={<FeeHistory />} />
+            <Route path="/fee/installment" element={<FeeInstallment />} />
+            <Route path="/fee/installment-status" element={<FeeInstallmentStatus />} />
+
+            <Route path="/settings/profile" element={<ProfileSettings />} />
+            <Route path="/settings/change-password" element={<Change_Password />} />
+            <Route path="/settings/login-history" element={<LoginHistory />} />
+            <Route path="/library" element={<LibraryComponent />} />
+            <Route path="/scholarship-status" element={<ScholarshipStatus />} />
+            <Route path="/info/sibling" element={<AddSibling />} />
+            {/* 
+            
+
+            
+            
+            <Route path="/settings/profile" element={<ProfileSettings />} />
+            <Route path="/settings/password" element={<stdChangePassword />} />
+            <Route path="/settings/login-history" element={<LoginHistory />} /> */}
           </>
         )}
         <Route path="*" element={<Navigate to="/" />} />
