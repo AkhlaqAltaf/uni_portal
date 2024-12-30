@@ -13,7 +13,8 @@ const Login = ({ onLogin }) => {
   // Mock user data - in real app this would come from backend
   const mockUsers = {
     student: { username: 'student', password: '123', role: 'student' },
-    teacher: { username: 'teacher', password: '123', role: 'teacher' }
+    teacher: { username: 'teacher', password: '123', role: 'teacher' },
+    Admin:   { username: 'admin', password: '123', role: 'Admin' }
   };
 
   const handleSubmit = (e) => {
@@ -80,6 +81,7 @@ const Login = ({ onLogin }) => {
             >
               <option value="student">Student</option>
               <option value="teacher">Teacher</option>
+              <option value="admin">Admin</option>
             </select>
           </div>
 

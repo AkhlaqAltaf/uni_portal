@@ -23,6 +23,7 @@ import Timetable from "./components/teacher/dashboard/widgets/Timetable";
 import Profile from "./components/teacher/dashboard/widgets/Profile";
 import ChangePassword from "./components/teacher/dashboard/widgets/ChangePassword";
 import Preferences from "./components/teacher/dashboard/widgets/Preferences";
+import AdminDashboard from "./components/Admin/dashboard/AdminDashboard";
 
 import CourseSummary from "./components/student/dashboard/widgets/CourseSummary";
 import ClassProceedings from "./components/student/dashboard/widgets/ClassProceedings";
@@ -119,8 +120,16 @@ const App = () => {
               element={<Preferences />}
             />
           </>
+        ) : user.role === "Admin" ? (
+          <>
+            {/* Admin routes */}
+            <Route path="/" element={<AdminDashboard />} />
+            <Route path="/admin-dashboard" element={<AdminDashboard />} />
+           
+          </>
         ) : (
           <>
+            {/* Student routes */}
             <Route path="/" element={<Dashboard />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/courses/CourseSummary" element={<CourseSummary />} />

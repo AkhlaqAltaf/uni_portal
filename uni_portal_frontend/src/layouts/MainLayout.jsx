@@ -3,12 +3,22 @@ import TeacherHeader from '../components/teacher/common/TeacherHeader';
 import StudentHeader from '../components/student/common/Header';
 import TeacherSidebar from '../components/teacher/common/TeacherSidebar';
 import StudentSidebar from '../components/student/common/Sidebar';
+import AdminHeader from '../components/Admin/common/AdminHeader';
+import AdminSidebar from '../components/Admin/common/AdminSidebar';
 
 const MainLayout = ({ children, user }) => {
-    // Select components based on user role
-    const Header = user?.role === 'teacher' ? TeacherHeader : StudentHeader;
-    const Sidebar = user?.role === 'teacher' ? TeacherSidebar : StudentSidebar;
+    let Header, Sidebar;
 
+    if (user?.role === 'teacher') {
+        Header = TeacherHeader;
+        Sidebar = TeacherSidebar;
+    } else if (user?.role === 'admin') {
+        Header = AdminHeader;
+        Sidebar = AdminSidebar;
+    } else {
+        Header = StudentHeader;
+        Sidebar = StudentSidebar;
+    }
     return (
         <div className="flex flex-col h-screen">
             <Header user={user} />
