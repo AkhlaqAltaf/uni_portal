@@ -122,9 +122,9 @@ const Sidebar = () => {
             )}
 
             <MenuItem 
-              to="/dashboard" 
+              to="/boarding" 
               icon={FaUniversity} 
-              isActive={isActive('/dashboard')}
+              isActive={isActive('/boarding')}
             >
               Boarding
             </MenuItem>

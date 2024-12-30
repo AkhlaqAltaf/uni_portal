@@ -1,5 +1,5 @@
 import React from 'react';
-import Grades from '../components/student/dashboard/widgets/Grades';
+import Grades from '../dashboard/widgets/Grades';
 
 const Result = () => {
     return (
