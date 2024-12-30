@@ -22,13 +22,14 @@ import ProfileSettings from "../components/student/pages/settings/ProfileSetting
 import ChangePassword from "../components/student/pages/settings/ChangePassword";
 import LoginHistory from "../components/student/pages/settings/LoginHistory";
 
+import Courses from "./components/teacher/dashboard/widgets/Courses";
 
 import TeacherDashboard from "../components/teacher/dashboard/TeacherDashboard";
-
+import MyCourses from "./components/teacher/dashboard/widgets/MyCourses";
 
 export const teacherRoutes = [
   { path: "/teacher", element: <TeacherDashboard />, role: "teacher" },
-
+  // { path: "/teacher/courses/mycourses", element: <MyCourses /> },
 ];
 
 export const studentRoutes = [
@@ -42,10 +43,16 @@ export const studentRoutes = [
   { path: "/student/courses/proceedings", element: <ClassProceedings /> },
   { path: "/student/courses/quiz-marks", element: <QuizAssignmentMarks /> },
   { path: "/student/courses/mcq-test", element: <McqsTestTable /> },
-  { path: "/student/courses/subjective-test", element: <SubjectiveTestTable /> },
+  {
+    path: "/student/courses/subjective-test",
+    element: <SubjectiveTestTable />,
+  },
   { path: "/student/courses/content", element: <CourseContent /> },
   { path: "/student/courses/assignments", element: <AssignmentSummary /> },
-  { path: "/student/courses/pending-assignments", element: <PendingAssignments /> },
+  {
+    path: "/student/courses/pending-assignments",
+    element: <PendingAssignments />,
+  },
   { path: "/student/info/add-sibling", element: <AddSibling /> },
   { path: "/student/scholarship", element: <ScholarshipStatus /> },
   { path: "/student/fee/challan", element: <Challan /> },
