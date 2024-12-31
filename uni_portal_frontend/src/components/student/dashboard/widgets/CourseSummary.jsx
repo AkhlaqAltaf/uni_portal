@@ -82,63 +82,57 @@ const CourseSummary = () => {
   ];
 
   return (
-    <div className="p-8 backdrop-blur-sm bg-white/30 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-white/20">
-      <h2 className="text-3xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-indigo-800 via-purple-800 to-slate-800">
-        Student's Courses Summary
+    <div className="p-6 sm:p-8 bg-white/30 backdrop-blur-md rounded-2xl shadow-lg border border-gray-200">
+      <h2 className="text-2xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-purple-700 to-indigo-700">
+        Course Summary
       </h2>
-      <table className="w-full border-collapse bg-white/40 rounded-xl overflow-hidden shadow-lg">
-        <thead className="bg-gradient-to-r from-indigo-800 via-purple-800 to-slate-800 text-white">
-          <tr>
-            <th className="px-4 py-2">S#</th>
-            <th className="px-4 py-2">Course Title</th>
-            <th className="px-4 py-2">Class</th>
-            <th className="px-4 py-2">Faculty</th>
-            <th className="px-4 py-2">Lectures</th>
-            <th className="px-4 py-2">P</th>
-            <th className="px-4 py-2">A</th>
-            <th className="px-4 py-2">Thy%</th>
-            <th className="px-4 py-2">LAB%</th>
-          </tr>
-        </thead>
-        <tbody>
-          {courses.map((course) => (
-            <tr
-              key={course.id}
-              className="transition-colors duration-300 hover:bg-gradient-to-r hover:from-purple-100 hover:to-pink-100"
-            >
-              <td className="border-t border-gray-300 px-4 py-2 text-center">
-                {course.id}
-              </td>
-              <td className="border-t border-gray-300 px-4 py-2">
-                <a href="#" className="text-purple-600 hover:underline">
-                  {course.title}
-                </a>
-              </td>
-              <td className="border-t border-gray-300 px-4 py-2">
-                {course.class}
-              </td>
-              <td className="border-t border-gray-300 px-4 py-2">
-                {course.faculty}
-              </td>
-              <td className="border-t border-gray-300 px-4 py-2 text-center">
-                {course.lectures}
-              </td>
-              <td className="border-t border-gray-300 px-4 py-2 text-center">
-                {course.present}
-              </td>
-              <td className="border-t border-gray-300 px-4 py-2 text-center">
-                {course.absent}
-              </td>
-              <td className="border-t border-gray-300 px-4 py-2 text-center">
-                {course.thyPercentage}
-              </td>
-              <td className="border-t border-gray-300 px-4 py-2 text-center">
-                {course.labPercentage}
-              </td>
+      <div className="overflow-x-auto">
+        <table className="min-w-full border-collapse bg-white/40 rounded-lg shadow-md border border-gray-200">
+          <thead>
+            <tr className="bg-gradient-to-r from-blue-700 via-purple-700 to-indigo-700 text-white">
+              <th className="px-4 py-3 text-left text-sm font-medium">S#</th>
+              <th className="px-4 py-3 text-left text-sm font-medium">Course Title</th>
+              <th className="px-4 py-3 text-left text-sm font-medium">Class</th>
+              <th className="px-4 py-3 text-left text-sm font-medium">Faculty</th>
+              <th className="px-4 py-3 text-center text-sm font-medium">Lectures</th>
+              <th className="px-4 py-3 text-center text-sm font-medium">Present</th>
+              <th className="px-4 py-3 text-center text-sm font-medium">Absent</th>
+              <th className="px-4 py-3 text-center text-sm font-medium">Thy%</th>
+              <th className="px-4 py-3 text-center text-sm font-medium">Lab%</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody className="divide-y divide-gray-200">
+            {courses.map((course) => (
+              <tr
+                key={course.id}
+                className="hover:bg-gradient-to-r hover:from-purple-100 hover:to-blue-100 transition duration-200"
+              >
+                <td className="px-4 py-3 text-sm text-gray-700">{course.id}</td>
+                <td className="px-4 py-3 text-sm text-blue-600 hover:underline">
+                  {course.title}
+                </td>
+                <td className="px-4 py-3 text-sm text-gray-700">{course.class}</td>
+                <td className="px-4 py-3 text-sm text-gray-700">{course.faculty}</td>
+                <td className="px-4 py-3 text-sm text-center text-gray-700">
+                  {course.lectures}
+                </td>
+                <td className="px-4 py-3 text-sm text-center text-green-600">
+                  {course.present}
+                </td>
+                <td className="px-4 py-3 text-sm text-center text-red-600">
+                  {course.absent}
+                </td>
+                <td className="px-4 py-3 text-sm text-center text-gray-700">
+                  {course.thyPercentage}
+                </td>
+                <td className="px-4 py-3 text-sm text-center text-gray-700">
+                  {course.labPercentage}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

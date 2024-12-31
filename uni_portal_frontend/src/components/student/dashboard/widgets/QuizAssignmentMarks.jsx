@@ -52,9 +52,9 @@ const QuizAssignmentMarks = () => {
     ],
   };
 
-  const renderProgressBar = (percentage, color) => {
+  const renderProgressBar = (percentage) => {
     return (
-      <div className="w-full bg-gray-200/50 backdrop-blur-sm rounded-full h-2.5 overflow-hidden">
+      <div className="w-full bg-gray-200 rounded-full h-2.5 overflow-hidden">
         <div
           className={`h-full bg-gradient-to-r ${
             percentage >= 75
@@ -71,37 +71,35 @@ const QuizAssignmentMarks = () => {
 
   const renderTable = (title, marksData) => {
     return (
-      <div className="mb-6 backdrop-blur-sm bg-white/40 rounded-xl overflow-hidden border border-white/20 shadow-lg">
-        <h3 className="text-lg font-bold bg-gradient-to-r from-indigo-800 via-purple-800 to-slate-800 text-white p-4">
-          {title}
-        </h3>
-        <table className="w-full">
-          <thead className="bg-white/30">
-            <tr>
-              <th className="px-4 py-3 text-left text-sm font-semibold">S.No</th>
-              <th className="px-4 py-3 text-left text-sm font-semibold">Date</th>
-              <th className="px-4 py-3 text-left text-sm font-semibold">
+      <div className="mb-6 bg-gradient-to-br from-white to-blue-50 rounded-lg shadow-lg border border-blue-200 p-6">
+        <h3 className="text-lg font-bold text-gray-800 mb-4">{title}</h3>
+        <table className="w-full text-left">
+          <thead>
+            <tr className="bg-gray-100">
+              <th className="px-4 py-2 text-sm font-semibold">S.No</th>
+              <th className="px-4 py-2 text-sm font-semibold">Date</th>
+              <th className="px-4 py-2 text-sm font-semibold">
                 {title === "Quiz Marks" ? "Quiz Topic" : "Topic"}
               </th>
-              <th className="px-4 py-3 text-left text-sm font-semibold">Total</th>
-              <th className="px-4 py-3 text-left text-sm font-semibold">Obtained</th>
-              <th className="px-4 py-3 text-left text-sm font-semibold">%</th>
-              <th className="px-4 py-3 text-left text-sm font-semibold">Progress</th>
+              <th className="px-4 py-2 text-sm font-semibold">Total</th>
+              <th className="px-4 py-2 text-sm font-semibold">Obtained</th>
+              <th className="px-4 py-2 text-sm font-semibold">%</th>
+              <th className="px-4 py-2 text-sm font-semibold">Progress</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-200/50">
+          <tbody>
             {marksData.map((mark, index) => (
               <tr
                 key={mark.id}
-                className="transition-colors duration-200 hover:bg-white/50"
+                className="hover:bg-blue-50 transition-colors duration-200"
               >
-                <td className="px-4 py-3 text-sm">{index + 1}</td>
-                <td className="px-4 py-3 text-sm">{mark.date}</td>
-                <td className="px-4 py-3 text-sm">{mark.topic}</td>
-                <td className="px-4 py-3 text-sm text-center">{mark.total}</td>
-                <td className="px-4 py-3 text-sm text-center">{mark.obtained}</td>
-                <td className="px-4 py-3 text-sm text-center">{mark.percentage}%</td>
-                <td className="px-4 py-3">{renderProgressBar(mark.percentage)}</td>
+                <td className="px-4 py-2 text-sm">{index + 1}</td>
+                <td className="px-4 py-2 text-sm">{mark.date}</td>
+                <td className="px-4 py-2 text-sm">{mark.topic}</td>
+                <td className="px-4 py-2 text-sm text-center">{mark.total}</td>
+                <td className="px-4 py-2 text-sm text-center">{mark.obtained}</td>
+                <td className="px-4 py-2 text-sm text-center">{mark.percentage}%</td>
+                <td className="px-4 py-2">{renderProgressBar(mark.percentage)}</td>
               </tr>
             ))}
           </tbody>
@@ -111,25 +109,18 @@ const QuizAssignmentMarks = () => {
   };
 
   return (
-    <div className="p-8 backdrop-blur-sm bg-white/30 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-white/20">
-      <h2 className="text-3xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-indigo-800 via-purple-800 to-slate-800">
+    <div className="min-h-screen bg-gradient-to-r from-blue-50 to-purple-100 p-8">
+      <h2 className="text-4xl font-extrabold text-center text-gray-800 mb-8">
         Quiz Assignment Marks
       </h2>
-      
-      <div className="mb-8 backdrop-blur-sm bg-white/40 rounded-xl p-6 border border-white/20 shadow-lg">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="space-y-2">
-            <p className="text-lg font-medium text-gray-700">
-              <span className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-800 via-purple-800 to-slate-800">
-                Course:
-              </span> {data.course}
-            </p>
-            <p className="text-lg font-medium text-gray-700">
-              <span className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-800 via-purple-800 to-slate-800">
-                Faculty:
-              </span> {data.faculty}
-            </p>
-          </div>
+      <div className="bg-gradient-to-br from-white to-blue-50 shadow-lg rounded-lg p-6 mb-6">
+        <div className="space-y-2">
+          <p className="text-lg font-medium text-gray-700">
+            <span className="font-bold">Course:</span> {data.course}
+          </p>
+          <p className="text-lg font-medium text-gray-700">
+            <span className="font-bold">Faculty:</span> {data.faculty}
+          </p>
         </div>
       </div>
 
