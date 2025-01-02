@@ -14,42 +14,40 @@ const PendingAssignments = () => {
   ];
 
   return (
-    <div className="p-6 bg-gradient-to-r from-blue-50 to-blue-100 shadow-xl rounded-lg">
-      <h2 className="text-3xl font-extrabold mb-6 text-gray-800">
+    <div className="p-6 bg-gradient-to-br from-gray-800 via-gray-900 to-purple-900 text-white rounded-lg shadow-lg">
+      <h2 className="text-3xl font-extrabold mb-6 text-center">
         Course Portal Pending Assignments
       </h2>
-      <table className="w-full bg-white border-collapse rounded-lg shadow-md overflow-hidden">
-        <thead className="bg-blue-500 text-white">
+      <table className="w-full border-collapse border border-gray-700 text-left">
+        <thead className="bg-gray-700">
           <tr>
-            <th className="px-4 py-3 text-left">#</th>
-            <th className="px-4 py-3 text-left">Course Title</th>
-            <th className="px-4 py-3 text-left">Assignment Title</th>
-            <th className="px-4 py-3 text-left">Deadline</th>
-            <th className="px-4 py-3 text-left">Description</th>
-            <th className="px-4 py-3 text-left">Download</th>
-            <th className="px-4 py-3 text-left">Submit Now</th>
+            <th className="px-4 py-2 border border-gray-600">#</th>
+            <th className="px-4 py-2 border border-gray-600">Course Title</th>
+            <th className="px-4 py-2 border border-gray-600">Assignment Title</th>
+            <th className="px-4 py-2 border border-gray-600">Deadline</th>
+            <th className="px-4 py-2 border border-gray-600">Description</th>
+            <th className="px-4 py-2 border border-gray-600">Download</th>
+            <th className="px-4 py-2 border border-gray-600">Submit Now</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="divide-y divide-gray-700">
           {pendingAssignments.map((assignment, index) => (
             <tr
               key={assignment.id}
-              className={`${
-                index % 2 === 0 ? "bg-gray-50" : "bg-gray-100"
-              } hover:bg-blue-100`}
+              className="hover:bg-purple-800 transition-colors duration-200"
             >
-              <td className="px-4 py-3">{assignment.id}</td>
-              <td className="px-4 py-3">{assignment.courseTitle}</td>
-              <td className="px-4 py-3">{assignment.assignmentTitle}</td>
-              <td className="px-4 py-3">{assignment.deadline}</td>
-              <td className="px-4 py-3">{assignment.description}</td>
-              <td className="px-4 py-3 text-blue-600">
-                <button className="hover:underline">
+              <td className="px-4 py-2">{assignment.id}</td>
+              <td className="px-4 py-2">{assignment.courseTitle}</td>
+              <td className="px-4 py-2">{assignment.assignmentTitle}</td>
+              <td className="px-4 py-2">{assignment.deadline}</td>
+              <td className="px-4 py-2">{assignment.description}</td>
+              <td className="px-4 py-2 text-blue-500">
+                <button className="hover:text-blue-300 transition-colors duration-200">
                   {assignment.downloadLink}
                 </button>
               </td>
-              <td className="px-4 py-3 text-blue-600">
-                <button className="hover:underline">
+              <td className="px-4 py-2 text-blue-500">
+                <button className="hover:text-blue-300 transition-colors duration-200">
                   {assignment.submitLink}
                 </button>
               </td>

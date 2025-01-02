@@ -9,24 +9,26 @@ const Grades = () => {
     ];
 
     return (
-        <div className="p-4 bg-white rounded shadow">
-            <h2 className="text-xl font-semibold mb-4">Grades</h2>
-            <table className="min-w-full">
-                <thead>
-                    <tr>
-                        <th className="py-2 px-4 border-b">Course</th>
-                        <th className="py-2 px-4 border-b">Grade</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {grades.map((item, index) => (
-                        <tr key={index}>
-                            <td className="py-2 px-4 border-b">{item.course}</td>
-                            <td className="py-2 px-4 border-b">{item.grade}</td>
+        <div className="p-6 bg-gradient-to-br from-gray-800 via-gray-900 to-purple-900 text-white rounded-lg shadow-lg">
+            <h2 className="text-3xl font-bold text-center mb-6">Grades</h2>
+            <div className="overflow-x-auto">
+                <table className="min-w-full table-auto bg-gray-700 rounded-lg shadow-md">
+                    <thead>
+                        <tr className="bg-gray-800">
+                            <th className="py-3 px-4 text-left text-gray-200">Course</th>
+                            <th className="py-3 px-4 text-left text-gray-200">Grade</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {grades.map((item, index) => (
+                            <tr key={index} className="border-b border-gray-600 hover:bg-gray-600">
+                                <td className="py-2 px-4 text-gray-200">{item.course}</td>
+                                <td className="py-2 px-4 text-gray-200">{item.grade}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };

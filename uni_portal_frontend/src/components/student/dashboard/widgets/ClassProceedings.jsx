@@ -27,41 +27,40 @@ const ClassProceedings = () => {
         topic: "Ex #7. 3",
         status: "A",
       },
-      // Additional lectures...
     ],
   };
 
   return (
-    <div className="p-6 sm:p-8 bg-white/30 backdrop-blur-md rounded-2xl shadow-lg border border-gray-200">
-      <h2 className="text-2xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-purple-700 to-indigo-700">
+    <div className="p-6 bg-gradient-to-br from-gray-800 via-gray-900 to-purple-900 text-white rounded-lg shadow-lg border border-blue-200">
+      <h2 className="text-4xl font-extrabold text-center text-white mb-6 bg-clip-text text-transparent bg-gradient-to-r from-indigo-800 via-purple-800 to-slate-800">
         Class Proceedings
       </h2>
 
       {/* Course Info Section */}
-      <div className="mb-8 backdrop-blur-md bg-white/40 rounded-lg p-6 border border-gray-200 shadow-md">
+      <div className="p-6 mb-8 bg-gradient-to-br from-white to-blue-50 rounded-lg shadow-lg border border-blue-200">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
-          <div className="space-y-2">
+          <div>
             <p className="text-lg font-medium text-gray-700">
-              <span className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-700 via-purple-700 to-indigo-700">
+              <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-800 via-purple-800 to-blue-800">
                 Course:
               </span>{" "}
               {classData.course}
             </p>
             <p className="text-lg font-medium text-gray-700">
-              <span className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-700 via-purple-700 to-indigo-700">
+              <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-800 via-purple-800 to-blue-800">
                 Faculty:
               </span>{" "}
               {classData.faculty}
             </p>
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <div className="text-center py-3 rounded-md bg-white shadow-sm border border-gray-200">
+            <div className="text-center py-3 rounded-lg bg-white shadow-md border border-gray-300">
               <p className="text-sm text-gray-600">Present</p>
               <p className="text-2xl font-bold text-green-600">
                 {classData.presents}
               </p>
             </div>
-            <div className="text-center py-3 rounded-md bg-white shadow-sm border border-gray-200">
+            <div className="text-center py-3 rounded-lg bg-white shadow-md border border-gray-300">
               <p className="text-sm text-gray-600">Absent</p>
               <p className="text-2xl font-bold text-red-600">
                 {classData.absents}
@@ -79,7 +78,7 @@ const ClassProceedings = () => {
       </div>
 
       {/* Lectures Table */}
-      <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-md">
+      <div className="overflow-hidden rounded-lg border border-blue-200 bg-gradient-to-br from-white to-blue-50 shadow-lg">
         <table className="min-w-full">
           <thead>
             <tr className="bg-gradient-to-r from-blue-700 via-purple-700 to-indigo-700 text-white text-sm">
@@ -89,17 +88,21 @@ const ClassProceedings = () => {
               <th className="px-4 py-3 text-center font-medium">Status</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-200">
+          <tbody className="divide-y divide-blue-100">
             {classData.lectures.map((lecture) => (
               <tr
                 key={lecture.lectureNo}
-                className="hover:bg-gray-100 transition duration-200"
+                className="hover:bg-blue-100 transition duration-200"
               >
-                <td className="px-4 py-3 text-sm text-gray-700">
+                <td className="px-4 py-3 text-sm text-gray-800">
                   {lecture.lectureNo}
                 </td>
-                <td className="px-4 py-3 text-sm text-gray-700">{lecture.date}</td>
-                <td className="px-4 py-3 text-sm text-gray-700">{lecture.topic}</td>
+                <td className="px-4 py-3 text-sm text-gray-800">
+                  {lecture.date}
+                </td>
+                <td className="px-4 py-3 text-sm text-gray-800">
+                  {lecture.topic}
+                </td>
                 <td className="px-4 py-3 text-center">
                   <span
                     className={`inline-flex items-center justify-center w-8 h-8 rounded-full ${

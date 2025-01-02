@@ -14,47 +14,52 @@ const ProfileSettings = () => {
     };
 
     return (
-        <div className="p-6 bg-white rounded-lg shadow-md">
-            <h2 className="text-2xl font-semibold mb-6">Profile Settings</h2>
-            <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="p-6 bg-gradient-to-br from-gray-800 via-gray-900 to-purple-900 text-white rounded-lg shadow-md">
+            <h2 className="text-2xl font-bold text-center mb-6">Profile Settings</h2>
+            <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <label className="block text-sm font-semibold">Email</label>
                     <input
                         type="email"
                         value={profile.email}
-                        onChange={(e) => setProfile({...profile, email: e.target.value})}
-                        className="w-full border border-gray-300 rounded-md px-3 py-2"
+                        onChange={(e) => setProfile({ ...profile, email: e.target.value })}
+                        className="w-full p-2 bg-gray-800 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
                     />
                 </div>
                 <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                    <label className="block text-sm font-semibold">Phone</label>
                     <input
                         type="tel"
                         value={profile.phone}
-                        onChange={(e) => setProfile({...profile, phone: e.target.value})}
-                        className="w-full border border-gray-300 rounded-md px-3 py-2"
+                        onChange={(e) => setProfile({ ...profile, phone: e.target.value })}
+                        className="w-full p-2 bg-gray-800 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
                     />
                 </div>
                 <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Address</label>
+                    <label className="block text-sm font-semibold">Address</label>
                     <textarea
                         value={profile.address}
-                        onChange={(e) => setProfile({...profile, address: e.target.value})}
-                        className="w-full border border-gray-300 rounded-md px-3 py-2"
+                        onChange={(e) => setProfile({ ...profile, address: e.target.value })}
+                        className="w-full p-2 bg-gray-800 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
                     />
                 </div>
-                <div className="flex items-center">
+                <div className="flex items-center gap-2">
                     <input
                         type="checkbox"
                         checked={profile.notifications}
-                        onChange={(e) => setProfile({...profile, notifications: e.target.checked})}
-                        className="mr-2"
+                        onChange={(e) => setProfile({ ...profile, notifications: e.target.checked })}
+                        className="form-checkbox text-purple-500"
                     />
-                    <label className="text-sm text-gray-700">Receive email notifications</label>
+                    <label className="text-sm">Receive email notifications</label>
                 </div>
-                <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
-                    Save Changes
-                </button>
+                <div className="flex justify-between mt-6">
+                    <button
+                        type="submit"
+                        className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded shadow-md"
+                    >
+                        Save Changes
+                    </button>
+                </div>
             </form>
         </div>
     );

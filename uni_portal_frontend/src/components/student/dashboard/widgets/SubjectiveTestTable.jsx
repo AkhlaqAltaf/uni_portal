@@ -45,39 +45,35 @@ const SubjectiveTestTable = () => {
   ];
 
   return (
-    <div className="p-8 backdrop-blur-sm bg-white/30 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-white/20">
-      <h2 className="text-4xl font-extrabold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-indigo-800 via-purple-800 to-slate-800">
-        Subjective Tests
-      </h2>
+    <div className="p-6 bg-gradient-to-br from-gray-800 via-gray-900 to-purple-900 text-white rounded-lg shadow-lg">
+      <h2 className="text-3xl font-extrabold text-center mb-6">Subjective Tests</h2>
       <div className="overflow-x-auto">
-        <table className="w-full bg-gradient-to-br from-white to-blue-50 rounded-lg shadow-lg overflow-hidden">
-          <thead className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white">
+        <table className="w-full border-collapse border border-gray-700 text-left">
+          <thead className="bg-gray-700">
             <tr>
-              <th className="px-6 py-4 text-left text-sm font-bold">#</th>
-              <th className="px-6 py-4 text-left text-sm font-bold">Test Title</th>
-              <th className="px-6 py-4 text-left text-sm font-bold">Course Title</th>
-              <th className="px-6 py-4 text-left text-sm font-bold">Start Date Time</th>
-              <th className="px-6 py-4 text-left text-sm font-bold">End Date Time</th>
-              <th className="px-6 py-4 text-left text-sm font-bold">Action</th>
+              <th className="px-4 py-2 border border-gray-600">#</th>
+              <th className="px-4 py-2 border border-gray-600">Test Title</th>
+              <th className="px-4 py-2 border border-gray-600">Course Title</th>
+              <th className="px-4 py-2 border border-gray-600">Start Date Time</th>
+              <th className="px-4 py-2 border border-gray-600">End Date Time</th>
+              <th className="px-4 py-2 border border-gray-600">Action</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-200">
+          <tbody className="divide-y divide-gray-700">
             {tests.map((test, index) => (
               <tr
                 key={test.id}
-                className={`${
-                  index % 2 === 0 ? "bg-gray-50" : "bg-white"
-                } hover:bg-blue-50 transition-colors duration-200`}
+                className="hover:bg-purple-800 transition-colors duration-200"
               >
-                <td className="px-6 py-4 text-sm text-gray-800">{index + 1}</td>
-                <td className="px-6 py-4 text-sm text-gray-800">{test.testTitle}</td>
-                <td className="px-6 py-4 text-sm text-gray-800">{test.courseTitle}</td>
-                <td className="px-6 py-4 text-sm text-gray-800">{test.startDateTime}</td>
-                <td className="px-6 py-4 text-sm text-gray-800">{test.endDateTime}</td>
-                <td className="px-6 py-4 text-sm">
+                <td className="px-4 py-2">{index + 1}</td>
+                <td className="px-4 py-2">{test.testTitle}</td>
+                <td className="px-4 py-2">{test.courseTitle}</td>
+                <td className="px-4 py-2">{test.startDateTime}</td>
+                <td className="px-4 py-2">{test.endDateTime}</td>
+                <td className="px-4 py-2">
                   <button
                     onClick={() => alert(`Viewing result for ${test.testTitle}`)}
-                    className="text-indigo-600 hover:underline hover:text-indigo-800 transition-colors duration-200 font-medium"
+                    className="text-blue-500 hover:text-blue-300 transition-colors duration-200"
                   >
                     {test.action}
                   </button>

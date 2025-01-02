@@ -71,83 +71,79 @@ const AssignmentSummary = () => {
   ];
 
   return (
-    <div className="p-6 bg-gradient-to-r from-blue-50 to-blue-100 shadow-xl rounded-lg">
-      <h2 className="text-3xl font-extrabold mb-6 text-gray-800">
-        Assignment Summary
-      </h2>
-      <table className="w-full border-collapse bg-white rounded-lg shadow-md overflow-hidden">
-        <thead className="bg-blue-500 text-white">
-          <tr>
-            <th className="px-4 py-3 text-left">#</th>
-            <th className="px-4 py-3 text-left">Course Title</th>
-            <th className="px-4 py-3 text-left">Title</th>
-            <th className="px-4 py-3 text-left">Start Date</th>
-            <th className="px-4 py-3 text-left">Deadline</th>
-            <th className="px-4 py-3 text-left">Submission</th>
-            <th className="px-4 py-3 text-left">Status</th>
-            <th className="px-4 py-3 text-left">Download</th>
-            <th className="px-4 py-3 text-left">Submit</th>
-          </tr>
-        </thead>
-        <tbody>
-          {assignments.map((assignment, index) => (
-            <tr
-              key={assignment.id}
-              className={`${
-                index % 2 === 0 ? "bg-gray-50" : "bg-gray-100"
-              } hover:bg-blue-100`}
-            >
-              <td className="px-4 py-3">{assignment.id}</td>
-              <td className="px-4 py-3">{assignment.courseTitle}</td>
-              <td className="px-4 py-3">{assignment.title}</td>
-              <td className="px-4 py-3">{assignment.startDate}</td>
-              <td className="px-4 py-3">{assignment.deadline}</td>
-              <td
-                className={`font-semibold ${
-                  assignment.submission === "Submitted"
-                    ? "text-green-600"
-                    : assignment.submission === "Pending"
-                    ? "text-yellow-600"
-                    : "text-red-600"
-                }`}
+    <div className="p-6 bg-gradient-to-br from-gray-800 via-gray-900 to-purple-900 text-white rounded-lg shadow-lg">
+      <h2 className="text-3xl font-extrabold text-center mb-6">Assignment Summary</h2>
+      <div className="overflow-x-auto">
+        <table className="w-full border-collapse border border-gray-700 text-left">
+          <thead className="bg-gray-700">
+            <tr>
+              <th className="px-4 py-2 border border-gray-600">#</th>
+              <th className="px-4 py-2 border border-gray-600">Course Title</th>
+              <th className="px-4 py-2 border border-gray-600">Title</th>
+              <th className="px-4 py-2 border border-gray-600">Start Date</th>
+              <th className="px-4 py-2 border border-gray-600">Deadline</th>
+              <th className="px-4 py-2 border border-gray-600">Submission</th>
+              <th className="px-4 py-2 border border-gray-600">Status</th>
+              <th className="px-4 py-2 border border-gray-600">Download</th>
+              <th className="px-4 py-2 border border-gray-600">Submit</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-gray-700">
+            {assignments.map((assignment, index) => (
+              <tr
+                key={assignment.id}
+                className="hover:bg-purple-800 transition-colors duration-200"
               >
-                {assignment.submission}
-              </td>
-              <td
-                className={`font-semibold ${
-                  assignment.status === "Open"
-                    ? "text-green-600"
-                    : "text-red-600"
-                }`}
-              >
-                {assignment.status}
-              </td>
-              <td className="px-4 py-3">
-                <button className="text-blue-600 hover:underline">
-                  {assignment.downloadLink}
-                </button>
-              </td>
-              <td
-                className={`px-4 py-3 ${
-                  assignment.submitLink === "Closed"
-                    ? "text-red-600"
-                    : "text-blue-600"
-                }`}
-              >
-                <button
-                  className={`hover:underline ${
-                    assignment.submitLink === "Closed"
-                      ? "cursor-not-allowed"
-                      : "cursor-pointer"
+                <td className="px-4 py-2">{assignment.id}</td>
+                <td className="px-4 py-2">{assignment.courseTitle}</td>
+                <td className="px-4 py-2">{assignment.title}</td>
+                <td className="px-4 py-2">{assignment.startDate}</td>
+                <td className="px-4 py-2">{assignment.deadline}</td>
+                <td
+                  className={`font-semibold ${
+                    assignment.submission === "Submitted"
+                      ? "text-green-600"
+                      : assignment.submission === "Pending"
+                      ? "text-yellow-600"
+                      : "text-red-600"
                   }`}
                 >
-                  {assignment.submitLink}
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+                  {assignment.submission}
+                </td>
+                <td
+                  className={`font-semibold ${
+                    assignment.status === "Open" ? "text-green-600" : "text-red-600"
+                  }`}
+                >
+                  {assignment.status}
+                </td>
+                <td className="px-4 py-2">
+                  <button className="text-blue-500 hover:text-blue-300 transition-colors duration-200">
+                    {assignment.downloadLink}
+                  </button>
+                </td>
+                <td
+                  className={`px-4 py-2 ${
+                    assignment.submitLink === "Closed"
+                      ? "text-red-600"
+                      : "text-blue-500"
+                  }`}
+                >
+                  <button
+                    className={`hover:underline ${
+                      assignment.submitLink === "Closed"
+                        ? "cursor-not-allowed"
+                        : "cursor-pointer"
+                    }`}
+                  >
+                    {assignment.submitLink}
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

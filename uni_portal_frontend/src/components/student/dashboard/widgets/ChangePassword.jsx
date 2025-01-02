@@ -13,39 +13,44 @@ const ChangePassword = () => {
     };
 
     return (
-        <div className="p-6 bg-white rounded-lg shadow-md">
-            <h2 className="text-2xl font-semibold mb-6">Change Password</h2>
-            <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="p-6 bg-gradient-to-br from-gray-800 via-gray-900 to-purple-900 text-white rounded-lg shadow-md">
+            <h2 className="text-2xl font-bold text-center mb-6">Change Password</h2>
+            <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Current Password</label>
+                    <label className="block text-sm font-semibold">Current Password</label>
                     <input
                         type="password"
                         value={passwords.current}
-                        onChange={(e) => setPasswords({...passwords, current: e.target.value})}
-                        className="w-full border border-gray-300 rounded-md px-3 py-2"
+                        onChange={(e) => setPasswords({ ...passwords, current: e.target.value })}
+                        className="w-full p-2 bg-gray-800 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
                     />
                 </div>
                 <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">New Password</label>
+                    <label className="block text-sm font-semibold">New Password</label>
                     <input
                         type="password"
                         value={passwords.new}
-                        onChange={(e) => setPasswords({...passwords, new: e.target.value})}
-                        className="w-full border border-gray-300 rounded-md px-3 py-2"
+                        onChange={(e) => setPasswords({ ...passwords, new: e.target.value })}
+                        className="w-full p-2 bg-gray-800 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
                     />
                 </div>
                 <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Confirm New Password</label>
+                    <label className="block text-sm font-semibold">Confirm New Password</label>
                     <input
                         type="password"
                         value={passwords.confirm}
-                        onChange={(e) => setPasswords({...passwords, confirm: e.target.value})}
-                        className="w-full border border-gray-300 rounded-md px-3 py-2"
+                        onChange={(e) => setPasswords({ ...passwords, confirm: e.target.value })}
+                        className="w-full p-2 bg-gray-800 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
                     />
                 </div>
-                <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
-                    Update Password
-                </button>
+                <div className="flex justify-between mt-6">
+                    <button
+                        type="submit"
+                        className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded shadow-md"
+                    >
+                        Update Password
+                    </button>
+                </div>
             </form>
         </div>
     );

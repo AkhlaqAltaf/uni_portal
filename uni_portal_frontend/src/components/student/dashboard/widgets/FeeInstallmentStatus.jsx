@@ -14,25 +14,25 @@ const FeeInstallmentStatus = () => {
     };
 
     return (
-        <div className="p-6 bg-white rounded-lg shadow-md">
-            <h2 className="text-2xl font-semibold mb-6">Installment Status</h2>
+        <div className="p-6 bg-gradient-to-r from-blue-50 to-purple-100 rounded-lg shadow-lg max-w-4xl mx-auto">
+            <h2 className="text-3xl font-extrabold text-center text-gray-800 mb-6">Installment Status</h2>
             <div className="grid grid-cols-3 gap-4 mb-6">
-                <div className="bg-blue-100 p-4 rounded-md">
+                <div className="bg-white p-4 rounded-md shadow-md">
                     <div className="text-sm text-blue-600">Total Amount</div>
                     <div className="text-xl font-semibold">Rs. {installmentStatus.totalAmount}</div>
                 </div>
-                <div className="bg-green-100 p-4 rounded-md">
+                <div className="bg-white p-4 rounded-md shadow-md">
                     <div className="text-sm text-green-600">Paid Amount</div>
                     <div className="text-xl font-semibold">Rs. {installmentStatus.paidAmount}</div>
                 </div>
-                <div className="bg-red-100 p-4 rounded-md">
+                <div className="bg-white p-4 rounded-md shadow-md">
                     <div className="text-sm text-red-600">Remaining Amount</div>
                     <div className="text-xl font-semibold">Rs. {installmentStatus.remainingAmount}</div>
                 </div>
             </div>
             <div className="mt-6">
                 <h3 className="text-lg font-semibold mb-4">Installment Details</h3>
-                <table className="min-w-full">
+                <table className="min-w-full border-collapse border border-gray-300 text-sm">
                     <thead>
                         <tr className="bg-gray-100">
                             <th className="py-2 px-4 text-left">No.</th>

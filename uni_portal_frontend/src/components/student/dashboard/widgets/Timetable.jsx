@@ -43,41 +43,44 @@ const Timetable = () => {
     const timeSlots = Array.from(new Set(schedule.flatMap(day => day.slots.map(slot => slot.time))));
 
     return (
-        <div className="p-6">
-            <h2 className="text-2xl font-semibold mb-6">Weekly Timetable</h2>
-            <table className="min-w-full border-collapse border border-gray-300 text-sm">
-                <thead>
-                    <tr>
-                        <th className="border border-gray-300 bg-gray-100 p-2 font-bold text-center w-1/6">Day</th>
-                        {timeSlots.map((time, index) => (
-                            <th key={index} className="border border-gray-300 bg-gray-100 p-2 font-bold text-center w-1/6">{time}</th>
-                        ))}
-                    </tr>
-                </thead>
-                <tbody>
-                    {schedule.map((daySchedule, index) => (
-                        <tr key={index}>
-                            <td className="border border-gray-300 bg-gray-50 p-2 font-medium text-center align-top">
-                                {daySchedule.day}
-                            </td>
-                            {timeSlots.map((time, timeIndex) => {
-                                const slot = daySchedule.slots.find(slot => slot.time === time);
-                                return (
-                                    <td key={timeIndex} className="border border-gray-300 p-2">
-                                        {slot ? (
-                                            <div className="border border-gray-200 p-2">
-                                                <div className="text-sm">{slot.location}</div>
-                                                <div className="font-semibold">{slot.course}</div>
-                                                <div className="italic text-gray-600 text-sm">{slot.teacher}</div>
-                                            </div>
-                                        ) : null}
-                                    </td>
-                                );
-                            })}
+        <div className="p-6 bg-gradient-to-br from-gray-800 via-gray-900 to-purple-900 text-white rounded-lg shadow-lg">
+            <h2 className="text-3xl font-bold text-center mb-6">Weekly Timetable</h2>
+            <div className="overflow-x-auto">
+                <table className="min-w-full table-auto bg-gray-700 rounded-lg shadow-md">
+                    <thead>
+                        <tr className="bg-gray-800">
+                            <th className="py-3 px-4 text-left text-gray-200 border border-gray-600">Day</th>
+                            {timeSlots.map((time, index) => (
+                                <th key={index} className="py-3 px-4 text-left text-gray-200 border border-gray-600">{time}</th>
+                            ))}
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {schedule.map((daySchedule, index) => (
+                            <tr key={index} className="group">
+                                <td className="py-3 px-4 text-center text-gray-200 border border-gray-600 bg-gray-800">{daySchedule.day}</td>
+                                {timeSlots.map((time, timeIndex) => {
+                                    const slot = daySchedule.slots.find(slot => slot.time === time);
+                                    return (
+                                        <td
+                                            key={timeIndex}
+                                            className="border border-gray-600 p-2  transform transition-all duration-200"
+                                        >
+                                            {slot ? (
+                                                <div className="flex flex-col justify-between h-full">
+                                                    <div className="text-sm text-gray-200">{slot.location}</div>
+                                                    <div className="font-semibold text-white">{slot.course}</div>
+                                                    <div className="italic text-gray-400 text-sm">{slot.teacher}</div>
+                                                </div>
+                                            ) : null}
+                                        </td>
+                                    );
+                                })}
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };

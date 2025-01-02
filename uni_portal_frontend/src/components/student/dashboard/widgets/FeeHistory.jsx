@@ -8,9 +8,9 @@ const FeeHistory = () => {
     ];
 
     return (
-        <div className="p-6 bg-white rounded-lg shadow-md">
-            <h2 className="text-2xl font-semibold mb-6">Fee History</h2>
-            <table className="min-w-full">
+        <div className="p-6 bg-gradient-to-r from-blue-50 to-purple-100 rounded-lg shadow-lg max-w-4xl mx-auto">
+            <h2 className="text-3xl font-extrabold text-center text-gray-800 mb-6">Fee History</h2>
+            <table className="min-w-full border-collapse text-sm">
                 <thead>
                     <tr className="bg-gray-100">
                         <th className="py-2 px-4 text-left">Semester</th>
@@ -25,7 +25,7 @@ const FeeHistory = () => {
                             <td className="py-2 px-4">{item.semester}</td>
                             <td className="py-2 px-4">Rs. {item.amount}</td>
                             <td className="py-2 px-4">
-                                <span className="text-green-500">{item.status}</span>
+                                <span className="text-green-500 font-semibold">{item.status}</span>
                             </td>
                             <td className="py-2 px-4">{item.date}</td>
                         </tr>

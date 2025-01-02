@@ -61,11 +61,11 @@ const ScholarshipStatus = () => {
   ];
 
   return (
-    <div className="p-6 bg-gradient-to-br from-blue-50 to-white rounded-lg shadow-lg">
-      <h2 className="text-2xl font-bold mb-6 text-center text-blue-600">Scholarship Awarded Information</h2>
+    <div className="p-6 bg-gradient-to-br from-gray-800 via-gray-900 to-purple-900 text-white rounded-lg shadow-lg max-w-6xl mx-auto">
+      <h2 className="text-3xl font-extrabold text-center text-gray-200 mb-6">Scholarship Awarded Information</h2>
       <div className="overflow-x-auto">
         <table className="table-auto w-full border-collapse border border-gray-300 rounded-lg shadow-md">
-          <thead className="bg-blue-500 text-white">
+          <thead className="bg-purple-600 text-white">
             <tr>
               <th className="border border-gray-300 px-4 py-2">S.No</th>
               <th className="border border-gray-300 px-4 py-2">Scholarship</th>
@@ -85,20 +85,18 @@ const ScholarshipStatus = () => {
             {scholarshipData.map((item, index) => (
               <tr
                 key={item.id}
-                className={`text-center ${
-                  index % 2 === 0 ? "bg-blue-50" : "bg-white"
-                } hover:bg-blue-100 transition-colors`}
+                className={`text-center ${index % 2 === 0 ? "bg-gray-700" : "bg-gray-800"} hover:bg-gray-600 transition-colors`}
               >
                 <td className="border border-gray-300 px-4 py-2">{item.id}</td>
                 <td className="border border-gray-300 px-4 py-2">{item.scholarship}</td>
                 <td className="border border-gray-300 px-4 py-2">{item.date}</td>
                 <td className="border border-gray-300 px-4 py-2">{item.session}</td>
-                <td className="border border-gray-300 px-4 py-2">{item.fee}</td>
+                <td className="border border-gray-300 px-4 py-2">Rs. {item.fee}</td>
                 <td className="border border-gray-300 px-4 py-2">{item.meal}</td>
                 <td className="border border-gray-300 px-4 py-2">{item.boarding}</td>
                 <td className="border border-gray-300 px-4 py-2">{item.stipend}</td>
                 <td className="border border-gray-300 px-4 py-2">{item.bookAllowance}</td>
-                <td className="border border-gray-300 px-4 py-2">{item.total}</td>
+                <td className="border border-gray-300 px-4 py-2">Rs. {item.total}</td>
                 <td className="border border-gray-300 px-4 py-2">{item.chequeNo}</td>
                 <td className="border border-gray-300 px-4 py-2">{item.remarks}</td>
               </tr>

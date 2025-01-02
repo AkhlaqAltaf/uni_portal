@@ -48,16 +48,16 @@ const LibraryComponent = () => {
     );
 
   return (
-    <div className="max-w-5xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+    <div className="p-6 bg-gradient-to-br from-gray-800 via-gray-900 to-purple-900 text-white rounded-lg shadow">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-500 to-purple-600 h-16 flex items-center px-6">
-        <h1 className="text-white text-lg font-bold">Library</h1>
+      <div className=" h-16 flex items-center px-6 mb-6">
+        <h1 className="items-center text-3xl  text-white font-bold">Library</h1>
       </div>
 
       {/* Tabs */}
-      <div className="bg-gray-100 flex justify-around py-2 border-b">
+      <div className=" bg-gradient-to-br from-gray-800 via-gray-900 to-purple-900 text-white flex justify-around py-2 border-b">
         <button
-          className={`px-4 py-2 font-semibold ${
+          className={`px-4 text-white  py-2 font-semibold ${
             activeTab === "availableBooks"
               ? "text-blue-600 border-b-2 border-blue-600"
               : "text-gray-600"
@@ -67,7 +67,7 @@ const LibraryComponent = () => {
           Available Books
         </button>
         <button
-          className={`px-4 py-2 font-semibold ${
+          className={`px-4 text-white py-2 font-semibold ${
             activeTab === "issuedBooks"
               ? "text-blue-600 border-b-2 border-blue-600"
               : "text-gray-600"
@@ -77,7 +77,7 @@ const LibraryComponent = () => {
           Issued Books
         </button>
         <button
-          className={`px-4 py-2 font-semibold ${
+          className={`px-4 text-white py-2 font-semibold ${
             activeTab === "history"
               ? "text-blue-600 border-b-2 border-blue-600"
               : "text-gray-600"
@@ -89,16 +89,16 @@ const LibraryComponent = () => {
       </div>
 
       {/* Search and Sort */}
-      <div className="px-6 py-4 bg-gray-50 flex justify-between items-center">
+      <div className="flex justify-between items-center bg-gray-700/50 p-4 mb-6 rounded-lg">
         <input
           type="text"
           placeholder="Search for books..."
-          className="w-2/3 p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-2/3 p-2 bg-gray-800 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
         <select
-          className="p-2 border rounded"
+          className="p-2 bg-gray-800 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
         >
@@ -108,23 +108,19 @@ const LibraryComponent = () => {
       </div>
 
       {/* Content */}
-      <div className="px-6 py-4">
+      <div>
         {activeTab === "availableBooks" && (
           <div>
-            <h2 className="text-gray-800 font-semibold mb-4">
-              Available Books
-            </h2>
-            <ul className="space-y-2">
+            <h2 className="text-white font-semibold mb-4">Available Books</h2>
+            <ul className="space-y-4">
               {filteredBooks(books.availableBooks).map((book, index) => (
                 <li
                   key={index}
-                  className="border p-3 rounded bg-gray-50 shadow-sm flex justify-between items-center"
+                  className="p-4 bg-gray-700 rounded-lg shadow flex justify-between items-center"
                 >
                   <div>
                     <h3 className="font-bold">{book.title}</h3>
-                    <p className="text-sm text-gray-600">
-                      Author: {book.author}
-                    </p>
+                    <p className="text-sm text-gray-400">Author: {book.author}</p>
                   </div>
                   <button
                     className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
@@ -140,19 +136,17 @@ const LibraryComponent = () => {
 
         {activeTab === "issuedBooks" && (
           <div>
-            <h2 className="text-gray-800 font-semibold mb-4">Issued Books</h2>
-            <ul className="space-y-2">
+            <h2 className="text-white font-semibold mb-4">Issued Books</h2>
+            <ul className="space-y-4">
               {filteredBooks(books.issuedBooks).map((book, index) => (
                 <li
                   key={index}
-                  className="border p-3 rounded bg-gray-50 shadow-sm"
+                  className="p-4 bg-gray-700 rounded-lg shadow"
                 >
                   <h3 className="font-bold">{book.title}</h3>
-                  <p className="text-sm text-gray-600">Author: {book.author}</p>
-                  <p className="text-sm text-gray-600">
-                    Issued: {book.issueDate}
-                  </p>
-                  <p className="text-sm text-gray-600">Due: {book.dueDate}</p>
+                  <p className="text-sm text-gray-400">Author: {book.author}</p>
+                  <p className="text-sm text-gray-400">Issued: {book.issueDate}</p>
+                  <p className="text-sm text-gray-400">Due: {book.dueDate}</p>
                 </li>
               ))}
             </ul>
@@ -161,18 +155,16 @@ const LibraryComponent = () => {
 
         {activeTab === "history" && (
           <div>
-            <h2 className="text-gray-800 font-semibold mb-4">
-              Borrowing History
-            </h2>
-            <ul className="space-y-2">
+            <h2 className="text-white font-semibold mb-4">Borrowing History</h2>
+            <ul className="space-y-4">
               {filteredBooks(books.borrowingHistory).map((book, index) => (
                 <li
                   key={index}
-                  className="border p-3 rounded bg-gray-50 shadow-sm"
+                  className="p-4 bg-gray-700 rounded-lg shadow"
                 >
                   <h3 className="font-bold">{book.title}</h3>
-                  <p className="text-sm text-gray-600">Author: {book.author}</p>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm text-gray-400">Author: {book.author}</p>
+                  <p className="text-sm text-gray-400">
                     Returned: {book.returnedDate}
                   </p>
                 </li>
@@ -185,11 +177,9 @@ const LibraryComponent = () => {
       {/* Book Details Modal */}
       {selectedBook && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white p-6 rounded shadow-lg">
+          <div className="bg-white p-6 rounded-lg shadow-lg">
             <h3 className="text-lg font-bold mb-4">{selectedBook.title}</h3>
-            <p className="text-sm text-gray-600">
-              Author: {selectedBook.author}
-            </p>
+            <p className="text-sm text-gray-600">Author: {selectedBook.author}</p>
             <button
               className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
               onClick={() => setSelectedBook(null)}

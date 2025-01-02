@@ -8,22 +8,22 @@ const LoginHistory = () => {
     ];
 
     return (
-        <div className="p-6 bg-white rounded-lg shadow-md">
-            <h2 className="text-2xl font-semibold mb-6">Login History</h2>
+        <div className="p-6 bg-gradient-to-br from-gray-800 via-gray-900 to-purple-900 text-white rounded-lg shadow-md">
+            <h2 className="text-2xl font-bold text-center mb-6">Login History</h2>
             <table className="min-w-full">
                 <thead>
-                    <tr className="bg-gray-100">
-                        <th className="py-2 px-4 text-left">Date & Time</th>
-                        <th className="py-2 px-4 text-left">IP Address</th>
-                        <th className="py-2 px-4 text-left">Device</th>
+                    <tr className="bg-gray-700">
+                        <th className="py-2 px-4 text-left text-sm font-semibold">Date & Time</th>
+                        <th className="py-2 px-4 text-left text-sm font-semibold">IP Address</th>
+                        <th className="py-2 px-4 text-left text-sm font-semibold">Device</th>
                     </tr>
                 </thead>
                 <tbody>
                     {loginHistory.map((login, index) => (
-                        <tr key={index} className="border-b">
-                            <td className="py-2 px-4">{login.date}</td>
-                            <td className="py-2 px-4">{login.ip}</td>
-                            <td className="py-2 px-4">{login.device}</td>
+                        <tr key={index} className="border-b border-gray-700">
+                            <td className="py-2 px-4 text-sm">{login.date}</td>
+                            <td className="py-2 px-4 text-sm">{login.ip}</td>
+                            <td className="py-2 px-4 text-sm">{login.device}</td>
                         </tr>
                     ))}
                 </tbody>

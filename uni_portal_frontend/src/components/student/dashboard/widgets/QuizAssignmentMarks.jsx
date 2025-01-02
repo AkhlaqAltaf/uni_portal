@@ -54,7 +54,7 @@ const QuizAssignmentMarks = () => {
 
   const renderProgressBar = (percentage) => {
     return (
-      <div className="w-full bg-gray-200 rounded-full h-2.5 overflow-hidden">
+      <div className="w-full bg-gray-700 rounded-full h-2.5 overflow-hidden">
         <div
           className={`h-full bg-gradient-to-r ${
             percentage >= 75
@@ -71,59 +71,51 @@ const QuizAssignmentMarks = () => {
 
   const renderTable = (title, marksData) => {
     return (
-      <div className="mb-6 bg-gradient-to-br from-white to-blue-50 rounded-lg shadow-lg border border-blue-200 p-6">
-        <h3 className="text-lg font-bold text-gray-800 mb-4">{title}</h3>
-        <table className="w-full text-left">
-          <thead>
-            <tr className="bg-gray-100">
-              <th className="px-4 py-2 text-sm font-semibold">S.No</th>
-              <th className="px-4 py-2 text-sm font-semibold">Date</th>
-              <th className="px-4 py-2 text-sm font-semibold">
-                {title === "Quiz Marks" ? "Quiz Topic" : "Topic"}
-              </th>
-              <th className="px-4 py-2 text-sm font-semibold">Total</th>
-              <th className="px-4 py-2 text-sm font-semibold">Obtained</th>
-              <th className="px-4 py-2 text-sm font-semibold">%</th>
-              <th className="px-4 py-2 text-sm font-semibold">Progress</th>
-            </tr>
-          </thead>
-          <tbody>
-            {marksData.map((mark, index) => (
-              <tr
-                key={mark.id}
-                className="hover:bg-blue-50 transition-colors duration-200"
-              >
-                <td className="px-4 py-2 text-sm">{index + 1}</td>
-                <td className="px-4 py-2 text-sm">{mark.date}</td>
-                <td className="px-4 py-2 text-sm">{mark.topic}</td>
-                <td className="px-4 py-2 text-sm text-center">{mark.total}</td>
-                <td className="px-4 py-2 text-sm text-center">{mark.obtained}</td>
-                <td className="px-4 py-2 text-sm text-center">{mark.percentage}%</td>
-                <td className="px-4 py-2">{renderProgressBar(mark.percentage)}</td>
+      <div className="bg-gray-800 rounded-lg shadow-lg p-6 mb-6 border border-gray-700">
+        <h3 className="text-lg font-bold mb-4">{title}</h3>
+        <div className="overflow-x-auto">
+          <table className="w-full text-left border-collapse border border-gray-700">
+            <thead>
+              <tr className="bg-gray-700">
+                <th className="px-4 py-2 text-sm font-semibold">S.No</th>
+                <th className="px-4 py-2 text-sm font-semibold">Date</th>
+                <th className="px-4 py-2 text-sm font-semibold">Topic</th>
+                <th className="px-4 py-2 text-sm font-semibold text-center">Total</th>
+                <th className="px-4 py-2 text-sm font-semibold text-center">Obtained</th>
+                <th className="px-4 py-2 text-sm font-semibold text-center">%</th>
+                <th className="px-4 py-2 text-sm font-semibold">Progress</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {marksData.map((mark, index) => (
+                <tr key={mark.id} className="hover:bg-gray-700 transition-colors duration-200">
+                  <td className="px-4 py-2">{index + 1}</td>
+                  <td className="px-4 py-2">{mark.date}</td>
+                  <td className="px-4 py-2">{mark.topic}</td>
+                  <td className="px-4 py-2 text-center">{mark.total}</td>
+                  <td className="px-4 py-2 text-center">{mark.obtained}</td>
+                  <td className="px-4 py-2 text-center">{mark.percentage}%</td>
+                  <td className="px-4 py-2">{renderProgressBar(mark.percentage)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     );
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-blue-50 to-purple-100 p-8">
-      <h2 className="text-4xl font-extrabold text-center text-gray-800 mb-8">
-        Quiz Assignment Marks
-      </h2>
-      <div className="bg-gradient-to-br from-white to-blue-50 shadow-lg rounded-lg p-6 mb-6">
-        <div className="space-y-2">
-          <p className="text-lg font-medium text-gray-700">
-            <span className="font-bold">Course:</span> {data.course}
-          </p>
-          <p className="text-lg font-medium text-gray-700">
-            <span className="font-bold">Faculty:</span> {data.faculty}
-          </p>
-        </div>
+    <div className="p-6 bg-gradient-to-br from-gray-800 via-gray-900 to-purple-900 text-white rounded-lg shadow">
+      <h2 className="text-2xl font-bold mb-6">Quiz Assignment Marks</h2>
+      <div className="bg-gray-800 rounded-lg shadow-lg p-6 mb-6 border border-gray-700">
+        <p className="text-lg">
+          <span className="font-bold">Course:</span> {data.course}
+        </p>
+        <p className="text-lg">
+          <span className="font-bold">Faculty:</span> {data.faculty}
+        </p>
       </div>
-
       {renderTable("Quiz Marks", data.quizMarks)}
       {renderTable("Assignment Marks", data.assignmentMarks)}
       {renderTable("Midterm Marks", data.midtermMarks)}
