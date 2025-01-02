@@ -32,11 +32,13 @@ import LoginHistory from "./components/student/dashboard/widgets/LoginHistory";
 import LibraryComponent from "./components/student/dashboard/widgets/LibraryComponent";
 import AddSibling from "./components/student/dashboard/widgets/AddSiblingInfo";
 import ScholarshipStatus from "./components/student/dashboard/widgets/ScholarshipStatus";
+import AdminDashboard from "./components/Admin/dashboard/AdminDashboard";
 
 const routes = [
   // Main Dashboards
   { path: "/student", element: <Dashboard />, role: "student" },
   { path: "/teacher", element: <TeacherDashboard />, role: "teacher" },
+   
 
   // Course Routes
   { path: "/student/courses/summary", element: <CourseSummary /> },

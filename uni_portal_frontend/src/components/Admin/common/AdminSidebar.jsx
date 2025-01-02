@@ -5,6 +5,7 @@ import {
   FaCalendarAlt, FaClipboardList, FaCogs, FaWallet, FaUniversity,
   FaClipboardCheck, FaGraduationCap
 } from "react-icons/fa";
+import ViewAllStudents from "../dashboard/Widgets/ViewAllStudents";
 
 const MenuItem = ({ to, icon: Icon, children, onClick, isDropdown, isOpen, isActive }) => (
   <li>
@@ -61,7 +62,12 @@ const Sidebar = () => {
     sibling: false,
     scholarship: false,
     fee: false,
-    settings: false
+    settings: false,
+    fees: false,
+    examination: false,
+    academic: false,
+    communication:false
+    
   });
 
   const toggleDropdown = (key) => {
@@ -87,31 +93,31 @@ const Sidebar = () => {
 
             <MenuItem 
               icon={FaBook}
-              onClick={() => toggleDropdown('student-management')}
+              onClick={() => toggleDropdown('students')}
               isDropdown
-              isOpen={dropdowns.courses}
+              isOpen={dropdowns.students}
             >
-              Student Management
+              Students
             </MenuItem>
-            {dropdowns.courses && (
+            {dropdowns.students && (
               <ul className="mt-2 ml-4 pl-4 border-l border-purple-500/30 space-y-1
                            animate-fadeIn">
-                <SubMenuItem to="/student-management/view-all-students">View All Students</SubMenuItem>
-                <SubMenuItem to="/student-management/add-new-student">Add New Student</SubMenuItem>
-                <SubMenuItem to="/student-management/enrollment-status">Enrollment Status</SubMenuItem>
+                <SubMenuItem to="/Students/ViewAllStudents">View All Students</SubMenuItem>
+                <SubMenuItem to="/Students/AddNewStudent">Add New Student</SubMenuItem>
+                <SubMenuItem to="/Students/EnrollmentStatus">Enrollment Status</SubMenuItem>
                 <SubMenuItem to="/student-management/performance-reports">Performance Reports</SubMenuItem>
               </ul>
             )}
 
             <MenuItem 
               icon={FaClipboardCheck}
-              onClick={() => toggleDropdown('faculty-management')}
+              onClick={() => toggleDropdown('faculty')}
               isDropdown
-              isOpen={dropdowns.coursePortal}
+              isOpen={dropdowns.faculty}
             >
-             Faculty Management
+             Faculty
             </MenuItem>
-            {dropdowns.coursePortal && (
+            {dropdowns.faculty && (
               <ul className="mt-2 ml-4 pl-4 border-l border-purple-500/30 space-y-1
                            animate-fadeIn">
                 <SubMenuItem to="/faculty-management/view-all-faculty">View All Faculty</SubMenuItem>
@@ -123,13 +129,14 @@ const Sidebar = () => {
             )}
 
             <MenuItem 
-              to="/ course-management" 
-              icon={FaUniversity} 
-              isActive={isActive('/course-management')}
+               icon={FaUniversity}
+               onClick={() => toggleDropdown('courses')} // Use the correct key
+               isDropdown
+               isOpen={dropdowns.courses} // Check the correct key
             >
-             Course Management
+             Courses
             </MenuItem>
-            {dropdowns.coursePortal && (
+            {dropdowns.courses && (
               <ul className="mt-2 ml-4 pl-4 border-l border-purple-500/30 space-y-1
                            animate-fadeIn">
                 <SubMenuItem to="/course-management/manage-courses">Manage Courses</SubMenuItem>
@@ -141,13 +148,16 @@ const Sidebar = () => {
             )}
 
             <MenuItem 
-              to="/examination&-results" 
+            
               icon={FaBook} 
-              isActive={isActive('/examination&-results')}
+              onClick={() => toggleDropdown('examination')}
+              isActive={isActive('examination')}
+              isDropdown
+              isOpen={dropdowns.examination} 
             >
-            Examination & Results
+            Examination
             </MenuItem>
-            {dropdowns.coursePortal && (
+            {dropdowns.examination && (
               <ul className="mt-2 ml-4 pl-4 border-l border-purple-500/30 space-y-1
                            animate-fadeIn">
                 <SubMenuItem to="/examination&-results/manage-exams<">Manage Exams</SubMenuItem>
@@ -160,13 +170,16 @@ const Sidebar = () => {
 
 
             <MenuItem 
-              to="/fee-management" 
+           
               icon={FaSchool} 
-              isActive={isActive('/fee-management')}
+              onClick={() => toggleDropdown('fees')}
+              isActive={isActive('fees')}
+              isDropdown
+              isOpen={dropdowns.fees} 
             >
            Fee Management
             </MenuItem>
-            {dropdowns.coursePortal && (
+            {dropdowns.fees && (
               <ul className="mt-2 ml-4 pl-4 border-l border-purple-500/30 space-y-1
                            animate-fadeIn">
                 <SubMenuItem to="/fee-management/fee-collection">Fee Collection</SubMenuItem>
@@ -180,39 +193,65 @@ const Sidebar = () => {
 
             <MenuItem 
               icon={FaGraduationCap}
-              onClick={() => toggleDropdown('sibling')}
+              onClick={() => toggleDropdown('staff')}
               isDropdown
-              isOpen={dropdowns.sibling}
+              isOpen={dropdowns.staff}
             >
-              Sibling Info
+            Staff
             </MenuItem>
-            {dropdowns.sibling && (
+            {dropdowns.staff && (
               <ul className="mt-2 ml-4 pl-4 border-l border-purple-500/30 space-y-1
                            animate-fadeIn">
-                <SubMenuItem to="/sibling-info/add-sibling-info">Add Sibling Info</SubMenuItem>
+                <SubMenuItem to="/sibling-info/add-sibling-info">Add/Edit Staff</SubMenuItem>
+                <SubMenuItem to="/sibling-info/add-sibling-info">View Staff Profiles</SubMenuItem>
+                <SubMenuItem to="/sibling-info/add-sibling-info">Roles & Permissions</SubMenuItem>
               </ul>
             )}
 
             <MenuItem 
-              to="/result" 
+              
               icon={FaClipboardCheck} 
-              isActive={isActive('/result')}
+              onClick={() => toggleDropdown('academic')}
+              isActive={isActive('academic')}
+              isDropdown
+              isOpen={dropdowns.academic} 
             >
-              Result
+           Academic Management
             </MenuItem>
+            {dropdowns.academic && (
+              <ul className="mt-2 ml-4 pl-4 border-l border-purple-500/30 space-y-1
+                           animate-fadeIn">
+                <SubMenuItem to="/sibling-info/add-sibling-info">Class Scheduling</SubMenuItem>
+                <SubMenuItem to="/sibling-info/add-sibling-info">Exam Management</SubMenuItem>
+                <SubMenuItem to="/sibling-info/add-sibling-info">Academic Calendar</SubMenuItem>
+                <SubMenuItem to="/sibling-info/add-sibling-info">Grading Policies</SubMenuItem>
+              </ul>
+            )}
 
             <MenuItem 
-              to="/obe" 
+             
               icon={FaClipboardList} 
-              isActive={isActive('/obe')}
+              onClick={() => toggleDropdown('communication')}
+              isActive={isActive('communication')}
+              isDropdown
+              isOpen={dropdowns.communication} 
             >
-              OBE
+             Communication
             </MenuItem>
+            {dropdowns.communication && (
+              <ul className="mt-2 ml-4 pl-4 border-l border-purple-500/30 space-y-1
+                           animate-fadeIn">
+                <SubMenuItem to="/sibling-info/add-sibling-info">Announcements</SubMenuItem>
+                <SubMenuItem to="/sibling-info/add-sibling-info">Messaging System</SubMenuItem>
+                <SubMenuItem to="/sibling-info/add-sibling-info">Notifications</SubMenuItem>
+                <SubMenuItem to="/sibling-info/add-sibling-info">Event Calendar</SubMenuItem>
+              </ul>
+            )}
 
             <MenuItem 
               to="/timetable" 
               icon={FaCalendarAlt} 
-              isActive={isActive('/timetable')}
+              isActive={isActive('timetable')}
             >
               Timetable
             </MenuItem>

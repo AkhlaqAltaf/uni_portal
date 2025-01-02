@@ -4,6 +4,7 @@ import MainLayout from "./layouts/MainLayout";
 import Login from "./components/Login";
 import { teacherRoutes } from "./routes/TeacherRoutes";
 import { studentRoutes } from "./routes/StudentRoutes";
+import { adminRoutes } from "./routes/AdminRoutes";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -16,7 +17,20 @@ const App = () => {
     return <Login onLogin={handleLogin} />;
   }
 
-  const routes = user.role === "teacher" ? teacherRoutes : studentRoutes;
+  let routes;
+
+  switch (user.role) {
+    case "teacher":
+      routes = teacherRoutes;
+      break;
+    case "student":
+      routes = studentRoutes;
+      break;
+    case "admin":
+      routes = adminRoutes;
+      break;
+  
+  }
 
   return (
     <MainLayout user={user}>
