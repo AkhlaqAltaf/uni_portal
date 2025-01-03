@@ -13,7 +13,7 @@ const Login = ({ onLogin }) => {
   const mockUsers = {
     student: { username: "student", password: "123", role: "student" },
     teacher: { username: "teacher", password: "123", role: "teacher" },
-    teacher: { username: "admin", password: "123", role: "admin" },
+    admin: { username: "admin", password: "123", role: "admin" },
   };
 
   const handleSubmit = (e) => {
