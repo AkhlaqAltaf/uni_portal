@@ -9,7 +9,7 @@ const Header = () => {
                     {/* Logo and Title */}
                     <div className="flex-shrink-0">
                         <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-pink-200">
-                            Student Portal
+                           Admin
                         </h1>
                     </div>
 

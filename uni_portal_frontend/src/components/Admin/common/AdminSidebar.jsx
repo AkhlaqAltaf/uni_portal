@@ -105,7 +105,7 @@ const Sidebar = () => {
                 <SubMenuItem to="/Students/ViewAllStudents">View All Students</SubMenuItem>
                 <SubMenuItem to="/Students/AddNewStudent">Add New Student</SubMenuItem>
                 <SubMenuItem to="/Students/EnrollmentStatus">Enrollment Status</SubMenuItem>
-                <SubMenuItem to="/student-management/performance-reports">Performance Reports</SubMenuItem>
+                <SubMenuItem to="/Students/PerformanceReport">Performance Reports</SubMenuItem>
               </ul>
             )}
 
@@ -120,10 +120,10 @@ const Sidebar = () => {
             {dropdowns.faculty && (
               <ul className="mt-2 ml-4 pl-4 border-l border-purple-500/30 space-y-1
                            animate-fadeIn">
-                <SubMenuItem to="/faculty-management/view-all-faculty">View All Faculty</SubMenuItem>
-                <SubMenuItem to="/faculty-management/add-new-faculty">Add New Faculty</SubMenuItem>
-                <SubMenuItem to="/faculty-management/assign-courses">Assign Courses</SubMenuItem>
-                <SubMenuItem to="/faculty-management/faculty-performance">Faculty Performance</SubMenuItem>
+                <SubMenuItem to="/Faculty/ViewAllFaculty">View All Faculty</SubMenuItem>
+                <SubMenuItem to="/Faculty/AddNewFaculty">Add New Faculty</SubMenuItem>
+                <SubMenuItem to="/Faculty/AssignCourses">Assign Courses</SubMenuItem>
+                <SubMenuItem to="/Faculty/FacultyPerformance">Faculty Performance</SubMenuItem>
                 
               </ul>
             )}
@@ -139,10 +139,10 @@ const Sidebar = () => {
             {dropdowns.courses && (
               <ul className="mt-2 ml-4 pl-4 border-l border-purple-500/30 space-y-1
                            animate-fadeIn">
-                <SubMenuItem to="/course-management/manage-courses">Manage Courses</SubMenuItem>
-                <SubMenuItem to="/course-management/qdd-new-course">Add New Course</SubMenuItem>
-                <SubMenuItem to="/course-management/course-schedules">Course Schedules</SubMenuItem>
-                <SubMenuItem to="/course-management/Enrollment-requests">Enrollment Requests</SubMenuItem>
+                <SubMenuItem to="/Courses/ManageCourses">Manage Courses</SubMenuItem>
+                <SubMenuItem to="/Courses/AddnewCourse">Add New Course</SubMenuItem>
+                <SubMenuItem to="/Courses/CourseSchedule">Course Schedules</SubMenuItem>
+                <SubMenuItem to="/Courses/EnrollmentRequests">Enrollment Requests</SubMenuItem>
                 
               </ul>
             )}
