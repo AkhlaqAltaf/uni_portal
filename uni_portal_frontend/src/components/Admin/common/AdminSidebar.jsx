@@ -78,11 +78,11 @@ const Sidebar = () => {
 
   return (
     <div className="relative bg-gradient-to-br from-gray-900 via-indigo-900 to-purple-900 
-                    text-white w-64 min-h-screen backdrop-blur-lg shadow-xl 
+                    text-white w-72 min-h-screen backdrop-blur-lg shadow-xl 
                     border-r border-white/10">
-      <div className="px-4 py-6 space-y-4">
+      <div className="px-3 py-6 space-y-4">
         <nav>
-          <ul className="space-y-1.5">
+          <ul className="space-y-1.5 ">
             <MenuItem 
               to="/" 
               icon={FaHome} 
@@ -160,9 +160,9 @@ const Sidebar = () => {
             {dropdowns.examination && (
               <ul className="mt-2 ml-4 pl-4 border-l border-purple-500/30 space-y-1
                            animate-fadeIn">
-                <SubMenuItem to="/examination&-results/manage-exams<">Manage Exams</SubMenuItem>
-                <SubMenuItem to="/examination&-results/upload-results">Upload Results</SubMenuItem>
-                <SubMenuItem to="/examination&-results/view-results-analytics">View Results Analytics</SubMenuItem>
+                <SubMenuItem to="/Examination/ManageExams">Manage Exams</SubMenuItem>
+                <SubMenuItem to="/Examination/UploadResult">Upload Results</SubMenuItem>
+                <SubMenuItem to="/Examination/ResultAnalytic">View Results Analytics</SubMenuItem>
                 
                 
               </ul>
@@ -202,9 +202,9 @@ const Sidebar = () => {
             {dropdowns.staff && (
               <ul className="mt-2 ml-4 pl-4 border-l border-purple-500/30 space-y-1
                            animate-fadeIn">
-                <SubMenuItem to="/sibling-info/add-sibling-info">Add/Edit Staff</SubMenuItem>
-                <SubMenuItem to="/sibling-info/add-sibling-info">View Staff Profiles</SubMenuItem>
-                <SubMenuItem to="/sibling-info/add-sibling-info">Roles & Permissions</SubMenuItem>
+                <SubMenuItem to="/Staff/StaffManagement">Add/Edit Staff</SubMenuItem>
+                <SubMenuItem to="/Staff/StaffProfile">View Staff Profiles</SubMenuItem>
+                <SubMenuItem to="/Staff/StaffRollAndPermission">Roles & Permissions</SubMenuItem>
               </ul>
             )}
 
@@ -221,7 +221,7 @@ const Sidebar = () => {
             {dropdowns.academic && (
               <ul className="mt-2 ml-4 pl-4 border-l border-purple-500/30 space-y-1
                            animate-fadeIn">
-                <SubMenuItem to="/sibling-info/add-sibling-info">Class Scheduling</SubMenuItem>
+                <SubMenuItem to="/Academic/ClassScheduling">Class Scheduling</SubMenuItem>
                 <SubMenuItem to="/sibling-info/add-sibling-info">Exam Management</SubMenuItem>
                 <SubMenuItem to="/sibling-info/add-sibling-info">Academic Calendar</SubMenuItem>
                 <SubMenuItem to="/sibling-info/add-sibling-info">Grading Policies</SubMenuItem>
@@ -241,7 +241,7 @@ const Sidebar = () => {
             {dropdowns.communication && (
               <ul className="mt-2 ml-4 pl-4 border-l border-purple-500/30 space-y-1
                            animate-fadeIn">
-                <SubMenuItem to="/sibling-info/add-sibling-info">Announcements</SubMenuItem>
+                <SubMenuItem to="/Communication/Announcements">Announcements</SubMenuItem>
                 <SubMenuItem to="/sibling-info/add-sibling-info">Messaging System</SubMenuItem>
                 <SubMenuItem to="/sibling-info/add-sibling-info">Notifications</SubMenuItem>
                 <SubMenuItem to="/sibling-info/add-sibling-info">Event Calendar</SubMenuItem>
