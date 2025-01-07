@@ -21,9 +21,22 @@ import StaffManagement from "../components/Admin/dashboard/Widgets/StaffManageme
 import StaffProfile from "../components/Admin/dashboard/Widgets/StaffPorfile";
 import StaffRolePermission from "../components/Admin/dashboard/Widgets/SaffRollAndPermission";
 import Announcements from "../components/Admin/dashboard/Widgets/Announcements";
+import MessagingSystem from "../components/Admin/dashboard/Widgets/MessagingSystem";
+import Notification from "../components/Admin/dashboard/Widgets/Notifications";
+import EventCalendar from "../components/Admin/dashboard/Widgets/EventCalender";
+import FinancialOverview from "../components/Admin/dashboard/Widgets/FinancialOverview";
+import MRevenueStreams from "../components/Admin/dashboard/Widgets/MRevenueStreams";
+import Expenditures from "../components/Admin/dashboard/Widgets/Expenditures";
+import BudgetAllocation from "../components/Admin/dashboard/Widgets/BudgetAllocation";
+import DonationsAndGrants from "../components/Admin/dashboard/Widgets/DonationsAndGrants";
+import UniversityOverview from "../components/Admin/dashboard/Widgets/UniversityOverview";
+import KeyMetrics from "../components/Admin/dashboard/Widgets/KeyMetrics";
 
 export const adminRoutes = [
     { path: "/", element: <Dashboard /> },
+    { path: "DashBoard", element: <Dashboard /> },
+    { path: "DashBoard/OverView", element: <UniversityOverview /> },
+    { path: "DashBoard/KeyMetrics", element: <KeyMetrics /> },
    
     { path: "/Students/ViewAllStudents", element: <ViewAllStudents /> },
     { path: "/Students/AddNewStudent", element: <AddNewStudent /> },
@@ -44,6 +57,13 @@ export const adminRoutes = [
     { path: "/Staff/StaffProfile", element:  <StaffProfile/>},
     { path: "/Staff/StaffRollAndPermission", element:  <StaffRolePermission/>},
     { path: "/Communication/Announcements", element:  <Announcements/>},
-   
-
+    { path: "/Communication/MessagingSystem", element:  <MessagingSystem/>},
+    { path: "/Communication/Notifications", element:  <Notification/>},
+    { path: "/Communication/EventCalender", element:  <EventCalendar/>},
+    { path: "/Finance/FinancialOverview", element:  <FinancialOverview/>},
+    { path: "/Finance/MRevenueStreams", element:  <MRevenueStreams/>},
+    { path: "/Finance/Expenditures", element:  <Expenditures/>},
+    { path: "/Finance/BudgetAllocation", element:  <BudgetAllocation/>},
+    { path: "/Finance/DonationsAndGrants", element:  <DonationsAndGrants/>},
+    
 ]
