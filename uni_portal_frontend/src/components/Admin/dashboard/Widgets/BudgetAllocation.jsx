@@ -47,7 +47,7 @@ const BudgetAllocation = () => {
   };
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-6 space-y-6  bg-gray-300 rounded-lg">
       <h1 className="text-3xl font-bold text-center text-gray-800">University Budget Allocation</h1>
 
       {/* Budget Allocation Table */}

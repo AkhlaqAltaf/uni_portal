@@ -34,12 +34,12 @@ const UniversityOverview = () => {
   };
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-6 space-y-6 rounded-lg  bg-gray-300   ">
       <h1 className="text-3xl font-bold text-center text-gray-800">University Overview</h1>
 
       {/* Overview Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div className="bg-white shadow-md rounded-lg p-6 text-center">
+      <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="bg-white shadow-md rounded-lg p-6 text-center ">
           <FaUsers className="text-4xl text-blue-600 mb-4" />
           <h3 className="text-lg font-semibold text-gray-700">Total Students</h3>
           <p className="text-2xl font-bold text-gray-900">{metrics.totalStudents}</p>

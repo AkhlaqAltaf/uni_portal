@@ -31,6 +31,10 @@ import BudgetAllocation from "../components/Admin/dashboard/Widgets/BudgetAlloca
 import DonationsAndGrants from "../components/Admin/dashboard/Widgets/DonationsAndGrants";
 import UniversityOverview from "../components/Admin/dashboard/Widgets/UniversityOverview";
 import KeyMetrics from "../components/Admin/dashboard/Widgets/KeyMetrics";
+import AcademicPerformanceReports from "../components/Admin/dashboard/Widgets/AcadamicPerformanceReports";
+import FinancialReports from "../components/Admin/dashboard/Widgets/FinancialReports";
+import FacultyEvaluationReports from "../components/Admin/dashboard/Widgets/FacultyEvaluationReports";
+import ResearchFundingReports from "../components/Admin/dashboard/Widgets/ResearchFundingReports";
 
 export const adminRoutes = [
     { path: "/", element: <Dashboard /> },
@@ -65,5 +69,10 @@ export const adminRoutes = [
     { path: "/Finance/Expenditures", element:  <Expenditures/>},
     { path: "/Finance/BudgetAllocation", element:  <BudgetAllocation/>},
     { path: "/Finance/DonationsAndGrants", element:  <DonationsAndGrants/>},
+    { path: "/Reports/AcademicPerformanceReports", element:  <AcademicPerformanceReports/>},
+    { path: "/Reports/FinancialReports", element:  <FinancialReports/>},
+    { path: "/Reports/FacultyEvaluationReports", element:  <FacultyEvaluationReports/>},
+    { path: "/Reports/ResearchFundingReports", element:  <ResearchFundingReports/>},
+
     
 ]

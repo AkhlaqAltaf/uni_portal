@@ -384,9 +384,7 @@ const Sidebar = () => {
                 <SubMenuItem to="/Finance/DonationsAndGrants">
                   Donations & Grants
                 </SubMenuItem>
-                <SubMenuItem to="/Finance/Overview">
-                  Donations & Grants
-                </SubMenuItem>
+             
               </ul>
             )}
 
@@ -404,14 +402,14 @@ const Sidebar = () => {
                 className="mt-2 ml-4 pl-4 border-l border-purple-500/30 space-y-1
                            animate-fadeIn"
               >
-                <SubMenuItem to="/fee/challan">
+                <SubMenuItem to="/Reports/AcademicPerformanceReports">
                   Academic Performance Reports
                 </SubMenuItem>
-                <SubMenuItem to="/fee/history">Financial Reports</SubMenuItem>
-                <SubMenuItem to="/fee/installment">
+                <SubMenuItem to="/Reports/FinancialReports">Financial Reports</SubMenuItem>
+                <SubMenuItem to="/Reports/FacultyEvaluationReports">
                   Faculty Evaluation Reports
                 </SubMenuItem>
-                <SubMenuItem to="/fee/installment-status">
+                <SubMenuItem to="/Reports/ResearchFundingReports">
                   Research Funding and Reports
                 </SubMenuItem>
               </ul>

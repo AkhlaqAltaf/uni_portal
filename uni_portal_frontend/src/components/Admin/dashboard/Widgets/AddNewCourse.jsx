@@ -46,7 +46,7 @@ const AddNewCourse = () => {
 
   return (
     
-    <div className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-2xl">
+    <div className="max-w-3xl mx-auto p-6  bg-gray-300  rounded-lg shadow-2xl">
       <h2 className="text-2xl font-semibold mb-6">Add New Course</h2>
 
       {/* Progress Bar */}

@@ -36,7 +36,7 @@ const ViewAllStudents = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="p-6 bg-gradient-to-r from-blue-50 to-purple-100 min-h-screen">
+    <div className="p-6  bg-gray-300 rounded-lg min-h-screen ">
       <h1 className="text-2xl font-semibold text-gray-800 mb-4">View All Students</h1>
 
       {/* Search Input */}
