@@ -3,23 +3,20 @@ import EnrollmentStatus from "../components/Admin/dashboard/Widgets/Enrollment S
 import AddNewStudent from "../components/Admin/dashboard/Widgets/AddNewStudent";
 import Dashboard from "../components/Admin/dashboard/AdminDashboard";
 import PerformanceReport from "../components/Admin/dashboard/Widgets/PerformanceReport";
-import { useInRouterContext } from "react-router-dom";
 import ViewAllFaculty from "../components/Admin/dashboard/Widgets/ViewAllFaculty";
 import AddNewFaculty from "../components/Admin/dashboard/Widgets/AddNewFaculty";
-import AssignCourseToFaculty from "../components/Admin/dashboard/Widgets/AssignCourses";
 import AssignCourses from "../components/Admin/dashboard/Widgets/AssignCourses";
 import FacultyPerformance from "../components/Admin/dashboard/Widgets/FacultyPerformace";
 import ManageCourses from "../components/Admin/dashboard/Widgets/ManageCourses";
 import AddNewCourse from "../components/Admin/dashboard/Widgets/AddNewCourse";
 import CourseSchedule from "../components/Admin/dashboard/Widgets/CourseSchedule";
 import EnrollmentRequests from "../components/Admin/dashboard/Widgets/EnrollmentRequests";
-import ManageExam from "../components/Admin/dashboard/Widgets/ManageExams";
 import ManageExams from "../components/Admin/dashboard/Widgets/ManageExams";
 import UploadResult from "../components/Admin/dashboard/Widgets/UploadResult";
 import ResultAnalytics from "../components/Admin/dashboard/Widgets/ResultAnalytics";
 import StaffManagement from "../components/Admin/dashboard/Widgets/StaffManagement";
 import StaffProfile from "../components/Admin/dashboard/Widgets/StaffPorfile";
-import StaffRolePermission from "../components/Admin/dashboard/Widgets/SaffRollAndPermission";
+import StaffRolePermission from "../components/Admin/dashboard/Widgets/StaffRollAndPermission";
 import Announcements from "../components/Admin/dashboard/Widgets/Announcements";
 import MessagingSystem from "../components/Admin/dashboard/Widgets/MessagingSystem";
 import Notification from "../components/Admin/dashboard/Widgets/Notifications";
@@ -35,6 +32,10 @@ import AcademicPerformanceReports from "../components/Admin/dashboard/Widgets/Ac
 import FinancialReports from "../components/Admin/dashboard/Widgets/FinancialReports";
 import FacultyEvaluationReports from "../components/Admin/dashboard/Widgets/FacultyEvaluationReports";
 import ResearchFundingReports from "../components/Admin/dashboard/Widgets/ResearchFundingReports";
+import GradingPolicies from "../components/Admin/dashboard/Widgets/GradingPolicies";
+import PendingTasks from "../components/Admin/dashboard/Widgets/PendingTasks";
+
+
 
 export const adminRoutes = [
     { path: "/", element: <Dashboard /> },
@@ -73,6 +74,7 @@ export const adminRoutes = [
     { path: "/Reports/FinancialReports", element:  <FinancialReports/>},
     { path: "/Reports/FacultyEvaluationReports", element:  <FacultyEvaluationReports/>},
     { path: "/Reports/ResearchFundingReports", element:  <ResearchFundingReports/>},
-
+    { path: "/Academic/GradingPolicies", element:  <GradingPolicies/>},
+   
     
 ]

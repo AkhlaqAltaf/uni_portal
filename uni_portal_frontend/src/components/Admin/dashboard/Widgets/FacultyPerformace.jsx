@@ -20,7 +20,7 @@ const FacultyPerformance = () => {
   };
 
   return (
-    <div className="p-6 bg-gradient-to-r from-blue-50 to-purple-100 rounded-lg  min-h-screen">
+    <div className="p-6 bg-gray-300 rounded-lg  min-h-screen">
       <div className="max-w-7xl mx-auto bg-white shadow-md rounded-lg p-6">
         <h1 className="text-2xl font-semibold text-gray-800 mb-6">Faculty Performance Overview</h1>
 

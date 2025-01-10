@@ -24,7 +24,7 @@ const EventCalendar = () => {
     );
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
+    <div className="p-6 bg-gray-300 rounded-lg min-h-screen">
       <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">
         University Event Calendar
       </h1>

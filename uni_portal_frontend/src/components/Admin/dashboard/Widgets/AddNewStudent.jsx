@@ -44,7 +44,7 @@ const AddNewStudent = () => {
   };
 
   return (
-    <div className="p-6 bg-gradient-to-r from-blue-50 to-purple-100 rounded-lg shadow-md">
+    <div className="p-6 bg-gray-300 rounded-lg  shadow-md">
       <h2 className="text-2xl font-bold mb-4">Add New Student</h2>
       {message && <p className="mb-4 text-green-500">{message}</p>}
       <form onSubmit={handleSubmit}>

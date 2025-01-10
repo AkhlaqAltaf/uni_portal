@@ -12,11 +12,8 @@ import {
   FaMoneyBill,
   FaTachometerAlt,
   FaChalkboardTeacher,
-  
   FaComment,
-
 } from "react-icons/fa";
-
 
 const MenuItem = ({
   to,
@@ -108,31 +105,23 @@ const Sidebar = () => {
       <div className="px-3 py-6 space-y-4">
         <nav>
           <ul className="space-y-1.5 ">
-            <MenuItem 
-          
-            icon={FaTachometerAlt}
-            isActive={isActive("dasboard")}
-            onClick={() => toggleDropdown("dashboard")}
-            isDropdown
-            isOpen={dropdowns.dashboard}
+            <MenuItem
+              icon={FaTachometerAlt}
+              isActive={isActive("dasboard")}
+              onClick={() => toggleDropdown("dashboard")}
+              isDropdown
+              isOpen={dropdowns.dashboard}
             >
-               DashBoard
+              DashBoard
             </MenuItem>
             {dropdowns.dashboard && (
               <ul
                 className="mt-2 ml-4 pl-4 border-l border-purple-500/30 space-y-1
                            animate-fadeIn"
               >
-                <SubMenuItem to="DashBoard">
-                   DashBoard
-                </SubMenuItem>
-                <SubMenuItem to="DashBoard/OverView">
-                   Overview 
-                </SubMenuItem>
-                <SubMenuItem to="DashBoard/KeyMetrics">
-                  Key Metrics
-                </SubMenuItem>
-              
+                <SubMenuItem to="DashBoard">DashBoard</SubMenuItem>
+                <SubMenuItem to="DashBoard/OverView">Overview</SubMenuItem>
+                <SubMenuItem to="DashBoard/KeyMetrics">Key Metrics</SubMenuItem>
               </ul>
             )}
 
@@ -165,7 +154,7 @@ const Sidebar = () => {
             )}
 
             <MenuItem
-              icon={FaChalkboardTeacher }
+              icon={FaChalkboardTeacher}
               onClick={() => toggleDropdown("faculty")}
               isDropdown
               isOpen={dropdowns.faculty}
@@ -247,32 +236,6 @@ const Sidebar = () => {
             )}
 
             <MenuItem
-              icon={FaDollarSign}
-              onClick={() => toggleDropdown("fees")}
-              isActive={isActive("fees")}
-              isDropdown
-              isOpen={dropdowns.fees}
-            >
-              Fee Management
-            </MenuItem>
-            {dropdowns.fees && (
-              <ul
-                className="mt-2 ml-4 pl-4 border-l border-purple-500/30 space-y-1
-                           animate-fadeIn"
-              >
-                <SubMenuItem to="/fee-management/fee-collection">
-                  Fee Collection
-                </SubMenuItem>
-                <SubMenuItem to="/fee-management/pending-payments">
-                  Pending Payments
-                </SubMenuItem>
-                <SubMenuItem to="/fee-management/payment-history">
-                  Payment History
-                </SubMenuItem>
-              </ul>
-            )}
-
-            <MenuItem
               icon={FaUserTie}
               onClick={() => toggleDropdown("staff")}
               isDropdown
@@ -298,7 +261,7 @@ const Sidebar = () => {
             )}
 
             <MenuItem
-                  icon={FaUserTie}
+              icon={FaUserTie}
               onClick={() => toggleDropdown("academic")}
               isActive={isActive("academic")}
               isDropdown
@@ -311,16 +274,7 @@ const Sidebar = () => {
                 className="mt-2 ml-4 pl-4 border-l border-purple-500/30 space-y-1
                            animate-fadeIn"
               >
-                <SubMenuItem to="/Academic/ClassScheduling">
-                  Class Scheduling
-                </SubMenuItem>
-                <SubMenuItem to="/sibling-info/add-sibling-info">
-                  Exam Management
-                </SubMenuItem>
-                <SubMenuItem to="/sibling-info/add-sibling-info">
-                  Academic Calendar
-                </SubMenuItem>
-                <SubMenuItem to="/sibling-info/add-sibling-info">
+                <SubMenuItem to="/Academic/GradingPolicies">
                   Grading Policies
                 </SubMenuItem>
               </ul>
@@ -384,7 +338,6 @@ const Sidebar = () => {
                 <SubMenuItem to="/Finance/DonationsAndGrants">
                   Donations & Grants
                 </SubMenuItem>
-             
               </ul>
             )}
 
@@ -405,7 +358,9 @@ const Sidebar = () => {
                 <SubMenuItem to="/Reports/AcademicPerformanceReports">
                   Academic Performance Reports
                 </SubMenuItem>
-                <SubMenuItem to="/Reports/FinancialReports">Financial Reports</SubMenuItem>
+                <SubMenuItem to="/Reports/FinancialReports">
+                  Financial Reports
+                </SubMenuItem>
                 <SubMenuItem to="/Reports/FacultyEvaluationReports">
                   Faculty Evaluation Reports
                 </SubMenuItem>

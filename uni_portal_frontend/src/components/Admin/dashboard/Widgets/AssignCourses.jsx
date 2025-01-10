@@ -30,7 +30,7 @@ const AssignCourses = () => {
   };
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
+    <div className="p-6 bg-gray-300 rounded-lg min-h-screen">
       <div className="max-w-7xl mx-auto bg-white shadow-md rounded-lg p-6">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-semibold text-gray-800">Assign Course to Faculty</h1>

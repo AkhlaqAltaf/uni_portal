@@ -16,7 +16,7 @@ const ViewAllFaculty = () => {
   );
 
   return (
-    <div className="p-6 bg-gradient-to-r from-blue-50 to-purple-100 min-h-screen">
+    <div className="p-6 bg-gray-300 rounded-lg min-h-screen">
       <div className="max-w-7xl mx-auto  bg-gray-100 shadow-md rounded-lg">
         <div className="p-6 border-b border-gray-200">
           <h1 className="text-2xl font-semibold text-gray-800">Faculty Management</h1>

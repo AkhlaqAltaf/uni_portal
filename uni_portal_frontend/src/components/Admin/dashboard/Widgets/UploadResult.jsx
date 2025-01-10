@@ -46,7 +46,7 @@ const UploadResult = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto p-8">
+    <div className="max-w-7xl mx-auto p-8 bg-gray-300 rounded-lg">
       <h2 className="text-2xl font-bold mb-6">Upload Exam Results</h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">

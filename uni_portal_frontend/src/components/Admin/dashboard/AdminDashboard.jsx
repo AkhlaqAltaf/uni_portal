@@ -1,4 +1,7 @@
 import React from 'react';
+import AdminInfo from './Widgets/AdminInfo';
+import PendingTasks from './Widgets/PendingTasks';
+import FacultyPerformance from './Widgets/FacultyPerformace';
 
 
 const AdminDashboard = () => {
@@ -9,18 +12,30 @@ const AdminDashboard = () => {
             <div className="grid gap-6">
                 {/* Teacher Info Widget */}
                 <div className="bg-gradient-to-br from-white to-blue-50 shadow-lg rounded-lg p-6 border border-blue-200">
-                    {/* <TeacherInfo /> */}
+                  <AdminInfo/>
+                  
                 </div>
+                <div className="bg-gradient-to-br from-white to-blue-50 shadow-lg rounded-lg p-6 border border-blue-200">
+                <PendingTasks/>
+                  
+                </div>
+                <div className="bg-gradient-to-br from-white to-blue-50 shadow-lg rounded-lg p-6 border border-blue-200">
+                <FacultyPerformance/>
+                  
+                </div>
+
+
+               
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* Schedule Widget */}
                     <div className="bg-gradient-to-br from-white to-blue-50 shadow-lg rounded-lg p-6 border border-blue-200">
-                        {/* <TeacherSchedule /> */}
+                   
                     </div>
 
                     {/* Attendance Widget */}
                     <div className="bg-gradient-to-br from-white to-blue-50 shadow-lg rounded-lg p-6 border border-blue-200">
-                        {/* <TeacherAttendance /> */}
+                    
                     </div>
                 </div>
             </div>
