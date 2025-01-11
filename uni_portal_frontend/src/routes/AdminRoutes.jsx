@@ -34,6 +34,9 @@ import FacultyEvaluationReports from "../components/Admin/dashboard/Widgets/Facu
 import ResearchFundingReports from "../components/Admin/dashboard/Widgets/ResearchFundingReports";
 import GradingPolicies from "../components/Admin/dashboard/Widgets/GradingPolicies";
 import PendingTasks from "../components/Admin/dashboard/Widgets/PendingTasks";
+import PortalSettings from "../components/Admin/dashboard/Widgets/PortalSetting";
+import PrivacySettings from "../components/Admin/dashboard/Widgets/PrivacySettings";
+import RoleManagement from "../components/Admin/dashboard/Widgets/RoleManagement";
 
 
 
@@ -75,6 +78,9 @@ export const adminRoutes = [
     { path: "/Reports/FacultyEvaluationReports", element:  <FacultyEvaluationReports/>},
     { path: "/Reports/ResearchFundingReports", element:  <ResearchFundingReports/>},
     { path: "/Academic/GradingPolicies", element:  <GradingPolicies/>},
+    { path: "/Settings/PortalSettings", element:  <PortalSettings/>},
+    { path: "/Settings/PrivacySettings", element:  <PrivacySettings/>},
+    { path: "/Settings/RoleManagement", element:  <RoleManagement/>},
    
     
 ]

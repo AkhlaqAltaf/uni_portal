@@ -387,13 +387,13 @@ const Sidebar = () => {
             </MenuItem>
             {dropdowns.settings && (
               <ul className="mt-2 ml-4 pl-4 border-l border-purple-500/30 space-y-1">
-                <SubMenuItem to="/settings/portal-settings">
+                <SubMenuItem to="/Settings/PortalSettings">
                   Portal Settings
                 </SubMenuItem>
-                <SubMenuItem to="/settings/role-management">
+                <SubMenuItem to="/Settings/RoleManagement">
                   Role Management
                 </SubMenuItem>
-                <SubMenuItem to="/settings/privacy-settings">
+                <SubMenuItem to="/Settings/PrivacySettings">
                   Privacy Settings
                 </SubMenuItem>
               </ul>
