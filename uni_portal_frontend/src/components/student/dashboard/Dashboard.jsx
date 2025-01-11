@@ -7,7 +7,7 @@ const Dashboard = () => {
     return (
         <div className="min-h-screen bg-gradient-to-r from-blue-50 to-purple-100 p-6">
           
-
+          
             <div className="grid gap-6">
                 {/* Student Info Widget */}
                 <div className="bg-gradient-to-br from-white to-blue-50 shadow-lg rounded-lg p-6 border border-blue-200">
