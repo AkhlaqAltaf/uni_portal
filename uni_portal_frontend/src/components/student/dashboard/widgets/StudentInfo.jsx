@@ -1,7 +1,6 @@
 import React from "react";
 import stdpic from "../../../../assets/Student.png";
 import {
-  FaUser,
   FaIdCard,
   FaUserTie,
   FaBook,
@@ -15,31 +14,25 @@ import {
 
 const StudentInfo = () => {
   return (
-    <div className="p-8 bg-gradient-to-br from-gray-100 to-indigo-50 rounded-2xl shadow-lg max-w-7xl mx-auto">
-      <h1 className="text-2xl font-bold text-gray-800 mb-6">Student Profile</h1>
-
-      <div className="flex flex-col lg:flex-row gap-8">
+    <div className="p-3 bg-gradient-to-br from-gray-100 to-indigo-50 rounded-2xl shadow-lg w-full max-w-full mx-auto">
+      <div className="flex flex-col lg:flex-row gap-3">
         {/* Profile Picture Section */}
-        <div className="lg:w-1/4 flex justify-center">
-          <div className="relative group">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full opacity-0 group-hover:opacity-0 transition duration-300 blur"></div>
-            <div className="relative">
-              <img
-                src={stdpic}
-                alt="Profile"
-                className="w-40 lg:w-48 rounded-full border-4 border-indigo-400 shadow-xl transform transition duration-300 group-hover:scale-110"
-              />
-            </div>
+        <div className="lg:w-1/3 flex flex-col justify-center items-center">
+          <div className="relative w-28 h-28 lg:w-36 lg:h-36 rounded-full overflow-hidden border-4 border-indigo-400 shadow-md flex justify-center items-center">
+            <img
+              src={stdpic}
+              alt="Profile"
+              className="w-full h-full object-cover"
+            />
           </div>
+          <p className="mt-3 text-lg font-semibold text-gray-800">
+            Zainab Iqbal
+          </p>
         </div>
 
         {/* Profile Information Section */}
-        <div className="lg:w-3/4 bg-white rounded-xl shadow-md p-6 border border-gray-200">
-          <h2 className="text-xl font-semibold text-gray-700 mb-4">
-            Personal Information
-          </h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <InfoItem icon={<FaUser />} label="Name" value="Zainab Iqbal" />
+        <div className="lg:w-2/3 bg-white rounded-xl shadow-sm p-3 border border-gray-200">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
             <InfoItem
               icon={<FaIdCard />}
               label="Roll No"
@@ -82,15 +75,17 @@ const StudentInfo = () => {
 };
 
 const InfoItem = ({ icon, label, value }) => (
-  <div className="p-4 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+  <div className="p-2 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg shadow-sm">
     <div className="flex items-start">
-      <div className="text-indigo-600 text-2xl mr-4">{icon}</div>
+      <div className="text-indigo-600 text-lg mr-3">{icon}</div>
       <div className="flex-1">
-        <p className="text-sm font-semibold text-gray-500">{label}</p>
-        <p className="text-lg text-gray-800 font-medium">{value}</p>
+        <p className="text-xs font-medium text-gray-500">{label}</p>
+        <p className="text-sm text-gray-800">{value}</p>
       </div>
     </div>
   </div>
 );
 
 export default StudentInfo;
+
+

@@ -6,7 +6,7 @@ import Attendance from './widgets/Attendance';
 const Dashboard = () => {
     return (
         <div className="min-h-screen bg-gradient-to-r from-blue-50 to-purple-100 p-6">
-            <h1 className="text-4xl font-extrabold text-center text-gray-800 mb-6">Student Dashboard</h1>
+          
 
             <div className="grid gap-6">
                 {/* Student Info Widget */}
