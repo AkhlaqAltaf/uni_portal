@@ -26,7 +26,7 @@ const StudentInfo = () => {
             />
           </div>
           <p className="mt-3 text-lg font-semibold text-gray-800">
-            Zainab Iqbal
+            Zainab iqbal
           </p>
         </div>
 
