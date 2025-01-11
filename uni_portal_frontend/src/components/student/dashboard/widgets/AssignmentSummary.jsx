@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 const AssignmentSummary = () => {
-  const assignments = [
+  const [uploadMessage, setUploadMessage] = useState("");
+  const [assignments, setAssignments] = useState([
     {
       id: 1,
       courseTitle: "Mobile Application Development",
@@ -24,55 +25,50 @@ const AssignmentSummary = () => {
       downloadLink: "Download",
       submitLink: "Change Submitted File",
     },
-    {
-      id: 3,
-      courseTitle: "Software Project Management",
-      title: "Assignment 2",
-      startDate: "11 Dec, 2024",
-      deadline: "21 Dec, 2024 23:59",
-      submission: "Submitted",
-      status: "Closed",
-      downloadLink: "Download",
-      submitLink: "Closed",
-    },
-    {
-      id: 4,
-      courseTitle: "Computer Networks",
-      title: "Assignment 2",
-      startDate: "13 Dec, 2024",
-      deadline: "20 Dec, 2024 23:59",
-      submission: "Submitted",
-      status: "Closed",
-      downloadLink: "Download",
-      submitLink: "Closed",
-    },
-    {
-      id: 5,
-      courseTitle: "Mobile Application Development",
-      title: "Lab 12 Tasks BCS 7B",
-      startDate: "20 Dec, 2024",
-      deadline: "20 Dec, 2024 23:59",
-      submission: "Submitted",
-      status: "Closed",
-      downloadLink: "Download",
-      submitLink: "Closed",
-    },
-    {
-      id: 6,
-      courseTitle: "Compiler Construction",
-      title: "Lab Assignment 2",
-      startDate: "19 Dec, 2024",
-      deadline: "19 Dec, 2024 18:00",
-      submission: "NotSubmitted",
-      status: "Closed",
-      downloadLink: "Download",
-      submitLink: "Closed",
-    },
-  ];
+  ]);
+
+  const handleFileUpload = (event, assignmentId) => {
+    const file = event.target.files[0];
+    if (file) {
+      console.log(`File uploaded for assignment ${assignmentId}:`, file.name);
+
+      // Update assignment properties
+      setAssignments((prevAssignments) =>
+        prevAssignments.map((assignment) =>
+          assignment.id === assignmentId
+            ? {
+                ...assignment,
+                submission: "Submitted",
+                status: "Open",
+                submitLink: "Change Submitted File", // Update label
+              }
+            : assignment
+        )
+      );
+
+      // Set success message
+      setUploadMessage(`File "${file.name}" uploaded successfully for Assignment ${assignmentId}.`);
+
+      // Clear message after a few seconds
+      setTimeout(() => setUploadMessage(""), 5000);
+    }
+  };
+
+  const handleDownload = (link) => {
+    const anchor = document.createElement("a");
+    anchor.href = link;
+    anchor.download = link.split("/").pop(); // Set filename from link
+    anchor.click();
+  };
 
   return (
     <div className="p-6 bg-gradient-to-br from-gray-800 via-gray-900 to-purple-900 text-white rounded-lg shadow-lg">
       <h2 className="text-3xl font-extrabold text-center mb-6">Assignment Summary</h2>
+      {uploadMessage && (
+        <div className="mb-4 text-green-500 text-center font-semibold">
+          {uploadMessage}
+        </div>
+      )}
       <div className="overflow-x-auto">
         <table className="w-full border-collapse border border-gray-700 text-left">
           <thead className="bg-gray-700">
@@ -89,7 +85,7 @@ const AssignmentSummary = () => {
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-700">
-            {assignments.map((assignment, index) => (
+            {assignments.map((assignment) => (
               <tr
                 key={assignment.id}
                 className="hover:bg-purple-800 transition-colors duration-200"
@@ -112,32 +108,34 @@ const AssignmentSummary = () => {
                 </td>
                 <td
                   className={`font-semibold ${
-                    assignment.status === "Open" ? "text-green-600" : "text-red-600"
+                    assignment.status === "Open"
+                      ? "text-green-600"
+                      : "text-blue-600"
                   }`}
                 >
                   {assignment.status}
                 </td>
                 <td className="px-4 py-2">
-                  <button className="text-blue-500 hover:text-blue-300 transition-colors duration-200">
-                    {assignment.downloadLink}
+                  <button
+                    onClick={() => handleDownload(assignment.downloadLink)}
+                    className="text-blue-500 hover:text-blue-300 transition-colors duration-200"
+                  >
+                    {assignment.downloadLink.split("/").pop()}
                   </button>
                 </td>
-                <td
-                  className={`px-4 py-2 ${
-                    assignment.submitLink === "Closed"
-                      ? "text-red-600"
-                      : "text-blue-500"
-                  }`}
-                >
-                  <button
-                    className={`hover:underline ${
-                      assignment.submitLink === "Closed"
-                        ? "cursor-not-allowed"
-                        : "cursor-pointer"
-                    }`}
-                  >
-                    {assignment.submitLink}
-                  </button>
+                <td className="px-4 py-2">
+                  {assignment.submitLink === "Closed" ? (
+                    <span className="text-red-600">Closed</span>
+                  ) : (
+                    <label className="text-blue-500 hover:underline cursor-pointer">
+                      {assignment.submitLink}
+                      <input
+                        type="file"
+                        onChange={(event) => handleFileUpload(event, assignment.id)}
+                        className="hidden"
+                      />
+                    </label>
+                  )}
                 </td>
               </tr>
             ))}
@@ -149,3 +147,4 @@ const AssignmentSummary = () => {
 };
 
 export default AssignmentSummary;
+
