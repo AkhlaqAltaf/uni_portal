@@ -4,12 +4,11 @@ const Login = ({ onLogin }) => {
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
-    role: "student", // Default role
+    role: "student",
   });
 
   const [error, setError] = useState("");
 
-  // Mock user data - in a real app, this would come from a backend
   const mockUsers = {
     student: { username: "student", password: "123", role: "student" },
     teacher: { username: "teacher", password: "123", role: "teacher" },
@@ -34,98 +33,127 @@ const Login = ({ onLogin }) => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-800 via-gray-900 to-purple-900">
-      <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
-          Login to Portal
-        </h2>
+    <div
+      className="min-h-screen flex items-center justify-center relative"
+      style={{
+        backgroundImage:
+          "url('https://images.pexels.com/photos/556195/pexels-photo-556195.jpeg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+      }}
+    >
+      {/* Logo at the top-left corner */}
+      <div className="absolute top-5 left-5">
+  <img
+    src="https://usercontent.one/wp/studyoptions.com/wp-content/uploads/2024/07/UoA-Logo-DarkBlue.png" // Replace this URL with the logo image URL
+    alt="University Logo"
+    className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-40 lg:h-40 object-contain"
+  />
+</div>
 
-        {error && (
-          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded mb-4">
-            {error}
-          </div>
-        )}
 
-        <form onSubmit={handleSubmit} className="space-y-5">
-          {/* Username Input */}
-          <div>
-            <label
-              htmlFor="username"
-              className="block text-sm font-semibold text-gray-700"
-            >
-              Username
-            </label>
-            <input
-              type="text"
-              id="username"
-              value={credentials.username}
-              onChange={(e) =>
-                setCredentials({ ...credentials, username: e.target.value })
-              }
-              className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-              placeholder="Enter your username"
-              required
-            />
-          </div>
+      {/* Background overlay */}
+      <div
+        className="absolute inset-0 flex items-center justify-center"
+        style={{
+          backgroundColor: "rgba(0, 0, 0, 0.4)",
+          backdropFilter: "blur(0.6px)",
+          zIndex: 1,
+        }}
+      >
+        {/* Login form */}
+        <div className="relative w-full max-w-md rounded-lg shadow-0xl p-8 bg-transparent z-10">
+          <h1 className="text-5xl font-bold text-center text-white mb-6">
+            Login to Portal
+          </h1>
 
-          {/* Password Input */}
-          <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-semibold text-gray-700"
-            >
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              value={credentials.password}
-              onChange={(e) =>
-                setCredentials({ ...credentials, password: e.target.value })
-              }
-              className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-              placeholder="Enter your password"
-              required
-            />
-          </div>
+          {error && (
+            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded mb-4">
+              {error}
+            </div>
+          )}
 
-          {/* Role Selection */}
-          <div>
-            <label
-              htmlFor="role"
-              className="block text-sm font-semibold text-gray-700"
-            >
-              Role
-            </label>
-            <select
-              id="role"
-              value={credentials.role}
-              onChange={(e) =>
-                setCredentials({ ...credentials, role: e.target.value })
-              }
-              className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-            >
-              <option value="student">Student</option>
-              <option value="teacher">Teacher</option>
-              <option value="admin">Admin</option>
-            </select>
-          </div>
+          <form onSubmit={handleSubmit} className="space-y-5">
+            <div>
+              <label
+                htmlFor="username"
+                className="block text-xl font-semibold text-white"
+              >
+                Username
+              </label>
+              <input
+                type="text"
+                id="username"
+                value={credentials.username}
+                onChange={(e) =>
+                  setCredentials({ ...credentials, username: e.target.value })
+                }
+                className="w-full bg-transparent border-b-2 border-white focus:outline-none focus:ring-0 italic text-black"
+                placeholder="Enter your username"
+                required
+              />
+            </div>
 
-          {/* Submit Button */}
-          <button
-            type="submit"
-            className="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition duration-200"
-          >
-            Login
-          </button>
-        </form>
+            <div>
+              <label
+                htmlFor="password"
+                className="block text-lg font-semibold text-white"
+              >
+                Password
+              </label>
+              <input
+                type="password"
+                id="password"
+                value={credentials.password}
+                onChange={(e) =>
+                  setCredentials({ ...credentials, password: e.target.value })
+                }
+                className="w-full bg-transparent border-b-2 border-white focus:outline-none focus:ring-0 italic text-black"
+                placeholder="Enter your password"
+                required
+              />
+            </div>
 
-        <p className="text-gray-500 text-sm text-center mt-6">
-          Need help? Contact your administrator.
-        </p>
+            <div>
+              <label
+                htmlFor="role"
+                className="block text-lg font-semibold text-white"
+              >
+                Role
+              </label>
+              <select
+                id="role"
+                value={credentials.role}
+                onChange={(e) =>
+                  setCredentials({ ...credentials, role: e.target.value })
+                }
+                className="w-full bg-transparent border-b-2 border-white focus:outline-none focus:ring-0"
+              >
+                <option value="student">Student</option>
+                <option value="teacher">Teacher</option>
+                <option value="admin">Admin</option>
+              </select>
+            </div>
+
+            <div className="flex justify-center">
+              <button
+                type="submit"
+                className="w-36 h-12 bg-blue-600 text-white rounded-full text-xl hover:bg-purple-700 transition duration-300"
+              >
+                Login
+              </button>
+            </div>
+          </form>
+
+          <p className="text-gray-600 text-sm text-center mt-6">
+            Need help? Contact your administrator.
+          </p>
+        </div>
       </div>
     </div>
   );
 };
 
 export default Login;
+
