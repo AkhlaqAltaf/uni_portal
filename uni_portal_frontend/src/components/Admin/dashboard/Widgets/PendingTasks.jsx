@@ -1,33 +1,55 @@
-import React, { useState } from 'react';
-import { CircularProgressbar } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css'; // To include default styles
+import { useEffect, useState } from "react";
+import { CircularProgressbar } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css"; // To include default styles
 
 const PendingTasks = () => {
+  const [taskCategories, setTaskCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [tasks, setTasks] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // Data for pending tasks with task priority
-  const tasksData = {
-    studentApprovals: [
-      { id: 1, task: 'Verify student registration', priority: 'high', description: 'Urgent verification needed for new students', progress: 80 },
-      { id: 2, task: 'Approve document submission', priority: 'normal', description: 'Documents pending approval from students', progress: 45 },
-      { id: 3, task: 'Verify international student status', priority: 'urgent', description: 'Urgent, needs to be cleared immediately', progress: 90 },
-    ],
-    feeCollection: [
-      { id: 1, task: 'Confirm overdue fees', priority: 'high', description: 'Overdue fees for 20 students', progress: 60 },
-      { id: 2, task: 'Send payment reminders', priority: 'normal', description: 'Reminders for fee payment sent to students', progress: 50 },
-    ],
-    examScheduling: [
-      { id: 1, task: 'Schedule final exams', priority: 'urgent', description: 'Finalize scheduling for the final exams', progress: 85 },
-      { id: 2, task: 'Confirm exam proctors', priority: 'high', description: 'Proctors need to be confirmed for the exam', progress: 70 },
-    ],
-    facultyRequests: [
-      { id: 1, task: 'Approve faculty leave', priority: 'normal', description: 'Pending leave approval for a faculty member', progress: 40 },
-      { id: 2, task: 'Review faculty schedules', priority: 'high', description: 'High priority, faculty schedules need review', progress: 75 },
-    ],
-  };
+  // Fetch task categories
+  useEffect(() => {
+    const fetchTaskCategories = async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:8000/api/task-categories/");
+        if (!response.ok) {
+          throw new Error("Failed to fetch task categories");
+        }
+        const data = await response.json();
+        setTaskCategories(data);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  const handleCategoryClick = (category) => {
-    setSelectedCategory(category);
+    fetchTaskCategories();
+  }, []);
+
+  // Fetch tasks based on selected category
+  useEffect(() => {
+    const fetchTasks = async () => {
+      if (!selectedCategory) return;
+      try {
+        const response = await fetch(`http://127.0.0.1:8000/api/tasks/category/${selectedCategory}/`);
+        if (!response.ok) {
+          throw new Error("Failed to fetch tasks");
+        }
+        const data = await response.json();
+        setTasks(data);
+      } catch (error) {
+        setError(error.message);
+      }
+    };
+
+    fetchTasks();
+  }, [selectedCategory]);
+
+  const handleCategoryClick = (categoryId) => {
+    setSelectedCategory(categoryId);
   };
 
   // Function to get the color based on task priority
@@ -37,49 +59,35 @@ const PendingTasks = () => {
     return 'bg-green-500'; // Green for normal
   };
 
+  if (loading) return <div className="text-center text-gray-600">Loading...</div>;
+  if (error) return <div className="text-center text-red-600">{error}</div>;
+
   return (
     <div className="container mx-auto p-6">
       <h1 className="text-2xl font-semibold mb-6 text-gray-800">Pending Tasks Overview</h1>
 
       {/* Category Buttons */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-        <button
-          onClick={() => handleCategoryClick('studentApprovals')}
-          className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-700"
-        >
-          View Pending Student Approvals
-        </button>
-        <button
-          onClick={() => handleCategoryClick('feeCollection')}
-          className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-700"
-        >
-          View Fee Collection
-        </button>
-        <button
-          onClick={() => handleCategoryClick('examScheduling')}
-          className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-700"
-        >
-          View Exam Scheduling
-        </button>
-        <button
-          onClick={() => handleCategoryClick('facultyRequests')}
-          className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-700"
-        >
-          View Faculty Requests
-        </button>
+        {taskCategories.map((category) => (
+          <button
+            key={category.id}
+            onClick={() => handleCategoryClick(category.id)}
+            className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-700"
+          >
+            {category.name}
+          </button>
+        ))}
       </div>
 
       {/* Conditional rendering of tasks */}
       {selectedCategory && (
         <div className="bg-white p-6 rounded-lg shadow-md">
           <h2 className="text-xl font-semibold mb-4">
-            Pending {selectedCategory === 'studentApprovals' ? 'Student Approvals' :
-                      selectedCategory === 'feeCollection' ? 'Fee Collection' :
-                      selectedCategory === 'examScheduling' ? 'Exam Scheduling' : 'Faculty Requests'}
+            Pending Tasks in {taskCategories.find((cat) => cat.id === selectedCategory)?.name}
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {tasksData[selectedCategory].map((task) => (
+            {tasks.map((task) => (
               <div key={task.id} className="flex flex-col items-center bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200">
                 <div className="w-24 h-24 mb-4">
                   <CircularProgressbar
@@ -91,13 +99,13 @@ const PendingTasks = () => {
                         strokeWidth: 10,
                       },
                       trail: {
-                        stroke: '#e6e6e6',
+                        stroke: "#e6e6e6",
                         strokeWidth: 10,
                       },
                       text: {
                         fill: getPriorityColor(task.priority),
-                        fontSize: '16px',
-                        fontWeight: 'bold',
+                        fontSize: "16px",
+                        fontWeight: "bold",
                       },
                     }}
                   />

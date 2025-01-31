@@ -1,8 +1,40 @@
-import React from 'react';
-import teacherPic from '../../../../assets/Teacher.png';
-import { FaUser, FaIdCard, FaUserTie, FaBook, FaGraduationCap, FaUsers, FaUserCog, FaBirthdayCake, FaPassport, FaScroll } from 'react-icons/fa';
+/* eslint-disable react/prop-types */
+import { useEffect, useState } from "react";
+import teacherPic from "../../../../assets/Teacher.png";
+import { FaUser, FaIdCard, FaUserTie, FaBook, FaGraduationCap, FaUsers, FaUserCog, FaBirthdayCake, FaPassport, FaScroll } from "react-icons/fa";
 
 const AdminInfo = () => {
+    const [teacher, setTeacher] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchTeacherData = async () => {
+            try {
+                const response = await fetch("http://127.0.0.1:8000/api/teachers/");
+                if (!response.ok) {
+                    throw new Error("Failed to fetch teacher data");
+                }
+                const data = await response.json();
+
+                if (data.length > 0) {
+                    setTeacher(data[0]); // Select the first teacher
+                } else {
+                    throw new Error("No teacher data available.");
+                }
+            } catch (error) {
+                setError(error.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchTeacherData();
+    }, []);
+
+    if (loading) return <div className="text-center text-gray-600">Loading...</div>;
+    if (error) return <div className="text-center text-red-600">{error}</div>;
+
     return (
         <div className="p-6 bg-gradient-to-br from-slate-50 to-purple-50 rounded-xl shadow-lg">
             <div className="flex flex-col md:flex-row gap-6">
@@ -23,16 +55,16 @@ const AdminInfo = () => {
                 {/* Profile Information */}
                 <div className="md:w-3/4 bg-white rounded-xl shadow-md p-6 border border-gray-100">
                     <div className="grid md:grid-cols-2 gap-4">
-                        <InfoItem icon={<FaUser />} label="Name" value="John Doe" />
-                        <InfoItem icon={<FaIdCard />} label="Employee ID" value="TCH-12345" />
-                        <InfoItem icon={<FaUserTie />} label="Department" value="Computer Science" />
-                        <InfoItem icon={<FaBook />} label="Courses Taught" value="5" />
-                        <InfoItem icon={<FaGraduationCap />} label="Highest Qualification" value="PhD in Computer Science" />
-                        <InfoItem icon={<FaUsers />} label="Years of Experience" value="10" />
-                        <InfoItem icon={<FaUserCog />} label="Current Advisor" value="Yes" />
-                        <InfoItem icon={<FaBirthdayCake />} label="Date of Birth" value="Jan 15, 1980" />
-                        <InfoItem icon={<FaPassport />} label="CNIC" value="12345-6789012-3" />
-                        <InfoItem icon={<FaScroll />} label="Research Interests" value="Artificial Intelligence, Machine Learning" />
+                        <InfoItem icon={<FaUser />} label="Name" value={teacher?.name || "N/A"} />
+                        <InfoItem icon={<FaIdCard />} label="Employee ID" value={teacher?.employee_id || "N/A"} />
+                        <InfoItem icon={<FaUserTie />} label="Department" value={teacher?.department || "N/A"} />
+                        <InfoItem icon={<FaBook />} label="Courses Taught" value={teacher?.courses_taught || "N/A"} />
+                        <InfoItem icon={<FaGraduationCap />} label="Highest Qualification" value={teacher?.highest_qualification || "N/A"} />
+                        <InfoItem icon={<FaUsers />} label="Years of Experience" value={teacher?.years_of_experience || "N/A"} />
+                        <InfoItem icon={<FaUserCog />} label="Current Advisor" value={teacher?.is_current_advisor ? "Yes" : "No"} />
+                        <InfoItem icon={<FaBirthdayCake />} label="Date of Birth" value={teacher?.date_of_birth || "N/A"} />
+                        <InfoItem icon={<FaPassport />} label="CNIC" value={teacher?.cnic || "N/A"} />
+                        <InfoItem icon={<FaScroll />} label="Research Interests" value={teacher?.research_interests || "N/A"} />
                     </div>
                 </div>
             </div>
