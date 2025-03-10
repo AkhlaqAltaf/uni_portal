@@ -3,7 +3,7 @@ import { FaClock, FaBook, FaChalkboardTeacher, FaMapMarkerAlt } from "react-icon
 
 const Schedule = () => {
   return (
-    <div className="p-4 sm:p-8 backdrop-blur-sm bg-white/30 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-white/20">
+    <div className="p-2 md:p-4 backdrop-blur-sm bg-white/30 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-white/20">
       <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 flex items-center">
         <FaClock className="mr-3 text-purple-600" />
         Today's Schedule

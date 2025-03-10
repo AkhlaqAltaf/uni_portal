@@ -20,15 +20,19 @@ const MainLayout = ({ children, user }) => {
         Sidebar = StudentSidebar;
     }
     return (
-        <div className="flex flex-col h-screen">
+        <>
+       <div className="flex flex-col bg-darkBlue pr-5 w-full">
+    <div className="flex">
+        <Sidebar user={user} />
+        <div className="flex flex-col flex-1">
             <Header user={user} />
-            <div className="flex flex-1">
-                <Sidebar user={user} />
-                <main className="flex-1 p-4">
-                    {children}
-                </main>
+            <div className="py-4 my-4">
+                {children}
             </div>
         </div>
+    </div>
+</div>
+        </>
     );
 };
 

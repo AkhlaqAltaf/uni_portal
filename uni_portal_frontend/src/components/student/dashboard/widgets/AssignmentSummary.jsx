@@ -71,69 +71,68 @@ const AssignmentSummary = () => {
   ];
 
   return (
-    <div className="p-6 bg-gradient-to-br from-gray-800 via-gray-900 to-purple-900 text-white rounded-lg shadow-lg">
-      <h2 className="text-3xl font-extrabold text-center mb-6">Assignment Summary</h2>
+    <div className="p-3 md:p-6 text-white rounded-lg shadow-lg border border-white/25">
+      <h2 className="text-[2vw] font-extrabold text-center mb-3 md:mb-6">Assignment Summary</h2>
       <div className="overflow-x-auto">
         <table className="w-full border-collapse border border-gray-700 text-left">
-          <thead className="bg-gray-700">
+          <thead className="bg-[#048C51]/35">
             <tr>
-              <th className="px-4 py-2 border border-gray-600">#</th>
-              <th className="px-4 py-2 border border-gray-600">Course Title</th>
-              <th className="px-4 py-2 border border-gray-600">Title</th>
-              <th className="px-4 py-2 border border-gray-600">Start Date</th>
-              <th className="px-4 py-2 border border-gray-600">Deadline</th>
-              <th className="px-4 py-2 border border-gray-600">Submission</th>
-              <th className="px-4 py-2 border border-gray-600">Status</th>
-              <th className="px-4 py-2 border border-gray-600">Download</th>
-              <th className="px-4 py-2 border border-gray-600">Submit</th>
+              <th className="px-2 py-1 md:px-4 md:py-2 text-[1vw] border border-gray-600">#</th>
+              <th className="px-2 py-1 md:px-4 md:py-2 text-[1vw] border border-gray-600">Course Title</th>
+              <th className="px-2 py-1 md:px-4 md:py-2 text-[1vw] border border-gray-600">Start Date</th>
+              <th className="px-2 py-1 md:px-4 md:py-2 text-[1vw] border border-gray-600">Deadline</th>
+              <th className="px-2 py-1 md:px-4 md:py-2 text-[1vw] border border-gray-600">Submission</th>
+              <th className="px-2 py-1 md:px-4 md:py-2 text-[1vw] border border-gray-600">Status</th>
+              <th className="px-2 py-1 md:px-4 md:py-2 text-[1vw] border border-gray-600">Download</th>
+              <th className="px-2 py-1 md:px-4 md:py-2 text-[1vw] border border-gray-600">Submit</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-700">
             {assignments.map((assignment, index) => (
               <tr
                 key={assignment.id}
-                className="hover:bg-purple-800 transition-colors duration-200"
+                className="hover:bg-[#048C51]/15 duration-200"
               >
-                <td className="px-4 py-2">{assignment.id}</td>
-                <td className="px-4 py-2">{assignment.courseTitle}</td>
-                <td className="px-4 py-2">{assignment.title}</td>
-                <td className="px-4 py-2">{assignment.startDate}</td>
-                <td className="px-4 py-2">{assignment.deadline}</td>
+                <td className="px-2 py-1 md:px-4 md:py-2 text-[1vw]">{assignment.id}</td>
+                <td className="px-2 py-1 md:px-4 md:py-2 text-[1vw]">{assignment.courseTitle}</td>
+                <td className="px-2 py-1 md:px-4 md:py-2 text-[1vw]">{assignment.title}</td>
+                <td className="px-2 py-1 md:px-4 md:py-2 text-[1vw]">{assignment.startDate}</td>
+                <td className="px-2 py-1 md:px-4 md:py-2 text-[1vw]">{assignment.deadline}</td>
                 <td
-                  className={`font-semibold ${
+                  className={`font-semibold text-[1vw] ${
                     assignment.submission === "Submitted"
-                      ? "text-green-600"
+                      ? "text-green-600 text-[1vw]"
                       : assignment.submission === "Pending"
-                      ? "text-yellow-600"
-                      : "text-red-600"
+                      ? "text-yellow-600 text-[1vw]"
+                      : "text-red-600 text-[1vw]"
                   }`}
                 >
                   {assignment.submission}
                 </td>
                 <td
-                  className={`font-semibold ${
-                    assignment.status === "Open" ? "text-green-600" : "text-red-600"
+                  className={`font-semibold text-[1vw] ${
+                    assignment.status === "Open" ? "text-green-600 text-[1vw]" : "text-red-600 text-[1vw]"
                   }`}
                 >
                   {assignment.status}
                 </td>
-                <td className="px-4 py-2">
-                  <button className="text-blue-500 hover:text-blue-300 transition-colors duration-200">
+                <td className="px-2 py-1 md:px-4 md:py-2">
+                  <button className="text-blue-500 hover:text-blue-300 transition-colors duration-200 text-[1vw]">
                     {assignment.downloadLink}
                   </button>
                 </td>
                 <td
-                  className={`px-4 py-2 ${
+                  className={`px-2 py-1 md:px-4 md:py-2 ${
                     assignment.submitLink === "Closed"
-                      ? "text-red-600"
-                      : "text-blue-500"
+                      ? "text-red-600 text-[1vw]"
+                      : "text-blue-500 text-[1vw]"
                   }`}
                 >
                   <button
-                    className={`hover:underline ${
+                    className={`hover:underline text-[1vw] ${
                       assignment.submitLink === "Closed"
-                        ? "cursor-not-allowed"
-                        : "cursor-pointer"
+                        ? "cursor-not-allowed text-[1vw]"
+                        : "cursor-pointer text-[1vw]"
                     }`}
                   >
                     {assignment.submitLink}

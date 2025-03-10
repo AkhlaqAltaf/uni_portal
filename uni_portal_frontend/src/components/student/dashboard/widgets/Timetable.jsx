@@ -43,34 +43,34 @@ const Timetable = () => {
     const timeSlots = Array.from(new Set(schedule.flatMap(day => day.slots.map(slot => slot.time))));
 
     return (
-        <div className="p-6 bg-gradient-to-br from-gray-800 via-gray-900 to-purple-900 text-white rounded-lg shadow-lg">
-            <h2 className="text-3xl font-bold text-center mb-6">Weekly Timetable</h2>
-            <div className="overflow-x-auto">
-                <table className="min-w-full table-auto bg-gray-700 rounded-lg shadow-md">
+        <div className="p-2 md:p-6  text-white rounded-lg shadow-lg">
+            <h2 className="text-[2vw] font-bold text-center mb-3 md:mb-6">Weekly Timetable</h2>
+            <div className="overflow-x-auto rounded-lg">
+                <table className="min-w-full table-auto bg-gray-700 shadow-md">
                     <thead>
-                        <tr className="bg-gray-800">
-                            <th className="py-3 px-4 text-left text-gray-200 border border-gray-600">Day</th>
+                        <tr className="bg-green-600/70 rounded-lg">
+                            <th className="py-1 px-2 md:py-3 md:px-4 text-[1vw] text-left text-gray-200 border border-gray-600 ">Day</th>
                             {timeSlots.map((time, index) => (
-                                <th key={index} className="py-3 px-4 text-left text-gray-200 border border-gray-600">{time}</th>
+                                <th key={index} className="py-1 px-2 md:py-3 md:px-4 text-[1vw] text-left text-gray-200 border border-gray-600">{time}</th>
                             ))}
                         </tr>
                     </thead>
                     <tbody>
                         {schedule.map((daySchedule, index) => (
                             <tr key={index} className="group">
-                                <td className="py-3 px-4 text-center text-gray-200 border border-gray-600 bg-gray-800">{daySchedule.day}</td>
+                                <td className="py-1 px-2 md:py-3 md:px-4 text-[1vw] text-center text-gray-200 border border-gray-600 bg-green-600/70">{daySchedule.day}</td>
                                 {timeSlots.map((time, timeIndex) => {
                                     const slot = daySchedule.slots.find(slot => slot.time === time);
                                     return (
                                         <td
                                             key={timeIndex}
-                                            className="border border-gray-600 p-2  transform transition-all duration-200"
+                                            className="border border-gray-600 p-2 transform transition-all duration-200 text-[1vw]"
                                         >
                                             {slot ? (
                                                 <div className="flex flex-col justify-between h-full">
-                                                    <div className="text-sm text-gray-200">{slot.location}</div>
-                                                    <div className="font-semibold text-white">{slot.course}</div>
-                                                    <div className="italic text-gray-400 text-sm">{slot.teacher}</div>
+                                                    <div className="text-1vw text-gray-200">{slot.location}</div>
+                                                    <div className="text-[1vw] font-semibold text-white">{slot.course}</div>
+                                                    <div className="text-[1vw] italic text-gray-400">{slot.teacher}</div>
                                                 </div>
                                             ) : null}
                                         </td>
