@@ -45,28 +45,28 @@ const DonationsAndGrants = () => {
   };
 
   return (
-    <div className="p-6 space-y-6  bg-gray-300 rounded-lg">
-      <h1 className="text-3xl font-bold text-center text-gray-800">Donations & Grants</h1>
+    <div className="p-6 space-y-6  bg-[#1d2241] rounded-lg">
+      <h1 className="text-3xl font-bold text-center text-white">Donations & Grants</h1>
 
       {/* Contributions Table */}
-      <div className="bg-white shadow-md rounded-lg p-6">
-        <h3 className="text-lg font-medium text-gray-600 mb-4">Contributions List</h3>
+      <div className="bg-[#193344] border-2 border-[#06814f] shadow-md rounded-lg p-6">
+        <h3 className="text-lg font-medium text-white mb-4">Contributions List</h3>
         <table className="min-w-full table-auto">
           <thead>
             <tr className="border-b">
-              <th className="px-4 py-2 text-left">Type</th>
-              <th className="px-4 py-2 text-left">Donor</th>
-              <th className="px-4 py-2 text-left">Amount ($)</th>
-              <th className="px-4 py-2 text-left">Date</th>
+              <th className="px-4 py-2 text-white text-left">Type</th>
+              <th className="px-4 py-2 text-white text-left">Donor</th>
+              <th className="px-4 py-2 text-white text-left">Amount ($)</th>
+              <th className="px-4 py-2 text-white text-left">Date</th>
             </tr>
           </thead>
           <tbody>
             {contributions.map((contribution, index) => (
               <tr key={index} className="border-b">
-                <td className="px-4 py-2">{contribution.type}</td>
-                <td className="px-4 py-2">{contribution.donor}</td>
-                <td className="px-4 py-2">${contribution.amount.toLocaleString()}</td>
-                <td className="px-4 py-2">{contribution.date}</td>
+                <td className="px-4 text-white py-2">{contribution.type}</td>
+                <td className="px-4 text-white py-2">{contribution.donor}</td>
+                <td className="px-4 text-white py-2">${contribution.amount.toLocaleString()}</td>
+                <td className="px-4 text-white py-2">{contribution.date}</td>
               </tr>
             ))}
           </tbody>
@@ -74,23 +74,23 @@ const DonationsAndGrants = () => {
       </div>
 
       {/* Bar Chart for Total Contributions */}
-      <div className="bg-white shadow-md rounded-lg p-6 mt-6">
-        <h3 className="text-lg font-medium text-gray-600">Total Contributions Overview</h3>
+      <div className="bg-[#193344] border-2 border-[#06814f] shadow-md rounded-lg p-6 mt-6">
+        <h3 className="text-lg font-medium text-white">Total Contributions Overview</h3>
         <Bar data={chartData} options={{ responsive: true }} />
       </div>
 
       {/* Total Summary */}
-      <div className="bg-white shadow-md rounded-lg p-6 mt-6 flex justify-between">
+      <div className="bg-[#193344] border-2 border-[#06814f] shadow-md rounded-lg p-6 mt-6 flex justify-between">
         <div>
-          <h3 className="text-lg font-medium text-gray-600">Total Donations</h3>
+          <h3 className="text-lg font-medium text-white">Total Donations</h3>
           <p className="text-2xl font-semibold text-blue-600">${totals.donation.toLocaleString()}</p>
         </div>
         <div>
-          <h3 className="text-lg font-medium text-gray-600">Total Grants</h3>
+          <h3 className="text-lg font-medium text-white">Total Grants</h3>
           <p className="text-2xl font-semibold text-green-600">${totals.grant.toLocaleString()}</p>
         </div>
         <div>
-          <h3 className="text-lg font-medium text-gray-600">Total Sponsorships</h3>
+          <h3 className="text-lg font-medium text-white">Total Sponsorships</h3>
           <p className="text-2xl font-semibold text-yellow-600">${totals.sponsorship.toLocaleString()}</p>
         </div>
       </div>

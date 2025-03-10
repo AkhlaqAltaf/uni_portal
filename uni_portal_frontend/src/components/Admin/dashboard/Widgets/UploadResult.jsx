@@ -46,7 +46,7 @@ const UploadResult = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto p-8 bg-gray-300 rounded-lg">
+    <div className="max-w-7xl mx-auto p-8 bg-[#1d2241] text-white rounded-lg">
       <h2 className="text-2xl font-bold mb-6">Upload Exam Results</h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -59,7 +59,7 @@ const UploadResult = () => {
             id="exam"
             value={selectedExam}
             onChange={handleExamChange}
-            className="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-blue-200"
+            className="w-full px-3 py-2 bg-[#193344] border-2 border-[#06814f] rounded-lg focus:ring"
             required
           >
             <option value="">Select an exam</option>
@@ -80,7 +80,7 @@ const UploadResult = () => {
             type="file"
             id="file"
             onChange={handleFileChange}
-            className="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-blue-200"
+            className="w-full px-3 py-2 bg-[#193344] border-2 border-[#06814f] rounded-lg "
             accept=".csv, .xlsx, .xls"
             required
           />
@@ -91,7 +91,7 @@ const UploadResult = () => {
           <button
             type="submit"
             disabled={uploading}
-            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-gray-400"
+            className="px-4 py-2 bg-[#193344] border-2 border-[#06814f] text-white rounded hover:bg-[#1d2241] disabled:bg-gray-400"
           >
             {uploading ? 'Uploading...' : 'Upload Results'}
           </button>

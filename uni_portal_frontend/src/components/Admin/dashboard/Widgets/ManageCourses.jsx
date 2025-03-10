@@ -22,13 +22,13 @@ const ManageCourses = () => {
   };
 
   return (
-    <div className="px-6 py-4 bg-slate-300 rounded-xl">
-      <h2 className="text-2xl font-bold mb-6">Manage Courses</h2>
+    <div className="px-6 py-4 bg-[#1d2241] rounded-xl">
+      <h2 className="text-2xl text-white font-bold mb-6">Manage Courses</h2>
 
       <div className="space-y-6">
         {courseList.map(course => (
-          <div key={course.id} className="bg-white p-4 rounded-lg shadow-lg">
-            <h3 className="text-xl font-semibold text-gray-800">{course.name}</h3>
+          <div key={course.id} className="bg-[#193344] border-2 border-[#06814f] p-4 rounded-lg shadow-lg">
+            <h3 className="text-xl font-semibold text-white">{course.name}</h3>
 
             {/* Progress Bar */}
             <div className="w-full bg-gray-200 rounded-full h-2.5 mt-2">
@@ -37,7 +37,7 @@ const ManageCourses = () => {
                 style={{ width: `${getProgressPercentage(course.enrolled, course.total)}%` }}
               ></div>
             </div>
-            <p className="text-gray-600 mt-1">{course.enrolled} / {course.total} students enrolled</p>
+            <p className="text-white mt-1">{course.enrolled} / {course.total} students enrolled</p>
 
             {/* Manage buttons */}
             <div className="mt-4 flex space-x-4">

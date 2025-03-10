@@ -32,13 +32,13 @@ const StaffProfile = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-300 rounded-lg p-6">
-      <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
+    <div className="min-h-screen bg-[#1d2241] text-white rounded-lg p-6">
+      <div className="max-w-4xl mx-auto bg-[#23294b] p-6 rounded-lg shadow-md">
         {/* Search Input */}
         <input
           type="text"
           placeholder="Search by name"
-          className="w-full p-3 mb-6 border border-gray-300 rounded-lg"
+          className="w-full p-3 mb-6 bg-[#193344] border-2 border-[#06814f] text-white rounded-lg"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
@@ -48,46 +48,46 @@ const StaffProfile = () => {
           filteredStaffData.map((staff, index) => (
             <div
               key={index}
-              className="mt-6 bg-white p-6 rounded-lg shadow-lg border border-gray-200"
+              className="mt-6  bg-[#193344] border-2 border-[#06814f] text-white p-6 rounded-lg shadow-lg"
             >
               <div className="flex items-center space-x-6">
                 <img
                   src={staff.profilePicture || 'https://via.placeholder.com/150'}
                   alt="Profile"
-                  className="w-24 h-24 rounded-full object-cover"
+                  className="w-24 h-24 text-white rounded-full object-cover"
                 />
                 <div>
-                  <h2 className="text-2xl font-semibold text-gray-800">{staff.name}</h2>
-                  <p className="text-sm text-gray-600">{staff.position}</p>
-                  <p className="text-sm text-gray-600">{staff.department}</p>
+                  <h2 className="text-2xl font-semibold text-white">{staff.name}</h2>
+                  <p className="text-sm text-gray-white">{staff.position}</p>
+                  <p className="text-sm text-gray-white">{staff.department}</p>
                 </div>
               </div>
 
               <div className="mt-6">
-                <h3 className="text-xl font-semibold text-gray-800">Contact Information</h3>
+                <h3 className="text-xl font-semibold text-white">Contact Information</h3>
                 <div className="mt-4">
-                  <p className="text-sm text-gray-600"><strong>Email:</strong> {staff.email}</p>
-                  <p className="text-sm text-gray-600"><strong>Phone:</strong> {staff.phone}</p>
+                  <p className="text-sm text-white"><strong>Email:</strong> {staff.email}</p>
+                  <p className="text-sm text-white"><strong>Phone:</strong> {staff.phone}</p>
                 </div>
               </div>
 
               <div className="mt-6">
-                <h3 className="text-xl font-semibold text-gray-800">Biography</h3>
-                <p className="text-sm text-gray-600 mt-4">{staff.biography}</p>
+                <h3 className="text-xl font-semibold text-white">Biography</h3>
+                <p className="text-sm text-white mt-4">{staff.biography}</p>
               </div>
 
               <div className="mt-6">
-                <h3 className="text-xl font-semibold text-gray-800">Courses Taught</h3>
+                <h3 className="text-xl font-semibold text-white">Courses Taught</h3>
                 <ul className="mt-4 space-y-2">
                   {staff.courses.map((course, index) => (
-                    <li key={index} className="text-sm text-gray-600">{course}</li>
+                    <li key={index} className="text-sm text-white">{course}</li>
                   ))}
                 </ul>
               </div>
             </div>
           ))
         ) : (
-          <p className="mt-6 text-lg text-gray-600">No staff found for this search query.</p>
+          <p className="mt-6 text-lg text-white">No staff found for this search query.</p>
         )}
       </div>
     </div>

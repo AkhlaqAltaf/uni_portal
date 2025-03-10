@@ -13,7 +13,7 @@ const Notification = () => {
     // Auto-remove notification after 5 seconds
     setTimeout(() => {
       removeNotification(id);
-    }, 5000);
+    }, 500000);
   };
 
   // Function to remove a notification by ID
@@ -40,7 +40,7 @@ const Notification = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-[#1d2241] flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         {/* Render notifications dynamically */}
         {notifications.map((notification) => (

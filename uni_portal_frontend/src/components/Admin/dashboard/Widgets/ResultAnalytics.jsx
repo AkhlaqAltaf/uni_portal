@@ -78,7 +78,7 @@ const ResultAnalytics = () => {
   }
 
   return (
-    <div className="p-6 bg-white rounded-lg shadow-lg">
+    <div className="p-6 bg-[#1d2241] text-white rounded-lg shadow-lg">
       <h2 className="text-2xl font-bold mb-4">Results Analytics</h2>
       <div className="w-full h-[400px]">
         <Bar data={chartData} options={{ responsive: true }} />

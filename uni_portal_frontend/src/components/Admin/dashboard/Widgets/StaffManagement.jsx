@@ -66,18 +66,18 @@ const StaffManagement = () => {
   };
 
   return (
-    <div className="p-6 bg-gray-300 rounded-lg shadow-lg ">
+    <div className="p-6 bg-[#1d2241] text-white rounded-lg shadow-lg ">
       <h2 className="text-2xl font-bold mb-4">Staff Management</h2>
       <button
         onClick={openModal}
-        className="mb-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+        className="mb-4 px-4 py-2 bg-blue-60 bg-[#193344] border-2 border-[#06814f] rounded hover:bg-[#1d2241]"
       >
         Add New Staff
       </button>
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse border border-gray-300">
+      <div className="overflow-x-auto text-white">
+        <table className="w-full border-collapse  ">
           <thead>
-            <tr className="bg-gray-100">
+            <tr className="bg-[#193344] border-2 border-[#06814f]">
               <th className="border border-gray-300 p-2">Name</th>
               <th className="border border-gray-300 p-2">Position</th>
               <th className="border border-gray-300 p-2">Email</th>
@@ -88,12 +88,12 @@ const StaffManagement = () => {
           <tbody>
             {staff.length > 0 ? (
               staff.map((staffMember) => (
-                <tr key={staffMember.id} className="odd:bg-white even:bg-gray-50">
-                  <td className="border border-gray-300 p-2">{staffMember.name}</td>
-                  <td className="border border-gray-300 p-2">{staffMember.position}</td>
-                  <td className="border border-gray-300 p-2">{staffMember.email}</td>
-                  <td className="border border-gray-300 p-2">{staffMember.phone}</td>
-                  <td className="border border-gray-300 p-2">
+                <tr key={staffMember.id} className="odd:bg-[#193344] even:bg-[#1d2241]">
+                  <td className="bg-[#193344] border-2 border-[#06814f] p-2">{staffMember.name}</td>
+                  <td className="bg-[#193344] border-2 border-[#06814f] p-2">{staffMember.position}</td>
+                  <td className="bg-[#193344] border-2 border-[#06814f] p-2">{staffMember.email}</td>
+                  <td className="bg-[#193344] border-2 border-[#06814f] p-2">{staffMember.phone}</td>
+                  <td className="bg-[#193344] border-2 border-[#06814f] p-2">
                     <button
                       onClick={() => openEditModal(staffMember)}
                       className="mr-2 px-2 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600"
@@ -123,7 +123,7 @@ const StaffManagement = () => {
       {/* Modal for Add/Edit Staff */}
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white rounded-lg shadow-lg p-6 w-1/3">
+          <div className="bg-[#1d2241] text-white rounded-lg shadow-lg p-6 w-1/3">
             <h3 className="text-lg font-semibold mb-4">
               {isEditing ? 'Edit Staff' : 'Add New Staff'}
             </h3>
@@ -135,7 +135,7 @@ const StaffManagement = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-blue-200"
+                  className="w-full px-3 py-2 bg-[#193344] border-2 border-[#06814f] text-white rounded-lg focus:ring focus:ring-blue-200"
                   placeholder="Enter staff name"
                   required
                 />
@@ -147,7 +147,7 @@ const StaffManagement = () => {
                   name="position"
                   value={formData.position}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-blue-200"
+                  className="w-full px-3 py-2 bg-[#193344] border-2 border-[#06814f] text-white rounded-lg focus:ring focus:ring-blue-200"
                   placeholder="Enter position"
                   required
                 />
@@ -159,7 +159,7 @@ const StaffManagement = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-blue-200"
+                  className="w-full px-3 py-2 bg-[#193344] border-2 text-white border-[#06814f] rounded-lg focus:ring focus:ring-blue-200"
                   placeholder="Enter email"
                   required
                 />
@@ -171,7 +171,7 @@ const StaffManagement = () => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-blue-200"
+                  className="w-full px-3 py-2 bg-[#193344] border-2 border-[#06814f] text-white rounded-lg focus:ring focus:ring-blue-200"
                   placeholder="Enter phone number"
                   required
                 />
@@ -180,13 +180,13 @@ const StaffManagement = () => {
             <div className="flex justify-end space-x-4">
               <button
                 onClick={closeModal}
-                className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
+                className="px-4 py-2 rounded bg-[#193344] border-2 border-[#06814f] hover:bg-[#1d2241]"
               >
                 Cancel
               </button>
               <button
                 onClick={handleAddOrEdit}
-                className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                className="px-4 py-2 bg-[#193344] border-2 border-[#06814f] text-white rounded hover:bg-[#1d2241]"
               >
                 {isEditing ? 'Update Staff' : 'Add Staff'}
               </button>

@@ -15,25 +15,25 @@ const gradeData = {
 
 function AcademicPerformanceReports() {
   return (
-    <div className="flex flex-col space-y-6 p-6  bg-gray-300 rounded-lg">
+    <div className="flex flex-col space-y-6 p-6  bg-[#1d2241] rounded-lg">
       {/* Header */}
-      <header className="bg-blue-600 text-white p-4 rounded-lg shadow-md">
+      <header className="bg-[#193344] border-2 border-[#06814f] text-white p-4 rounded-lg shadow-md">
         <h1 className="text-2xl font-bold">Academic Performance Reports</h1>
       </header>
 
       {/* Main Report Card Section */}
-      <div className="bg-white p-6 rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold mb-4">Student Academic Summary</h2>
+      <div className="bg-[#193344] border-2 border-[#06814f] p-6 rounded-lg shadow-md">
+        <h2 className="text-2xl font-bold mb-4 text-white">Student Academic Summary</h2>
         <table className="min-w-full table-auto border-collapse">
           <thead>
-            <tr className="border-b">
-              <th className="p-2 text-left">Name</th>
-              <th className="p-2 text-left">Total Credits</th>
-              <th className="p-2 text-left">GPA</th>
-              <th className="p-2 text-left">Grade</th>
+            <tr className="border-b bg-[#193344] border-2 border-[#06814f]">
+              <th className="p-2 text-white text-left">Name</th>
+              <th className="p-2 text-white text-left">Total Credits</th>
+              <th className="p-2 text-white text-left">GPA</th>
+              <th className="p-2 text-white text-left">Grade</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className='text-white'>
             <tr>
               <td className="p-2">John Doe</td>
               <td className="p-2">120</td>
@@ -51,18 +51,18 @@ function AcademicPerformanceReports() {
       </div>
 
       {/* Exam Results Section */}
-      <div className="bg-white p-6 rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold mb-4">Exam Results</h2>
+      <div className="bg-[#193344] border-2 border-[#06814f] p-6 rounded-lg shadow-md">
+        <h2 className="text-2xl text-white font-bold mb-4">Exam Results</h2>
         <table className="min-w-full table-auto border-collapse">
           <thead>
-            <tr className="border-b">
+            <tr className="border-b bg-[#193344] border-2 border-[#06814f] text-white">
               <th className="p-2 text-left">Subject</th>
               <th className="p-2 text-left">Marks Obtained</th>
               <th className="p-2 text-left">Total Marks</th>
               <th className="p-2 text-left">Grade</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className='text-white'>
             <tr>
               <td className="p-2">Mathematics</td>
               <td className="p-2">85</td>
@@ -80,15 +80,15 @@ function AcademicPerformanceReports() {
       </div>
 
       {/* Grade Distribution Chart */}
-      <div className="bg-white p-6 rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold mb-4">Grade Distribution</h2>
+      <div className="bg-[#193344] border-2 border-[#06814f] p-6 rounded-lg shadow-md">
+        <h2 className="text-2xl text-white font-bold mb-4">Grade Distribution</h2>
         <Pie data={gradeData} />
       </div>
 
       {/* Milestones Section */}
-      <div className="bg-white p-6 rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold mb-4">Academic Milestones</h2>
-        <ul className="list-disc pl-5">
+      <div className="bg-[#193344] border-2 border-[#06814f] p-6 rounded-lg shadow-md">
+        <h2 className="text-2xl text-white font-bold mb-4">Academic Milestones</h2>
+        <ul className="list-disc pl-5 text-white">
           <li>Completed 120 credits</li>
           <li>Passed all semester exams</li>
           <li>Awarded Dean's List</li>

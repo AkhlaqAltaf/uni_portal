@@ -37,20 +37,20 @@ const PortalSettings = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-300 rounded-lg py-12">
+    <div className="min-h-screen  bg-[#1d2241] rounded-lg py-8">
       {/* Outer Parent Div with Shadow and Padding for Beauty */}
-      <div className="max-w-4xl mx-auto p-8 bg-white rounded-3xl shadow-2xl">
-        <h2 className="text-3xl font-semibold text-gray-800 mb-8 text-center">Portal Settings</h2>
+      <div className="max-w-xl mx-auto p-8 bg-[#193344] border-2 border-[#06814f] text-white rounded-3xl shadow-2xl">
+        <h2 className="text-3xl font-semibold text-white mb-8 text-center">Portal Settings</h2>
 
         {/* Password Reset Form */}
         <form onSubmit={handlePasswordReset} className="space-y-6">
           {/* User Type Selection */}
           <div className="flex items-center justify-between">
-            <label className="text-lg font-medium text-gray-700 mr-4">Select User Type</label>
+            <label className="text-lg font-medium text-white mr-4">Select User Type</label>
             <select
               value={userType}
               onChange={handleUserTypeChange}
-              className="p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600"
+              className="p-3 bg-[#193344] border-2 text-white border-[#06814f] rounded-md shadow-sm "
             >
               <option value="teacher">Teacher</option>
               <option value="student">Student</option>
@@ -60,39 +60,39 @@ const PortalSettings = () => {
 
           {/* User ID Input */}
           <div className="flex items-center justify-between">
-            <label htmlFor="userId" className="text-lg font-medium text-gray-700 mr-4">User ID / Email</label>
+            <label htmlFor="userId" className="text-lg font-medium text-white mr-4">User ID / Email</label>
             <input
               type="text"
               id="userId"
               value={userId}
               onChange={(e) => setUserId(e.target.value)}
-              className="p-3 border border-gray-300 rounded-md w-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600"
+              className="p-3 border-2 border-[#06814f] rounded-md w-full shadow-sm "
               placeholder="Enter User ID or Email"
             />
           </div>
 
           {/* New Password Input */}
           <div className="flex items-center justify-between">
-            <label htmlFor="newPassword" className="text-lg font-medium text-gray-700 mr-4">New Password</label>
+            <label htmlFor="newPassword" className="text-lg font-medium text-white mr-4">New Password</label>
             <input
               type="password"
               id="newPassword"
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
-              className="p-3 border border-gray-300 rounded-md w-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600"
+              className="p-3  border-2 border-[#06814f] rounded w-full shadow-sm "
               placeholder="Enter New Password"
             />
           </div>
 
           {/* Confirm Password Input */}
           <div className="flex items-center justify-between">
-            <label htmlFor="confirmPassword" className="text-lg font-medium text-gray-700 mr-4">Confirm Password</label>
+            <label htmlFor="confirmPassword" className="text-lg font-medium text-white mr-4">Confirm Password</label>
             <input
               type="password"
               id="confirmPassword"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              className="p-3 border border-gray-300 rounded-md w-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600"
+              className="p-3 border-2 border-[#06814f] rounded-md w-full shadow-sm"
               placeholder="Confirm New Password"
             />
           </div>
@@ -108,7 +108,7 @@ const PortalSettings = () => {
           <div className="text-right mt-6">
             <button
               type="submit"
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition duration-300"
+              className="px-6 bg-[#193344] border-2 border-[#06814f] text-white rounded-lg shadow-md"
             >
               Reset Password
             </button>
