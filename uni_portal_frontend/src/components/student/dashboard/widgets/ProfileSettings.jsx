@@ -14,48 +14,48 @@ const ProfileSettings = () => {
     };
 
     return (
-        <div className="p-6 bg-gradient-to-br from-gray-800 via-gray-900 to-purple-900 text-white rounded-lg shadow-md">
-            <h2 className="text-2xl font-bold text-center mb-6">Profile Settings</h2>
-            <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="p-3 md:p-6 border-[1px] border-white/35 text-white rounded-lg shadow-md">
+            <h2 className="text-[2vw] font-bold text-center mb-3 md:mb-6">Profile Settings</h2>
+            <form onSubmit={handleSubmit} className="space-y-3 md:space-y-6">
                 <div>
-                    <label className="block text-sm font-semibold">Email</label>
+                    <label className="block text-[1vw] font-semibold">Email</label>
                     <input
                         type="email"
                         value={profile.email}
                         onChange={(e) => setProfile({ ...profile, email: e.target.value })}
-                        className="w-full p-2 bg-gray-800 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full p-1 md:p-2 border-[#05945626] bg-green-600/30 rounded focus:outline-none focus:ring-2 focus:bg-green-600/70 text-white text-[1vw]"
                     />
                 </div>
                 <div>
-                    <label className="block text-sm font-semibold">Phone</label>
+                    <label className="block text-[1vw] font-semibold">Phone</label>
                     <input
                         type="tel"
                         value={profile.phone}
                         onChange={(e) => setProfile({ ...profile, phone: e.target.value })}
-                        className="w-full p-2 bg-gray-800 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full p-1 md:p-2 border-[#05945626] bg-green-600/30 rounded focus:outline-none focus:ring-2 focus:bg-green-600/70 text-white text-[1vw]"
                     />
                 </div>
                 <div>
-                    <label className="block text-sm font-semibold">Address</label>
+                    <label className="block text-[1vw] font-semibold">Address</label>
                     <textarea
                         value={profile.address}
                         onChange={(e) => setProfile({ ...profile, address: e.target.value })}
-                        className="w-full p-2 bg-gray-800 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full p-1 md:p-2  border-[#05945626] bg-green-600/30 rounded focus:outline-none focus:ring-2 focus:bg-green-600/70 text-white text-[1vw]"
                     />
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1 md:gap-2 text-[1vw]">
                     <input
                         type="checkbox"
                         checked={profile.notifications}
                         onChange={(e) => setProfile({ ...profile, notifications: e.target.checked })}
-                        className="form-checkbox text-purple-500"
+                        className="form-checkbox text-[1vw]"
                     />
-                    <label className="text-sm">Receive email notifications</label>
+                    <label className="text-[1vw]">Receive email notifications</label>
                 </div>
                 <div className="flex justify-between mt-6">
                     <button
                         type="submit"
-                        className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded shadow-md"
+                        className="bg-[#048C51] hover:bg-[#03924C] text-white py-2 px-2 md:px-4 rounded shadow-md text-[1vw]"
                     >
                         Save Changes
                     </button>

@@ -82,38 +82,36 @@ const CourseSummary = () => {
   ];
 
   return (
-    <div className="p-6 bg-gradient-to-br from-gray-800 via-gray-900 to-purple-900 text-white rounded-lg shadow-lg min-h-screen">
-      <h1 className="text-3xl font-extrabold text-center mb-6">Course Summary</h1>
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse border border-gray-700 text-left">
-          <thead className="bg-gray-700">
+    <div className="md:p-6 text-white rounded-lg shadow-lg  border-[1px] border-white/45 bg-[#2C2F48] bg-opacity-50 bg-green-600/15 border-[#048C51]">
+      
+      <h1 className="text-3xl font-extrabold text-center md:mb-6 text-[2vw]">Course Summary</h1>
+      <div className="">
+        <table className=" border-collapse border border-gray-700 text-left">
+          <thead className="bg-[#048C51]/35">
             <tr>
-              <th className="px-4 py-2 border border-gray-600">S#</th>
-              <th className="px-4 py-2 border border-gray-600">Course Title</th>
-              <th className="px-4 py-2 border border-gray-600">Class</th>
-              <th className="px-4 py-2 border border-gray-600">Faculty</th>
-              <th className="px-4 py-2 border border-gray-600">Lectures</th>
-              <th className="px-4 py-2 border border-gray-600">Present</th>
-              <th className="px-4 py-2 border border-gray-600">Absent</th>
-              <th className="px-4 py-2 border border-gray-600">Thy%</th>
-              <th className="px-4 py-2 border border-gray-600">Lab%</th>
+              <th className="p-1 md:p-2 border border-gray-600 text-[1vw]">S#</th>
+              <th className="p-1 md:py-2 border border-gray-600 text-[1vw]">Course Title</th>
+              <th className="p-1 md:p-2 border border-gray-600 text-[1vw]">Class</th>
+              <th className="p-1 md:p-2 border border-gray-600 text-[1vw]">Faculty</th>
+              <th className="p-1 md:p-2 border border-gray-600 text-[1vw]">Lectures</th>
+              <th className="p-1 md:p-2 border border-gray-600 text-[1vw]">Present</th>
+              <th className="p-1 md:p-2 border border-gray-600 text-[1vw]">Absent</th>
+              <th className="p-1 md:p-2 border border-gray-600 text-[1vw]">Thy%</th>
+              <th className="p-1 md:p-2 border border-gray-600 text-[1vw]">Lab%</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-700">
             {courses.map((course, index) => (
-              <tr
-                key={course.id}
-                className="hover:bg-purple-800 transition-colors duration-200"
-              >
-                <td className="px-4 py-2">{index + 1}</td>
-                <td className="px-4 py-2">{course.title}</td>
-                <td className="px-4 py-2">{course.class}</td>
-                <td className="px-4 py-2">{course.faculty}</td>
-                <td className="px-4 py-2">{course.lectures}</td>
-                <td className="px-4 py-2 text-green-500">{course.present}</td>
-                <td className="px-4 py-2 text-red-500">{course.absent}</td>
-                <td className="px-4 py-2">{course.thyPercentage}</td>
-                <td className="px-4 py-2">{course.labPercentage}</td>
+              <tr key={course.id} className="hover:bg-green-600/15">
+                <td className="p-1 md:p-2 text-[1vw]">{index + 1}</td>
+                <td className="p-1 md:p-2 text-[1vw]">{course.title}</td>
+                <td className="p-1 md:p-2 text-[1vw]">{course.class}</td>
+                <td className="p-1 md:p-2 text-[1vw]">{course.faculty}</td>
+                <td className="p-1 md:p-2 text-[1vw]">{course.lectures}</td>
+                <td className="p-1 md:p-2 text-green-500 text-[1vw]">{course.present}</td>
+                <td className="p-1 md:p-2 text-red-500 text-[1vw]">{course.absent}</td>
+                <td className="p-1 md:p-2 text-[1vw]">{course.thyPercentage}</td>
+                <td className="p-1 md:p-2 py-2 text-[1vw]">{course.labPercentage}</td>
               </tr>
             ))}
           </tbody>
