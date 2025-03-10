@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import teacherPic from '../../../assets/Teacher.png';
 import { Link, useLocation } from "react-router-dom";
 import {
   FaUserTie,
@@ -28,10 +29,10 @@ const MenuItem = ({
     {to ? (
       <Link
         to={to}
-        className={`flex items-center px-4 py-2.5 rounded-lg transition-all duration-300
+        className={`flex items-center px-4 py-2.5 rounded-lg transition-all duration-300 
                    ${
                      isActive
-                       ? "bg-gradient-to-r from-purple-500/30 to-pink-500/30 text-white shadow-lg"
+                       ? "bg-gradient-to-r from-purple-500/30 to-pink-500/30   text-white shadow-lg"
                        : "hover:bg-white/10"
                    }`}
       >
@@ -45,10 +46,10 @@ const MenuItem = ({
       <button
         onClick={onClick}
         className="w-full flex items-center justify-between px-4 py-2.5 rounded-lg
-                 transition-all duration-300 hover:bg-white/10 group"
+                 transition-all duration-300 hover:bg-[#048c51] text-white group"
       >
         <div className="flex items-center">
-          <Icon className="w-5 h-5 mr-3 group-hover:text-purple-400 transition-colors" />
+          <Icon className="w-5 h-5 mr-3 group-hover:text-white transition-colors" />
           <span className="font-medium">{children}</span>
         </div>
         {isDropdown && (
@@ -69,7 +70,7 @@ const SubMenuItem = ({ to, children }) => (
     <Link
       to={to}
       className="block px-4 py-2 rounded-lg transition-all duration-300
-                 text-gray-300 hover:bg-white/5 hover:text-purple-300"
+                 text-gray-300 hover:bg-[#048c51] hover:text-white"
     >
       {children}
     </Link>
@@ -98,10 +99,22 @@ const Sidebar = () => {
 
   return (
     <div
-      className="relative bg-gradient-to-br from-gray-900 via-indigo-900 to-purple-900 
+      className="relative bg-[#1d2241] 
                     text-white w-72 min-h-screen backdrop-blur-lg shadow-xl 
                     border-r border-white/10"
     >
+       <div className="md:w-1/4">
+       <div className="relative group mb-4">
+  <div className="absolute -inset-0.5 bg-[#193344] rounded-full opacity-50 group-hover:opacity-100 transition duration-300 blur"></div>
+  <div className="relative top-5 left-16 w-[150px]">  {/* Ensure this div has the width */}
+    <img
+      src={teacherPic}
+      alt="Profile"
+      className="w-full h-[120px] rounded-full border-4 border-white shadow-xl transform transition duration-300 group-hover:scale-105"
+    />
+  </div>
+</div>
+                      </div>
       <div className="px-3 py-6 space-y-4">
         <nav>
           <ul className="space-y-1.5 ">

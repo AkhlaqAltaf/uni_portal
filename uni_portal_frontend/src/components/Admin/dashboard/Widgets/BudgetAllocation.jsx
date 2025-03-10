@@ -47,23 +47,23 @@ const BudgetAllocation = () => {
   };
 
   return (
-    <div className="p-6 space-y-6  bg-gray-300 rounded-lg">
+    <div className="p-6 space-y-6  bg-[#1d2241] rounded-lg">
       <h1 className="text-3xl font-bold text-center text-gray-800">University Budget Allocation</h1>
 
       {/* Budget Allocation Table */}
-      <div className="bg-white shadow-md rounded-lg p-6">
-        <h3 className="text-lg font-medium text-gray-600 mb-4">Edit Budget Allocation</h3>
+      <div className="bg-[#193344] border-2 border-[#06814f] shadow-md rounded-lg p-6">
+        <h3 className="text-lg font-medium text-white mb-4">Edit Budget Allocation</h3>
         <table className="min-w-full table-auto">
           <thead>
             <tr className="border-b">
-              <th className="px-4 py-2 text-left">Department</th>
-              <th className="px-4 py-2 text-left">Current Allocation ($)</th>
-              <th className="px-4 py-2 text-left">New Allocation ($)</th>
+              <th className="px-4 py-2 text-white text-left">Department</th>
+              <th className="px-4 py-2 text-white text-left">Current Allocation ($)</th>
+              <th className="px-4 py-2 text-white text-left">New Allocation ($)</th>
             </tr>
           </thead>
           <tbody>
             {Object.keys(budgetData).map((department) => (
-              <tr key={department} className="border-b">
+              <tr key={department} className="border-b text-white">
                 <td className="px-4 py-2">{department.replace(/([A-Z])/g, ' $1').toUpperCase()}</td>
                 <td className="px-4 py-2">${budgetData[department].toLocaleString()}</td>
                 <td className="px-4 py-2">
@@ -71,7 +71,7 @@ const BudgetAllocation = () => {
                     type="number"
                     value={budgetData[department]}
                     onChange={(e) => handleChange(department, parseInt(e.target.value))}
-                    className="w-full px-2 py-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-2 py-1 bg-[#193344] border-2 border-[#06814f] rounded-md "
                   />
                 </td>
               </tr>
@@ -81,8 +81,8 @@ const BudgetAllocation = () => {
       </div>
 
       {/* Pie Chart for Budget Allocation */}
-      <div className="bg-white shadow-md rounded-lg p-6 mt-6">
-        <h3 className="text-lg font-medium text-gray-600">Budget Allocation Distribution</h3>
+      <div className="bg-[#193344] border-2 border-[#06814f] shadow-md rounded-lg p-6 mt-6">
+        <h3 className="text-lg font-medium text-white">Budget Allocation Distribution</h3>
         <Pie data={chartData} options={{ responsive: true }} />
       </div>
     </div>

@@ -28,12 +28,12 @@ function ResearchFundingReports() {
   };
 
   return (
-    <div className="p-6 space-y-6  bg-gray-300 rounded-lg">
-      <header className="bg-green-600 text-white p-4 rounded-lg shadow-md">
+    <div className="p-6 space-y-6   bg-[#1d2241]  rounded-lg">
+      <header className="bg-[#193344] border-2 border-[#06814f] text-white text-white p-4 rounded-lg shadow-md">
         <h1 className="text-2xl font-bold">Research Funding and Reports</h1>
       </header>
 
-      <div className="bg-white p-6 rounded-lg shadow-md">
+      <div className="bg-[#193344] border-2 border-[#06814f] text-white p-6 rounded-lg shadow-md">
         <h2 className="text-xl font-bold mb-4">Funding Overview</h2>
         <Bar
           data={fundingData}

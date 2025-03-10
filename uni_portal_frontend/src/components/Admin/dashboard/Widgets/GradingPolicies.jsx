@@ -56,21 +56,21 @@ const GradingPolicies = () => {
   };
 
   return (
-    <div className="container mx-auto p-6  bg-gray-300 rounded-lg">
-      <h1 className="text-2xl font-bold mb-6">Grading Policies Management</h1>
+    <div className="container mx-auto p-6  bg-[#1d2241] rounded-lg">
+      <h1 className="text-2xl font-bold mb-6 text-white">Grading Policies Management</h1>
 
       {/* Grading Scale Section */}
-      <div className="bg-white shadow-md rounded-lg p-6 mb-6">
+      <div className="bg-[#193344] border-2 border-[#06814f] text-white shadow-md rounded-lg p-6 mb-6">
         <h2 className="text-xl font-semibold mb-4">Grade Scale</h2>
         <div className="space-y-4">
           {Object.entries(gradingScale).map(([grade, minScore]) => (
-            <div key={grade} className="flex items-center">
+            <div key={grade} className="flex  items-center">
               <label className="w-24 font-medium">{grade}</label>
               <input
                 type="number"
                 value={minScore}
                 onChange={(e) => handleGradeChange(grade, e.target.value)}
-                className="border rounded-md p-2 w-24"
+                className="bg-[#193344] border-2 border-[#06814f]  rounded-md p-2 w-24"
               />
               <span className="ml-2">Minimum Score</span>
             </div>
@@ -79,7 +79,7 @@ const GradingPolicies = () => {
       </div>
 
       {/* Weighting Section */}
-      <div className="bg-white shadow-md rounded-lg p-6 mb-6">
+      <div className="bg-[#193344] border-2 border-[#06814f] text-white shadow-md rounded-lg p-6 mb-6">
         <h2 className="text-xl font-semibold mb-4">Weighting</h2>
         <div className="space-y-4">
           {Object.entries(weighting).map(([component, weight]) => (
@@ -89,7 +89,7 @@ const GradingPolicies = () => {
                 type="number"
                 value={weight}
                 onChange={(e) => handleWeightingChange(component, e.target.value)}
-                className="border rounded-md p-2 w-24"
+                className="bg-[#193344] border-2 border-[#06814f]  rounded-md p-2 w-24"
                 min="0"
                 max="100"
               />
@@ -103,13 +103,13 @@ const GradingPolicies = () => {
       <div className="mt-6 flex gap-4">
         <button
           onClick={handleSave}
-          className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-700"
+          className="bg-[#193344] border-2 border-[#06814f]  text-white py-2 px-4 rounded-md hover:bg-[#1d2241]"
         >
           Save Policies
         </button>
         <button
           onClick={handleReset}
-          className="bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-gray-700"
+          className="bg-[#193344] border-2 border-[#06814f] text-white py-2 px-4 rounded-md hover:bg-[#1d2241]"
         >
           Reset Changes
         </button>

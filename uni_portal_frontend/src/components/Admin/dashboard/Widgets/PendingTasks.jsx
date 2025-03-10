@@ -64,10 +64,11 @@ const PendingTasks = () => {
 
   return (
     <div className="container mx-auto p-6">
-      <h1 className="text-2xl font-semibold mb-6 text-gray-800">Pending Tasks Overview</h1>
+      <h1 className="text-2xl font-semibold mb-6 text-white">Pending Tasks Overview</h1>
 
       {/* Category Buttons */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+<<<<<<< Updated upstream
         {taskCategories.map((category) => (
           <button
             key={category.id}
@@ -77,10 +78,37 @@ const PendingTasks = () => {
             {category.name}
           </button>
         ))}
+=======
+        <button
+          onClick={() => handleCategoryClick('studentApprovals')}
+          className="bg-[#193344] border-2 border-[#06814f] text-white py-2 px-4 rounded-md hover:bg-[#048c51]"
+        >
+          View Pending Student Approvals
+        </button>
+        <button
+          onClick={() => handleCategoryClick('feeCollection')}
+          className="bg-[#193344] border-2 border-[#06814f] text-white py-2 px-4 rounded-md hover:bg-[#048c51]"
+        >
+          View Fee Collection
+        </button>
+        <button
+          onClick={() => handleCategoryClick('examScheduling')}
+          className="bg-[#193344] border-2 border-[#06814f] text-white py-2 px-4 rounded-md hover:bg-[#048c51]"
+        >
+          View Exam Scheduling
+        </button>
+        <button
+          onClick={() => handleCategoryClick('facultyRequests')}
+          className="bg-[#193344] border-2 border-[#06814f] text-white py-2 px-4 rounded-md hover:bg-[#048c51]"
+        >
+          View Faculty Requests
+        </button>
+>>>>>>> Stashed changes
       </div>
 
       {/* Conditional rendering of tasks */}
       {selectedCategory && (
+<<<<<<< Updated upstream
         <div className="bg-white p-6 rounded-lg shadow-md">
           <h2 className="text-xl font-semibold mb-4">
             Pending Tasks in {taskCategories.find((cat) => cat.id === selectedCategory)?.name}
@@ -109,9 +137,49 @@ const PendingTasks = () => {
                       },
                     }}
                   />
+=======
+        <div className="bg-[#1d2241] p-6 rounded-lg shadow-md">
+          <h2 className="text-xl text-white font-semibold mb-4">
+            Pending {selectedCategory === 'studentApprovals' ? 'Student Approvals' :
+              selectedCategory === 'feeCollection' ? 'Fee Collection' :
+              selectedCategory === 'examScheduling' ? 'Exam Scheduling' : 'Faculty Requests'}
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {tasksData[selectedCategory].map((task) => (
+              <div key={task.id} className="flex flex-col items-center bg-[#164147] border-2 border-[#068350]  p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200">
+                {/* Ensuring a perfect circular shape */}
+                <div className="w-24 h-24 mb-4 flex justify-center items-center">
+                  <div className="w-full h-full">
+                    <CircularProgressbar
+                      value={task.progress}
+                      text={`${task.progress}%`}
+                      styles={{
+                        root: {
+                          width: "104%",
+                          height: "99%",
+                          transform: "scale(1.05)",
+                        },
+                        path: {
+                          stroke: getPriorityColor(task.priority),
+                          strokeWidth: 10,
+                        },
+                        trail: {
+                          stroke: '#e6e6e6',
+                          strokeWidth: 10,
+                        },
+                        text: {
+                          fill: getPriorityColor(task.priority),
+                          fontSize: '16px',
+                          fontWeight: 'bold',
+                        },
+                      }}
+                    />
+                  </div>
+>>>>>>> Stashed changes
                 </div>
-                <h3 className="font-medium text-lg text-center mb-2">{task.task}</h3>
-                <p className="text-sm text-gray-500 text-center mb-2">{task.description}</p>
+                <h3 className="font-medium text-white text-lg text-center mb-2">{task.task}</h3>
+                <p className="text-sm text-white text-center mb-2">{task.description}</p>
                 <span className={`text-xs py-1 px-2 rounded-full ${getPriorityColor(task.priority)} text-white`}>
                   {task.priority.charAt(0).toUpperCase() + task.priority.slice(1)}
                 </span>

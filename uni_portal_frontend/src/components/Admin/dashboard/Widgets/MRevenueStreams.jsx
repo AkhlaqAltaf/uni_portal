@@ -34,38 +34,38 @@ const MRevenueStreams = () => {
   };
 
   return (
-    <div className="p-6 space-y-6 bg-gray-300 rounded-lg">
-      <h1 className="text-3xl font-bold text-center text-gray-800">University Revenue Streams</h1>
+    <div className="p-6 space-y-6 bg-[#1d2241] rounded-lg">
+      <h1 className="text-3xl font-bold text-center text-white">University Revenue Streams</h1>
       
       {/* Revenue Breakdown Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        <div className="bg-white shadow-md rounded-lg p-6 flex items-center justify-between">
+        <div className="bg-[#193344] border-2 border-[#06814f] shadow-md rounded-lg p-6 flex items-center justify-between">
           <div>
-            <h3 className="text-lg font-medium text-gray-600">Tuition</h3>
+            <h3 className="text-lg font-medium text-white">Tuition</h3>
             <p className="text-2xl font-semibold text-blue-600">${revenueData.tuition.toLocaleString()}</p>
           </div>
           <FaGraduationCap className="text-blue-600 text-4xl" />
         </div>
 
-        <div className="bg-white shadow-md rounded-lg p-6 flex items-center justify-between">
+        <div className="bg-[#193344] border-2 border-[#06814f] shadow-md rounded-lg p-6 flex items-center justify-between">
           <div>
-            <h3 className="text-lg font-medium text-gray-600">Donations</h3>
+            <h3 className="text-lg font-medium text-white">Donations</h3>
             <p className="text-2xl font-semibold text-green-600">${revenueData.donations.toLocaleString()}</p>
           </div>
           <FaHandHoldingUsd className="text-green-600 text-4xl" />
         </div>
 
-        <div className="bg-white shadow-md rounded-lg p-6 flex items-center justify-between">
+        <div className="bg-[#193344] border-2 border-[#06814f] shadow-md rounded-lg p-6 flex items-center justify-between">
           <div>
-            <h3 className="text-lg font-medium text-gray-600">Government Funds</h3>
+            <h3 className="text-lg font-medium text-white">Government Funds</h3>
             <p className="text-2xl font-semibold text-teal-600">${revenueData.governmentFunds.toLocaleString()}</p>
           </div>
           <FaBuilding className="text-teal-600 text-4xl" />
         </div>
 
-        <div className="bg-white shadow-md rounded-lg p-6 flex items-center justify-between">
+        <div className="bg-[#193344] border-2 border-[#06814f] shadow-md rounded-lg p-6 flex items-center justify-between">
           <div>
-            <h3 className="text-lg font-medium text-gray-600">Other</h3>
+            <h3 className="text-lg font-medium text-white">Other</h3>
             <p className="text-2xl font-semibold text-yellow-600">${revenueData.other.toLocaleString()}</p>
           </div>
           <FaUniversity className="text-yellow-600 text-4xl" />
@@ -73,8 +73,8 @@ const MRevenueStreams = () => {
       </div>
 
       {/* Pie Chart for Revenue Breakdown */}
-      <div className="bg-white shadow-md rounded-lg p-6 mt-6">
-        <h3 className="text-lg font-medium text-gray-600">Revenue Stream Distribution</h3>
+      <div className="bg-[#193344] border-2 border-[#06814f] shadow-md rounded-lg p-6 mt-6">
+        <h3 className="text-lg font-medium text-white">Revenue Stream Distribution</h3>
         <Pie data={chartData} options={{ responsive: true }} />
       </div>
     </div>

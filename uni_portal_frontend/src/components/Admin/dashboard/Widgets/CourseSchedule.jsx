@@ -82,8 +82,8 @@ const CourseSchedule = () => {
   );
 
   return (
-    <div className="max-w-5xl mx-auto p-6 bg-slate-200 rounded-lg shadow-lg">
-      <h2 className="text-2xl font-semibold mb-6">Add Course Schedule</h2>
+    <div className="max-w-5xl mx-auto p-6 bg-[#1d2241] rounded-lg shadow-lg">
+      <h2 className="text-2xl text-white font-semibold mb-6">Add Course Schedule</h2>
 
       {/* Error Message */}
       {error && (
@@ -96,7 +96,7 @@ const CourseSchedule = () => {
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div>
-            <label htmlFor="courseName" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="courseName" className="block text-sm font-medium text-white">
               Course Name
             </label>
             <input
@@ -105,12 +105,12 @@ const CourseSchedule = () => {
               name="courseName"
               value={schedule.courseName}
               onChange={handleChange}
-              className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-4 py-2 mt-1 bg-[#193344] border-2 border-[#06814f] rounded-md text-white"
               required
             />
           </div>
           <div>
-            <label htmlFor="instructor" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="instructor" className="block text-sm font-medium text-white">
               Instructor
             </label>
             <input
@@ -119,12 +119,12 @@ const CourseSchedule = () => {
               name="instructor"
               value={schedule.instructor}
               onChange={handleChange}
-              className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-4 py-2 mt-1 bg-[#193344] border-2 border-[#06814f] rounded-md text-white"
               required
             />
           </div>
           <div>
-            <label htmlFor="day" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="day" className="block text-sm font-medium text-white">
               Day of the Week
             </label>
             <select
@@ -132,7 +132,7 @@ const CourseSchedule = () => {
               name="day"
               value={schedule.day}
               onChange={handleChange}
-              className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-4 py-2 mt-1 bg-[#193344] border-2 border-[#06814f] rounded-md text-white"
               required
             >
               <option value="">Select Day</option>
@@ -144,7 +144,7 @@ const CourseSchedule = () => {
             </select>
           </div>
           <div>
-            <label htmlFor="time" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="time" className="block text-sm font-medium text-white">
               Time
             </label>
             <input
@@ -153,12 +153,12 @@ const CourseSchedule = () => {
               name="time"
               value={schedule.time}
               onChange={handleChange}
-              className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-4 py-2 mt-1 bg-[#193344] border-2 border-[#06814f] rounded-md text-white"
               required
             />
           </div>
           <div>
-            <label htmlFor="room" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="room" className="block text-sm font-medium text-white">
               Room
             </label>
             <input
@@ -167,7 +167,7 @@ const CourseSchedule = () => {
               name="room"
               value={schedule.room}
               onChange={handleChange}
-              className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-4 py-2 mt-1 bg-[#193344] border-2 border-[#06814f] rounded-md text-white"
               required
             />
           </div>
@@ -175,38 +175,38 @@ const CourseSchedule = () => {
 
         <button
           type="submit"
-          className="w-full px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        >
+          className="w-full px-4 py-2 mt-1 bg-[#193344] border-2 border-[#06814f] rounded-md text-white"
+          >
           Add Schedule
         </button>
       </form>
 
       {/* Search for Courses */}
       <div className="mt-6 mb-4">
-        <label className="block text-sm font-medium text-gray-700">Search for a Course</label>
+        <label className="block text-sm font-medium text-white">Search for a Course</label>
         <input
           type="text"
           value={searchQuery}
           onChange={handleSearchChange}
-          className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+          className="w-full px-4 py-2 mt-1 bg-[#193344] border-2 border-[#06814f] rounded-md text-white"
           placeholder="Search by course name"
         />
       </div>
 
       {/* Displaying Filtered Courses */}
       <div className="mt-12">
-        <h3 className="text-xl font-semibold mb-4">Scheduled Courses</h3>
+        <h3 className="text-xl text-white font-semibold mb-4">Scheduled Courses</h3>
         {filteredCourses.length === 0 ? (
           <p className="text-gray-500">No courses found.</p>
         ) : (
           <table className="min-w-full table-auto border-collapse">
             <thead>
               <tr>
-                <th className="px-4 py-2 border border-gray-300 text-left">Course Name</th>
-                <th className="px-4 py-2 border border-gray-300 text-left">Instructor</th>
-                <th className="px-4 py-2 border border-gray-300 text-left">Day</th>
-                <th className="px-4 py-2 border border-gray-300 text-left">Time</th>
-                <th className="px-4 py-2 border border-gray-300 text-left">Room</th>
+                <th className="px-4 py-2 bg-[#193344] border-2 border-[#06814f] text-white text-left">Course Name</th>
+                <th className="px-4 py-2 bg-[#193344] border-2 border-[#06814f] text-white text-left">Instructor</th>
+                <th className="px-4 py-2 bg-[#193344] border-2 border-[#06814f] text-white text-left">Day</th>
+                <th className="px-4 py-2 bg-[#193344] border-2 border-[#06814f] text-white text-left">Time</th>
+                <th className="px-4 py-2 bg-[#193344] border-2 border-[#06814f] text-white text-left">Room</th>
               </tr>
             </thead>
             <tbody>
@@ -214,13 +214,13 @@ const CourseSchedule = () => {
                 <tr
                   key={index}
                   onClick={() => handleCourseSelect(course)}
-                  className="cursor-pointer hover:bg-gray-100"
+                  className="cursor-pointer hover:bg-[#193344]"
                 >
-                  <td className="px-4 py-2 border border-gray-300">{course.courseName}</td>
-                  <td className="px-4 py-2 border border-gray-300">{course.instructor}</td>
-                  <td className="px-4 py-2 border border-gray-300">{course.day}</td>
-                  <td className="px-4 py-2 border border-gray-300">{course.time}</td>
-                  <td className="px-4 py-2 border border-gray-300">{course.room}</td>
+                  <td className="px-4 py-2 bg-[#193344] border-2 border-[#06814f] text-white">{course.courseName}</td>
+                  <td className="px-4 py-2 bg-[#193344] border-2 border-[#06814f] text-white">{course.instructor}</td>
+                  <td className="px-4 py-2 bg-[#193344] border-2 border-[#06814f] text-white">{course.day}</td>
+                  <td className="px-4 py-2 bg-[#193344] border-2 border-[#06814f] text-white">{course.time}</td>
+                  <td className="px-4 py-2 bg-[#193344] border-2 border-[#06814f] text-white">{course.room}</td>
                 </tr>
               ))}
             </tbody>
