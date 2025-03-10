@@ -61,44 +61,44 @@ const ScholarshipStatus = () => {
   ];
 
   return (
-    <div className="p-6 bg-gradient-to-br from-gray-800 via-gray-900 to-purple-900 text-white rounded-lg shadow-lg max-w-6xl mx-auto">
-      <h2 className="text-3xl font-extrabold text-center text-gray-200 mb-6">Scholarship Awarded Information</h2>
+    <div className="p-3 md:p-6 border-[1px] border-white/35 text-white rounded-lg shadow-lg max-w-6xl mx-auto">
+      <h2 className="text-[2vw] font-extrabold text-center mb-3 md:mb-6">Scholarship Awarded Information</h2>
       <div className="overflow-x-auto">
-        <table className="table-auto w-full border-collapse border border-gray-300 rounded-lg shadow-md">
-          <thead className="bg-purple-600 text-white">
+        <table className="table-auto w-full border-collapse border border-[#05945626]/35 rounded-lg shadow-md">
+          <thead className="bg-[#05945626]/20 text-white">
             <tr>
-              <th className="border border-gray-300 px-4 py-2">S.No</th>
-              <th className="border border-gray-300 px-4 py-2">Scholarship</th>
-              <th className="border border-gray-300 px-4 py-2">Date</th>
-              <th className="border border-gray-300 px-4 py-2">Session</th>
-              <th className="border border-gray-300 px-4 py-2">Fee</th>
-              <th className="border border-gray-300 px-4 py-2">Meal</th>
-              <th className="border border-gray-300 px-4 py-2">Boarding</th>
-              <th className="border border-gray-300 px-4 py-2">Stipend</th>
-              <th className="border border-gray-300 px-4 py-2">Book Allowance</th>
-              <th className="border border-gray-300 px-4 py-2">Total</th>
-              <th className="border border-gray-300 px-4 py-2">Cheque No/Transaction No</th>
-              <th className="border border-gray-300 px-4 py-2">Remarks</th>
+              <th className="border border-[#05945626]/35 py-1 px-2 md:py-4 md:px-2 text-[1vw]">S.No</th>
+              <th className="border border-[#05945626]/35 py-1 px-2 md:py-4 md:px-2 text-[1vw]">Scholarship</th>
+              <th className="border border-[#05945626]/35 py-1 px-2 md:py-4 md:px-2 text-[1vw]">Date</th>
+              <th className="border border-[#05945626]/35 py-1 px-2 md:py-4 md:px-2 text-[1vw]">Session</th>
+              <th className="border border-[#05945626]/35 py-1 px-2 md:py-4 md:px-2 text-[1vw]">Fee</th>
+              <th className="border border-[#05945626]/35 py-1 px-2 md:py-4 md:px-2 text-[1vw]">Meal</th>
+              <th className="border border-[#05945626]/35 py-1 px-2 md:py-4 md:px-2 text-[1vw]">Boarding</th>
+              <th className="border border-[#05945626]/35 py-1 px-2 md:py-4 md:px-2 text-[1vw]">Stipend</th>
+              <th className="border border-[#05945626]/35 py-1 px-2 md:py-4 md:px-2 text-[1vw]">Book Allowance</th>
+              <th className="border border-[#05945626]/35 py-1 px-2 md:py-4 md:px-2 text-[1vw]">Total</th>
+              <th className="border border-[#05945626]/35 py-1 px-2 md:py-4 md:px-2 text-[1vw]">Cheque No/Transaction No</th>
+              <th className="border border-[#05945626]/35 py-1 px-2 md:py-4 md:px-2 text-[1vw]">Remarks</th>
             </tr>
           </thead>
           <tbody>
             {scholarshipData.map((item, index) => (
               <tr
                 key={item.id}
-                className={`text-center ${index % 2 === 0 ? "bg-gray-700" : "bg-gray-800"} hover:bg-gray-600 transition-colors`}
+                className={`text-center ${index % 2 === 0 ? "bg-[#05945626]/10" : "bg-transparent"} hover:bg-[#05945626]/15 transition-colors`}
               >
-                <td className="border border-gray-300 px-4 py-2">{item.id}</td>
-                <td className="border border-gray-300 px-4 py-2">{item.scholarship}</td>
-                <td className="border border-gray-300 px-4 py-2">{item.date}</td>
-                <td className="border border-gray-300 px-4 py-2">{item.session}</td>
-                <td className="border border-gray-300 px-4 py-2">Rs. {item.fee}</td>
-                <td className="border border-gray-300 px-4 py-2">{item.meal}</td>
-                <td className="border border-gray-300 px-4 py-2">{item.boarding}</td>
-                <td className="border border-gray-300 px-4 py-2">{item.stipend}</td>
-                <td className="border border-gray-300 px-4 py-2">{item.bookAllowance}</td>
-                <td className="border border-gray-300 px-4 py-2">Rs. {item.total}</td>
-                <td className="border border-gray-300 px-4 py-2">{item.chequeNo}</td>
-                <td className="border border-gray-300 px-4 py-2">{item.remarks}</td>
+                <td className="border border-[#05945626]/35 px-2 py-1 md:px-4 md:py-2 text-[1vw]">{item.id}</td>
+                <td className="border border-[#05945626]/35 px-2 py-1 md:px-4 md:py-2 text-[1vw]">{item.scholarship}</td>
+                <td className="border border-[#05945626]/35 px-2 py-1 md:px-4 md:py-2 text-[1vw]">{item.date}</td>
+                <td className="border border-[#05945626]/35 px-2 py-1 md:px-4 md:py-2 text-[1vw]">{item.session}</td>
+                <td className="border border-[#05945626]/35 px-2 py-1 md:px-4 md:py-2 text-[1vw]">Rs. {item.fee}</td>
+                <td className="border border-[#05945626]/35 px-2 py-1 md:px-4 md:py-2 text-[1vw]">{item.meal}</td>
+                <td className="border border-[#05945626]/35 px-2 py-1 md:px-4 md:py-2 text-[1vw]">{item.boarding}</td>
+                <td className="border border-[#05945626]/35 px-2 py-1 md:px-4 md:py-2 text-[1vw]">{item.stipend}</td>
+                <td className="border border-[#05945626]/35 px-2 py-1 md:px-4 md:py-2 text-[1vw]">{item.bookAllowance}</td>
+                <td className="border border-[#05945626]/35 px-2 py-1 md:px-4 md:py-2 text-[1vw]">Rs. {item.total}</td>
+                <td className="border border-[#05945626]/35 px-2 py-1 md:px-4 md:py-2 text-[1vw]">{item.chequeNo}</td>
+                <td className="border border-[#05945626]/35 px-2 py-1 md:px-4 md:py-2 text-[1vw]">{item.remarks}</td>
               </tr>
             ))}
           </tbody>

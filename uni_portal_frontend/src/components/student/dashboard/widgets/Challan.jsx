@@ -9,26 +9,28 @@ const Challan = () => {
     };
 
     return (
-        <div className="p-6 bg-gradient-to-r from-blue-50 to-purple-100 rounded-lg shadow-lg max-w-md mx-auto">
-            <h2 className="text-3xl font-extrabold text-center text-gray-800 mb-6">Fee Challan</h2>
-            <div className="space-y-4">
-                <div className="flex justify-between border-b pb-2">
-                    <span className="font-medium text-gray-700">Challan No:</span>
-                    <span className="text-gray-900">{challanData.challanNo}</span>
+        <div className="p-3 md:p-6 border-[1px] border-white/35 text-white rounded-lg shadow-lg max-w-md mx-auto">
+            <h2 className="text-[2vw] font-extrabold text-center mb-3 md:mb-6">Fee Challan</h2>
+            <div className="space-y-2 md:space-y-4">
+                <div className="flex justify-between border-b border-[#05945626] pb-2 text-[1vw]">
+                    <span className="font-medium text-[1vw]">Challan No:</span>
+                    <span className='text-[1vw]'>{challanData.challanNo}</span>
                 </div>
-                <div className="flex justify-between border-b pb-2">
-                    <span className="font-medium text-gray-700">Due Date:</span>
-                    <span className="text-gray-900">{challanData.dueDate}</span>
+                <div className="flex justify-between border-b border-[#05945626] pb-2 text-[1vw]">
+                    <span className="font-medium text-[1vw]">Due Date:</span>
+                    <span className='text-[1vw]'>{challanData.dueDate}</span>
                 </div>
-                <div className="flex justify-between border-b pb-2">
-                    <span className="font-medium text-gray-700">Amount:</span>
-                    <span className="text-gray-900">Rs. {challanData.amount}</span>
+                <div className="flex justify-between border-b border-[#05945626] pb-2">
+                    <span className="font-medium text-[1vw]">Amount:</span>
+                    <span className='text-[1vw]'>Rs. {challanData.amount}</span>
                 </div>
                 <div className="flex justify-between">
-                    <span className="font-medium text-gray-700">Status:</span>
-                    <span className={`font-semibold ${challanData.status === 'Unpaid' ? 'text-red-500' : 'text-green-500'}`}>{challanData.status}</span>
+                    <span className="font-medium text-[1vw]">Status:</span>
+                    <span className={`font-semibold text-[1vw] ${challanData.status === 'Unpaid' ? 'text-red-400 text-[1vw]' : 'text-green-400 text-[1vw]'}`}>
+                        {challanData.status}
+                    </span>
                 </div>
-                <button className="mt-4 w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition-all duration-300 transform hover:scale-105">
+                <button className="mt-2 md:mt-4 w-full bg-[#048C51] text-white py-2 rounded-md hover:bg-[#036B3E] transition-all duration-300 transform hover:scale-105 text-[1vw]">
                     Download Challan
                 </button>
             </div>

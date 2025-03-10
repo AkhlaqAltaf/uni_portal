@@ -45,36 +45,36 @@ const McqsTestTable = () => {
   ];
 
   return (
-    <div className="p-6 bg-gradient-to-br from-gray-800 via-gray-900 to-purple-900 text-white rounded-lg shadow">
-      <h2 className="text-3xl font-extrabold text-center mb-6">MCQs Test</h2>
+    <div className="p-3 md:p-6  text-white rounded-lg border border-white/25">
+      <h2 className="text-[2vw] font-extrabold text-center mb-3 md:mb-6">MCQs Test</h2>
       <div className="overflow-x-auto">
         <table className="w-full border-collapse border border-gray-700 text-left">
-          <thead className="bg-gray-700">
+          <thead className="bg-[#048C51]/40">
             <tr>
-              <th className="px-4 py-2 border border-gray-600">#</th>
-              <th className="px-4 py-2 border border-gray-600">Test Title</th>
-              <th className="px-4 py-2 border border-gray-600">Course Title</th>
-              <th className="px-4 py-2 border border-gray-600">
+              <th className="px-2 py-1 md:px-4 md:py-2 text-[1vw] border border-gray-600">#</th>
+              <th className="px-2 py-1 md:px-4 md:py-2 text-[1vw] border border-gray-600">Test Title</th>
+              <th className="px-2 py-1 md:px-4 md:py-2 text-[1vw] border border-gray-600">Course Title</th>
+              <th className="px-2 py-1 md:px-4 md:py-2 text-[1vw] border border-gray-600">
                 Start Date Time
               </th>
-              <th className="px-4 py-2 border border-gray-600">
+              <th className="px-2 py-1 md:px-4 md:py-2 text-[1vw] border border-gray-600">
                 End Date Time
               </th>
-              <th className="px-4 py-2 border border-gray-600">Action</th>
+              <th className="px-2 py-1 md:px-4 md:py-2 text-[1vw] border border-gray-600">Action</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-700">
             {tests.map((test, index) => (
               <tr
                 key={test.id}
-                className="hover:bg-purple-800 transition-colors duration-200"
+                className="hover:bg-[#048C51]/15"
               >
-                <td className="px-4 py-2">{index + 1}</td>
-                <td className="px-4 py-2">{test.testTitle}</td>
-                <td className="px-4 py-2">{test.courseTitle}</td>
-                <td className="px-4 py-2">{test.startDateTime}</td>
-                <td className="px-4 py-2">{test.endDateTime}</td>
-                <td className="px-4 py-2">
+                <td className="px-2 py-1 md:px-4 md:py-2 text-[1vw]">{index + 1}</td>
+                <td className="px-2 py-1 md:px-4 md:py-2 text-[1vw]">{test.testTitle}</td>
+                <td className="px-2 py-1 md:px-4 md:py-2 text-[1vw]">{test.courseTitle}</td>
+                <td className="px-2 py-1 md:px-4 md:py-2 text-[1vw]">{test.startDateTime}</td>
+                <td className="px-2 py-1 md:px-4 md:py-2 text-[1vw]">{test.endDateTime}</td>
+                <td className="px-2 py-1 md:px-4 md:py-2 text-[1vw]">
                   <button
                     onClick={() => alert(`Viewing result for ${test.testTitle}`)}
                     className="text-blue-500 hover:text-blue-300 transition-colors duration-200"

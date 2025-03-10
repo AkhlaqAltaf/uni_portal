@@ -49,14 +49,14 @@ const CourseContent = () => {
   };
 
   return (
-    <div className="p-6 bg-gradient-to-br from-gray-800 via-gray-900 to-purple-900 text-white rounded-lg shadow">
-      <h2 className="text-2xl font-bold mb-6">Course Content</h2>
+    <div className="p-3 md:p-6  text-white rounded-lg shadow border border-white/25">
+      <h2 className="text-[2vw] font-bold mb-3 md:mb-6">Course Content</h2>
 
       {/* Course Selection Dropdown */}
-      <div className="mb-4">
+      <div className="mb-2 md:mb-4">
         <select
           onChange={handleCourseChange}
-          className="w-full p-2 bg-gray-800 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
+          className="w-full p-2 text-[1.5vw] bg-gray-800 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-white/30"
         >
           <option value="">- Select Course -</option>
           {courses.map((course) => (
@@ -70,24 +70,24 @@ const CourseContent = () => {
       {/* Course Details */}
       {selectedCourse ? (
         <div>
-          <table className="w-full border-collapse bg-gray-700 rounded-lg shadow">
+          <table className="w-full border-collapse bg-gray-700 rounded-lg shadow ">
             <thead>
-              <tr className="bg-purple-600">
-                <th className="p-3 border-b border-gray-600">#</th>
-                <th className="p-3 border-b border-gray-600">Title</th>
-                <th className="p-3 border-b border-gray-600">Description</th>
-                <th className="p-3 border-b border-gray-600">Upload Date</th>
-                <th className="p-3 border-b border-gray-600">Download</th>
+              <tr className="bg-[#048C51]/35">
+                <th className="text-[1vw] p-2 md:p-3 border-b border-gray-600">#</th>
+                <th className="text-[1vw] p-3 border-b border-gray-600">Title</th>
+                <th className="text-[1vw] p-3 border-b border-gray-600">Description</th>
+                <th className="text-[1vw] p-3 border-b border-gray-600">Upload Date</th>
+                <th className="text-[1vw] p-3 border-b border-gray-600">Download</th>
               </tr>
             </thead>
             <tbody>
               {selectedCourse.files.map((file, index) => (
                 <tr key={index} className="even:bg-gray-800 odd:bg-gray-700">
-                  <td className="p-3 text-center">{index + 1}</td>
-                  <td className="p-3">{file.title}</td>
-                  <td className="p-3">{file.description}</td>
-                  <td className="p-3 text-center">{file.uploadDate}</td>
-                  <td className="p-3 text-center">
+                  <td className="text-[1vw] p-2 md:p-3 text-center">{index + 1}</td>
+                  <td className="text-[1vw] p-2 md:p-3">{file.title}</td>
+                  <td className="text-[1vw] p-2 md:p-3">{file.description}</td>
+                  <td className="text-[1vw] p-2 md:p-3 text-center">{file.uploadDate}</td>
+                  <td className="text-[1vw] p-2 md:p-3 text-center">
                     <a
                       href={file.downloadLink}
                       className="text-blue-400 hover:underline"
@@ -101,7 +101,7 @@ const CourseContent = () => {
           </table>
         </div>
       ) : (
-        <p className="text-gray-400">Please select a course to view its content.</p>
+        <p className="text-gray-400 text-[1vw]">Please select a course to view its content.</p>
       )}
     </div>
   );

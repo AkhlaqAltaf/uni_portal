@@ -6,33 +6,42 @@ import {
   FaClipboardCheck, FaGraduationCap
 } from "react-icons/fa";
 
+import stdpic from "../../../assets/Student.png";
+
+import "../../../assets/styles.css"
+
+// import Info from "../dashboard/widgets/StudentInfo";
+// import StudentInfo from '../dashboard/widgets/StudentInfo';
+
+
 const MenuItem = ({ to, icon: Icon, children, onClick, isDropdown, isOpen, isActive }) => (
   <li>
     {to ? (
       <Link
         to={to}
-        className={`flex items-center px-4 py-2.5 rounded-lg transition-all duration-300
+        className={`flex items-center px-1 py-2  sm:px-4 sm:py-5 transition-all duration-300 border-b-[1px] border-white/45
                    ${isActive 
-                     ? 'bg-gradient-to-r from-purple-500/30 to-pink-500/30 text-white shadow-lg' 
-                     : 'hover:bg-white/10'}`}
+                     ? 'bg-green-600 text-white shadow-lg' 
+                     : ''}`}
       >
-        <Icon className={`w-5 h-5 mr-3 transition-transform duration-300
-                       ${isActive ? 'scale-110 text-purple-400' : ''}`} />
-        <span className="font-medium">{children}</span>
+        <Icon className={`w-2 h-2 sm:w-5 sm:h-5 mr-2 sm:mr-6 transition-transform duration-300
+                       ${isActive ? 'scale-110 bg-green-600 hover:bg-green-500' : ''}`} />
+        <span className="font-normal text-[1.5vw] sm:text-[1vw] md:text-[1vw]">{children}</span>
       </Link>
     ) : (
       <button
         onClick={onClick}
-        className="w-full flex items-center justify-between px-4 py-2.5 rounded-lg
-                 transition-all duration-300 hover:bg-white/10 group"
+        className={`w-full flex items-center justify-between px-1 py-2 sm:px-4 sm:py-5
+          transition-all duration-300 group border-b-[1px] border-white/45
+          ${isActive || isOpen ? 'sm:scale-110 bg-green-600 hover:bg-green-500 ' : ''}`}
       >
         <div className="flex items-center">
-          <Icon className="w-5 h-5 mr-3 group-hover:text-purple-400 transition-colors" />
-          <span className="font-medium">{children}</span>
+          <Icon className="w-2 h-2 sm:w-5 sm:h-5 mr-3 sm:mr-6  transition-colors" />
+          <span className="font-normal text-[1.5vw] sm:text-[1vw] md:text-[1vw]">{children}</span>
         </div>
         {isDropdown && (
           <span className={`transform transition-transform duration-300 
-                          ${isOpen ? 'rotate-180' : ''}`}>
+                          ${isOpen ? 'rotate-180 text-[1.5vw] sm:text-[1vw] md:text-[1vw]' : 'text-[1.5vw] sm:text-[1vw] md:text-[1vw]'}`}>
             ▼
           </span>
         )}
@@ -45,9 +54,9 @@ const SubMenuItem = ({ to, children }) => (
   <li>
     <Link
       to={to}
-      className="block px-4 py-2 rounded-lg transition-all duration-300
-                 text-gray-300 hover:bg-white/5 hover:text-purple-300"
-    >
+      className="block px-2 py-1 sm:px-4 sm:py-2 rounded-lg transition-all duration-300
+                 text-gray-300 hover:bg-green-600/15 text-[1.5vw]  sm:text-[1vw] md:text-[1vw] "
+    > 
       {children}
     </Link>
   </li>
@@ -71,12 +80,26 @@ const Sidebar = () => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <div className="relative bg-gradient-to-br from-gray-900 via-indigo-900 to-purple-900 
-                    text-white w-64 min-h-screen backdrop-blur-lg shadow-xl 
-                    border-r border-white/10">
-      <div className="px-4 py-6 space-y-4">
+    // <div className="relative bg-gradient-to-br from-gray-900 via-indigo-900 to-purple-900 
+    //                 text-white w-64 min-h-screen backdrop-blur-lg shadow-xl 
+    //                 border-r border-white/10">
+    <div className="
+    text-white w-3/12 sm:w-2/12    shadow-xl 
+     border-white/45 border-[1px]  overflow-y-auto sticky top-0 custom-scrollbar m-4 mr-2 sm:m-4 rounded-lg bg-[#2C2F48] bg-opacity-50 flex-shrink-0">
+                      {/* <StudentInfo/> */}
+                      <div className="relative">
+                                    <img
+                                      src={stdpic}
+                                      alt="Profile"
+                                      className=" w-12 h-12 md:w-32 md:h-32 rounded-full shadow-xl transform transition duration-300 group-hover:scale-110 mt-2 sm:mt-10 mx-auto"
+                                    />
+                                  </div>
+                                  <div>
+                                    <h1 className="text-center mt-2 text-[2vw] font-thin">John Doe</h1>
+                                  </div>
+      <div className="pt-2 sm:pt-6 space-y-4">
         <nav>
-          <ul className="space-y-1.5">
+          <ul className="space-y-1 sm:space-y-1.5">
             <MenuItem 
               to="/" 
               icon={FaHome} 
@@ -94,8 +117,8 @@ const Sidebar = () => {
               Courses
             </MenuItem>
             {dropdowns.courses && (
-              <ul className="mt-2 ml-4 pl-4 border-l border-purple-500/30 space-y-1
-                           animate-fadeIn">
+              <ul className="mt-2 ml-1 pl-0 sm:ml-4 sm:pl-4 border-l border-purple-500/30 sm:space-y-1
+                           animate-fadeIn ">
                 <SubMenuItem to="/courses/CourseSummary">Summary</SubMenuItem>
                 <SubMenuItem to="/courses/class-proceedings">Class Proceedings</SubMenuItem>
                 <SubMenuItem to="/courses/quiz-marks">Quiz Assignment Marks</SubMenuItem>
@@ -111,7 +134,7 @@ const Sidebar = () => {
               Course Portal
             </MenuItem>
             {dropdowns.coursePortal && (
-              <ul className="mt-2 ml-4 pl-4 border-l border-purple-500/30 space-y-1
+              <ul className="mt-2 ml-1 pl-0 sm:ml-4 sm:pl-4 border-l border-purple-500/30 sm:space-y-1
                            animate-fadeIn">
                 <SubMenuItem to="/course-portal/mcq-test">MCQ Test</SubMenuItem>
                 <SubMenuItem to="/course-portal/subjective-test">Subjective Test</SubMenuItem>
@@ -154,7 +177,7 @@ const Sidebar = () => {
               Sibling Info
             </MenuItem>
             {dropdowns.sibling && (
-              <ul className="mt-2 ml-4 pl-4 border-l border-purple-500/30 space-y-1
+              <ul className="mt-2 ml-1 pl-0 sm:ml-4 sm:pl-4 border-l border-purple-500/30 sm:space-y-1
                            animate-fadeIn">
                 <SubMenuItem to="/sibling-info/add-sibling-info">Add Sibling Info</SubMenuItem>
               </ul>
@@ -193,7 +216,7 @@ const Sidebar = () => {
               Fee
             </MenuItem>
             {dropdowns.fee && (
-              <ul className="mt-2 ml-4 pl-4 border-l border-purple-500/30 space-y-1
+              <ul className="mt-2 ml-1 pl-0 sm:ml-4 sm:pl-4 border-l border-purple-500/30 sm:space-y-1
                            animate-fadeIn">
                 <SubMenuItem to="/fee/challan">Challan</SubMenuItem>
                 <SubMenuItem to="/fee/history">History</SubMenuItem>
@@ -211,7 +234,7 @@ const Sidebar = () => {
               Scholarship
             </MenuItem>
             {dropdowns.scholarship && (
-              <ul className="mt-2 ml-4 pl-4 border-l border-purple-500/30 space-y-1
+              <ul className="mt-2 ml-1 pl-0 sm:ml-4 sm:pl-4 border-l border-purple-500/30 sm:space-y-1
                            animate-fadeIn">
                 <SubMenuItem to="/scholarship-status">View Scholarship Status</SubMenuItem>
               </ul>
@@ -237,7 +260,7 @@ const Sidebar = () => {
       </div>
 
       {/* Settings Section - Move above */}
-      <div className="px-4 py-6 space-y-4">
+      <div className="">
         <nav>
           <ul className="space-y-1.5">
             <MenuItem 
@@ -249,7 +272,8 @@ const Sidebar = () => {
               Settings
             </MenuItem>
             {dropdowns.settings && (
-              <ul className="mt-2 ml-4 pl-4 border-l border-purple-500/30 space-y-1">
+              <ul className="mt-2 ml-1 pl-0 sm:ml-4 sm:pl-4 border-l border-purple-500/30 sm:space-y-1
+                           animate-fadeIn">
                 <SubMenuItem to="/settings/profile">Profile</SubMenuItem>
                 <SubMenuItem to="/settings/change-password">Change Password</SubMenuItem>
                 <SubMenuItem to="/settings/login-history">Login History</SubMenuItem>

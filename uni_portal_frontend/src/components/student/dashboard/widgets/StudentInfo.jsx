@@ -1,96 +1,64 @@
 import React from "react";
-import stdpic from "../../../../assets/Student.png";
-import {
-  FaUser,
-  FaIdCard,
-  FaUserTie,
-  FaBook,
-  FaGraduationCap,
-  FaUsers,
-  FaUserCog,
-  FaBirthdayCake,
-  FaPassport,
-  FaScroll,
-} from "react-icons/fa";
+// import stdpic from "../../../../assets/Student.png";
 
 const StudentInfo = () => {
   return (
-    <div className="p-8 bg-gradient-to-br from-gray-100 to-indigo-50 rounded-2xl shadow-lg max-w-7xl mx-auto">
-      <h1 className="text-2xl font-bold text-gray-800 mb-6">Student Profile</h1>
-
+    <div className="mx-auto bg-green-600/15 rounded-xl shadow-md p-2 sm:p-6 border-[1px] border-[#048C51]">
       <div className="flex flex-col lg:flex-row gap-8">
-        {/* Profile Picture Section */}
-        <div className="lg:w-1/4 flex justify-center">
-          <div className="relative group">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full opacity-0 group-hover:opacity-0 transition duration-300 blur"></div>
-            <div className="relative">
-              <img
-                src={stdpic}
-                alt="Profile"
-                className="w-40 lg:w-48 rounded-full border-4 border-indigo-400 shadow-xl transform transition duration-300 group-hover:scale-110"
-              />
-            </div>
-          </div>
-        </div>
-
         {/* Profile Information Section */}
-        <div className="lg:w-3/4 bg-white rounded-xl shadow-md p-6 border border-gray-200">
-          <h2 className="text-xl font-semibold text-gray-700 mb-4">
-            Personal Information
-          </h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <InfoItem icon={<FaUser />} label="Name" value="Zainab Iqbal" />
-            <InfoItem
-              icon={<FaIdCard />}
-              label="Roll No"
-              value="CIIT/SP22-BCS-044/ATD"
-            />
-            <InfoItem
-              icon={<FaUserTie />}
-              label="Father Name"
-              value="Asif Iqbal"
-            />
-            <InfoItem icon={<FaBook />} label="Registered Courses" value="5" />
-            <InfoItem
-              icon={<FaBook />}
-              label="Total Registered Courses"
-              value="32"
-            />
-            <InfoItem icon={<FaGraduationCap />} label="Program" value="BCS" />
-            <InfoItem icon={<FaUsers />} label="Current Section" value="A" />
-            <InfoItem
-              icon={<FaUserCog />}
-              label="Current Advisor"
-              value="Muhammad Rafay Hannan"
-            />
-            <InfoItem
-              icon={<FaBirthdayCake />}
-              label="Date of Birth"
-              value="Jan 20, 2002"
-            />
-            <InfoItem
-              icon={<FaPassport />}
-              label="CNIC"
-              value="13503-6525555-2"
-            />
-            <InfoItem icon={<FaScroll />} label="Thesis Title" value="NA" />
+        <div className="w-full ">
+          {/* <h2 className="text-xl font-semibold text-white mb-4">Student Details</h2> */}
+          <div className="grid  grid-cols-2 gap-0 place-items-start auto-fit text-white text-base sm:text-sm md:text-xs gap-x-2 sm:gap-x-4 ">
+            <InfoItem label="Name" value="Zainab Iqbal" />
+            <InfoItem label="Roll No" value="CIIT/SP22-BCS-044/ATD" />
+            <InfoItem label="Father Name" value="Asif Iqbal" />
+            <InfoItem label="Registered Courses" value="5" />
+            <InfoItem label="Total Registered Courses" value="32" />
+            <InfoItem label="Program" value="BCS" />
+            <InfoItem label="Current Section" value="A" />
+            <InfoItem label="Current Advisor" value="Muhammad Rafay" />
+            <InfoItem label="Date of Birth" value="Jan 20, 2002" />
+            <InfoItem label="CNIC" value="13503-6525555-2" />
+            <InfoItem label="Thesis Title" value="NA" />
           </div>
         </div>
+      </div>
+      <div>
+        <p className="text-[#1F88D1] mt-4 text-[1vw]">
+          Missing Documents / Disciplinary Case
+        </p>
       </div>
     </div>
   );
 };
 
-const InfoItem = ({ icon, label, value }) => (
-  <div className="p-4 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-    <div className="flex items-start">
-      <div className="text-indigo-600 text-2xl mr-4">{icon}</div>
-      <div className="flex-1">
-        <p className="text-sm font-semibold text-gray-500">{label}</p>
-        <p className="text-lg text-gray-800 font-medium">{value}</p>
-      </div>
-    </div>
-  </div>
+const InfoItem = ({ label, value }) => (
+  // <div className="w-[100%]">
+  //   <div className="flex flex-1 sm:items-center gap-2 sm:gap-3 md:gap-2 ">
+  //     <div className="w-[70%] sm:w-[15vw]">
+
+  //       <p className="text-white font-normal text-[1vw] sm:text-[1vw] md:text-[1vw]">{label} :</p>
+  //     </div>
+  //     <div className="inline-block md:w-[16vw] w-[100%] sm:w-[30vw]">
+  //       <div className="bg-[#048C51]/35 pl-2 sm:pl-5 border-black-2">
+  //         <p className="sm:text-[1.2vw] text-[0.90vw] md:text-[1vw] text-lg text-white font-normal">{value}</p>
+  //       </div>
+  //     </div>
+  //   </div>
+  // </div>
+  <>
+<table className="w-full table-auto border border-white/15 text-sm md:text-base text-[1vw]">
+  <tbody className="w-50">
+    <tr className="border-b border-white/15 ">
+      <td className="pl-1 font-semibold whitespace-nowrap text-[1vw]">{label} :</td>
+      <td className="pl-1 bg-[#048C51]/35 w-[50%]  min-w-0 text-[1vw]">{value}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+  </>
 );
 
 export default StudentInfo;
