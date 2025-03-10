@@ -93,8 +93,8 @@ const ManageExams = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto p-8  bg-gray-300 rounded-lg">
-      <h2 className="text-2xl font-bold mb-6">Manage Exams</h2>
+    <div className="max-w-7xl mx-auto p-8  bg-[#1d2241] rounded-lg">
+      <h2 className="text-2xl font-bold mb-6 text-white">Manage Exams</h2>
 
       {/* Search Bar */}
       <div className="mb-4 flex items-center space-x-4">
@@ -102,7 +102,7 @@ const ManageExams = () => {
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-1/3 px-4 py-2 border rounded-lg focus:ring focus:ring-blue-200"
+          className="w-1/3 px-4 py-2 text-white rounded-lg focus:ring bg-[#193344] border-2 border-[#06814f] focus:ring-blue-200"
           placeholder="Search by Exam Name"
         />
       </div>
@@ -110,16 +110,16 @@ const ManageExams = () => {
       {/* Add New Exam Button */}
       <button
         onClick={openModal}
-        className="mb-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+        className="mb-4 px-4 py-2 bg-[#193344] border-2 border-[#06814f] rounded-lg text-white"
       >
         Add New Exam
       </button>
 
       {/* Exams Table */}
       <div className="overflow-x-auto">
-        <table className="w-full border-collapse border border-gray-300">
+        <table className="w-full border-collapse bg-[#193344] border-2 border-[#06814f]">
           <thead>
-            <tr className="bg-gray-100">
+            <tr className="bg-[#193344] text-white">
               <th className="border border-gray-300 p-2">Name</th>
               <th className="border border-gray-300 p-2">Date</th>
               <th className="border border-gray-300 p-2">Duration</th>
@@ -130,7 +130,7 @@ const ManageExams = () => {
           <tbody>
             {filteredExams.length > 0 ? (
               filteredExams.map((exam) => (
-                <tr key={exam.id} className="odd:bg-white even:bg-gray-50">
+                <tr key={exam.id} className="odd:bg-[#193344] even:bg-[#144c49]">
                   <td className="border border-gray-300 p-2">{exam.name}</td>
                   <td className="border border-gray-300 p-2">{exam.date}</td>
                   <td className="border border-gray-300 p-2">{exam.duration}</td>
@@ -153,7 +153,7 @@ const ManageExams = () => {
               ))
             ) : (
               <tr>
-                <td colSpan="5" className="text-center p-4 text-gray-500">
+                <td colSpan="5" className="text-center p-4 text-white">
                   No exams available
                 </td>
               </tr>
@@ -165,7 +165,7 @@ const ManageExams = () => {
       {/* Modal for Adding or Editing Exam */}
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white rounded-lg shadow-lg p-6 w-1/3">
+          <div className="bg-[#1d2241] text-white rounded-lg shadow-lg p-6 w-1/3">
             <h3 className="text-lg font-semibold mb-4">
               {isEditing ? 'Edit Exam' : 'Add Exam'}
             </h3>
@@ -177,7 +177,7 @@ const ManageExams = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-blue-200"
+                  className="w-full px-4 py-2 bg-[#193344] border-2 border-[#06814f]  rounded-lg focus:outline-none"
                   placeholder="Enter exam name"
                   required
                 />
@@ -189,7 +189,7 @@ const ManageExams = () => {
                   name="date"
                   value={formData.date}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-blue-200"
+                  className="w-full px-4 py-2 bg-[#193344] border-2 border-[#06814f]  rounded-lg focus:outline-none"
                   required
                 />
               </div>
@@ -200,7 +200,7 @@ const ManageExams = () => {
                   name="duration"
                   value={formData.duration}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-blue-200"
+                  className="w-full px-4 py-2 bg-[#193344] border-2 border-[#06814f]  rounded-lg focus:outline-none"
                   placeholder="e.g., 2 hours"
                   required
                 />
@@ -212,7 +212,7 @@ const ManageExams = () => {
                   name="subject"
                   value={formData.subject}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-blue-200"
+                  className="w-full px-4 py-2 bg-[#193344] border-2 border-[#06814f]  rounded-lg focus:outline-none"
                   placeholder="Enter subject"
                   required
                 />
@@ -221,13 +221,13 @@ const ManageExams = () => {
             <div className="flex justify-end space-x-4">
               <button
                 onClick={closeModal}
-                className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
+                className="px-4 py-2 bg-[#193344] border-2 border-[#06814f] text-white rounded hover:bg-[#1d2241]"
               >
                 Cancel
               </button>
               <button
                 onClick={handleAddOrEdit}
-                className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                className="px-4 py-2 bg-[#193344] border-2 border-[#06814f] text-white rounded hover:bg-[#1d2241]"
               >
                 {isEditing ? 'Update Exam' : 'Add Exam'}
               </button>

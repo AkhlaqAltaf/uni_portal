@@ -29,44 +29,45 @@ const UniversityOverview = () => {
         backgroundColor: ['#36A2EB', '#FF5733'],
         borderColor: ['#36A2EB', '#FF5733'],
         borderWidth: 1,
+        
       },
     ],
   };
 
   return (
-    <div className="p-6 space-y-6 rounded-lg  bg-gray-300   ">
-      <h1 className="text-3xl font-bold text-center text-gray-800">University Overview</h1>
+    <div className="p-6 space-y-6 rounded-lg  bg-[#1d2241]   ">
+      <h1 className="text-3xl font-bold text-center text-white">University Overview</h1>
 
       {/* Overview Cards */}
       <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div className="bg-white shadow-md rounded-lg p-6 text-center ">
+        <div className="bg-[#193344] border-2 border-[#06814f] shadow-md rounded-lg p-6 text-center ">
           <FaUsers className="text-4xl text-blue-600 mb-4" />
-          <h3 className="text-lg font-semibold text-gray-700">Total Students</h3>
-          <p className="text-2xl font-bold text-gray-900">{metrics.totalStudents}</p>
+          <h3 className="text-lg font-semibold text-white">Total Students</h3>
+          <p className="text-2xl font-bold text-white">{metrics.totalStudents}</p>
         </div>
         
-        <div className="bg-white shadow-md rounded-lg p-6 text-center">
+        <div className="bg-[#193344] border-2 border-[#06814f] shadow-md rounded-lg p-6 text-center">
           <FaChalkboardTeacher className="text-4xl text-green-600 mb-4" />
-          <h3 className="text-lg font-semibold text-gray-700">Total Faculty</h3>
-          <p className="text-2xl font-bold text-gray-900">{metrics.totalFaculty}</p>
+          <h3 className="text-lg font-semibold text-white">Total Faculty</h3>
+          <p className="text-2xl font-bold text-white">{metrics.totalFaculty}</p>
         </div>
         
-        <div className="bg-white shadow-md rounded-lg p-6 text-center">
+        <div className="bg-[#193344] border-2 border-[#06814f] shadow-md rounded-lg p-6 text-center">
           <FaDollarSign className="text-4xl text-yellow-600 mb-4" />
-          <h3 className="text-lg font-semibold text-gray-700">Net Income</h3>
-          <p className="text-2xl font-bold text-gray-900">${netIncome.toLocaleString()}</p>
+          <h3 className="text-lg font-semibold text-white">Net Income</h3>
+          <p className="text-2xl font-bold text-white">${netIncome.toLocaleString()}</p>
         </div>
         
-        <div className="bg-white shadow-md rounded-lg p-6 text-center">
+        <div className="bg-[#193344] border-2 border-[#06814f] shadow-md rounded-lg p-6 text-center">
           <FaUniversity className="text-4xl text-purple-600 mb-4" />
-          <h3 className="text-lg font-semibold text-gray-700">University Rating</h3>
-          <p className="text-2xl font-bold text-gray-900">{metrics.overallRating} / 5</p>
+          <h3 className="text-lg font-semibold text-white">University Rating</h3>
+          <p className="text-2xl font-bold text-white">{metrics.overallRating} / 5</p>
         </div>
       </div>
 
       {/* Financial Health Bar Chart */}
-      <div className="bg-white shadow-md rounded-lg p-6 mt-6">
-        <h3 className="text-lg font-medium text-gray-600">Financial Health Overview</h3>
+      <div className="bg-[#193344] border-2 border-[#06814f] shadow-md rounded-lg p-6 mt-6">
+        <h3 className="text-lg font-medium text-white">Financial Health Overview</h3>
         <Bar data={financialData} options={{ responsive: true }} />
       </div>
     </div>

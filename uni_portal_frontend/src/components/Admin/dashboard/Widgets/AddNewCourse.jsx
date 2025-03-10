@@ -46,22 +46,22 @@ const AddNewCourse = () => {
 
   return (
     
-    <div className="max-w-3xl mx-auto p-6  bg-gray-300  rounded-lg shadow-2xl">
-      <h2 className="text-2xl font-semibold mb-6">Add New Course</h2>
+    <div className="max-w-3xl mx-auto p-6  bg-[#1d2241] rounded-lg shadow-2xl">
+      <h2 className="text-2xl text-white font-semibold mb-6">Add New Course</h2>
 
       {/* Progress Bar */}
       <div className="w-full bg-gray-200 rounded-full h-2.5 mb-4">
         <div
-          className="bg-blue-500 h-2.5 rounded-full"
+          className="bg-[#1d2241] h-2.5 rounded-full"
           style={{ width: `${progress}%` }}
         ></div>
       </div>
-      <p className="text-sm text-gray-500 mb-6">{Math.round(progress)}% Completed</p>
+      <p className="text-sm text-white mb-6">{Math.round(progress)}% Completed</p>
 
       <form onSubmit={handleSubmit}>
         {/* Course Title */}
         <div className="mb-4">
-          <label htmlFor="title" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="title" className="block text-sm font-medium text-white">
             Course Title
           </label>
           <input
@@ -70,7 +70,7 @@ const AddNewCourse = () => {
             name="title"
             value={courseDetails.title}
             onChange={handleChange}
-            className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+            className="w-full px-4 py-2 mt-1 bg-[#193344] border-2 border-[#06814f] rounded-md text-white"
             placeholder="Enter course title"
             required
           />
@@ -78,7 +78,7 @@ const AddNewCourse = () => {
 
         {/* Course Description */}
         <div className="mb-4">
-          <label htmlFor="description" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="description" className="block text-sm font-medium text-white">
             Course Description
           </label>
           <textarea
@@ -86,7 +86,7 @@ const AddNewCourse = () => {
             name="description"
             value={courseDetails.description}
             onChange={handleChange}
-            className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+            className="w-full px-4 py-2 mt-1 bg-[#193344] border-2 border-[#06814f] rounded-md text-white"
             placeholder="Enter course description"
             required
           />
@@ -94,7 +94,7 @@ const AddNewCourse = () => {
 
         {/* Instructor Name */}
         <div className="mb-4">
-          <label htmlFor="instructor" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="instructor" className="block text-sm font-medium text-white">
             Instructor Name
           </label>
           <input
@@ -103,7 +103,7 @@ const AddNewCourse = () => {
             name="instructor"
             value={courseDetails.instructor}
             onChange={handleChange}
-            className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+            className="w-full px-4 py-2 mt-1 bg-[#193344] border-2 border-[#06814f] rounded-md text-white"
             placeholder="Enter instructor's name"
             required
           />
@@ -111,7 +111,7 @@ const AddNewCourse = () => {
 
         {/* Duration */}
         <div className="mb-6">
-          <label htmlFor="duration" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="duration" className="block text-sm font-medium text-white">
             Course Duration (in weeks)
           </label>
           <input
@@ -120,7 +120,7 @@ const AddNewCourse = () => {
             name="duration"
             value={courseDetails.duration}
             onChange={handleChange}
-            className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+            className="w-full px-4 py-2 mt-1 bg-[#193344] border-2 border-[#06814f] rounded-md text-white"
             placeholder="Enter course duration"
             required
           />
@@ -129,8 +129,8 @@ const AddNewCourse = () => {
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        >
+          className="w-full px-4 py-2 mt-1 bg-[#193344] border-2 border-[#06814f] rounded-md text-white"
+          >
           Add Course
         </button>
       </form>

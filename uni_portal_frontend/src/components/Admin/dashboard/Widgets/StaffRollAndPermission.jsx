@@ -62,13 +62,13 @@ const StaffRolePermission = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-300 rounded-lg p-6">
-      <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
+    <div className="min-h-screen bg-[#1d2241] rounded-lg p-6">
+      <div className="max-w-4xl mx-auto bg-[#23294b] p-6 rounded-lg shadow-md">
         {/* Search Input */}
         <input
           type="text"
           placeholder="Search by name"
-          className="w-full p-3 mb-6 border border-gray-300 rounded-lg"
+          className="w-full p-3 mb-6 bg-[#193344] border-2 border-[#06814f] text-white rounded-lg"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
@@ -78,14 +78,14 @@ const StaffRolePermission = () => {
           filteredStaffData.map((staff) => (
             <div
               key={staff.id}
-              className="mt-6 bg-white p-6 rounded-lg shadow-lg border border-gray-200"
+              className="mt-6  p-6 rounded-lg shadow-lg bg-[#193344] border-2 border-[#06814f] text-white"
             >
               <div className="flex justify-between items-center">
-                <h3 className="text-xl font-semibold text-gray-800">{staff.name}</h3>
+                <h3 className="text-xl font-semibold text-white ">{staff.name}</h3>
                 <select
                   value={staff.role}
                   onChange={(e) => handleRoleChange(staff.id, e.target.value)}
-                  className="border p-2 rounded-lg"
+                  className="border p-2 bg-[#193344] border-2 border-[#06814f]  rounded-lg"
                 >
                   {roles.map((role) => (
                     <option key={role} value={role}>
@@ -96,17 +96,17 @@ const StaffRolePermission = () => {
               </div>
 
               <div className="mt-6">
-                <h4 className="text-lg font-semibold text-gray-800">Permissions</h4>
-                <div className="space-y-2 mt-4">
+                <h4 className="text-lg font-semibold text-white">Permissions</h4>
+                <div className="space-y-2 text-white mt-4">
                   {allPermissions.map((permission) => (
                     <div key={permission} className="flex items-center space-x-4">
                       <input
                         type="checkbox"
                         checked={staff.permissions.includes(permission)}
                         onChange={() => handlePermissionChange(staff.id, permission)}
-                        className="h-4 w-4 border-gray-300"
+                        className="h-4 w-4 bg-[#193344] border-2 border-[#06814f] "
                       />
-                      <label className="text-sm text-gray-600">{permission}</label>
+                      <label className="text-sm text-white">{permission}</label>
                     </div>
                   ))}
                 </div>
