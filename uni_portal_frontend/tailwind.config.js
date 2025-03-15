@@ -7,7 +7,11 @@ export default {
     "node_modules/flowbite-react/lib/esm/**/*.js",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        darkBlue: "#0E153B",
+      },
+    },
   },
   plugins: [],
 };
