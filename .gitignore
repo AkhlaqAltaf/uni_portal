@@ -50,3 +50,4 @@ dist-ssr
 # Environment variables
 
 config.bat
+.vscode/*
